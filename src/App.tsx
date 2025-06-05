@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import ParticlesBackground from './components/ParticlesBackground';
 
 const App = () => {
