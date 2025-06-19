@@ -1,42 +1,84 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Apply a global box-sizing rule to all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding from all elements */
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero  section */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  /* this should be centered */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center vertically */
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.heading-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.angle-bracket {
+  font-size: 5em;
+  font-weight: 700;
+  color: #fff;
+  font-family:  sans-serif;
+  line-height: 1;
+  text-shadow: 0 0 16px #fff, 0 0 32px #00cfff;
+  padding-bottom: -0.1em;
 }
 
-.card {
-  padding: 2em;
+.slash-ecl {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  letter-spacing: 0.3em;
 }
 
-.read-the-docs {
-  color: #888;
+
+.slash {
+  font-size: 3.2em;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  color: #2fffd6;
+  line-height: 1;
+  margin-right: 0.05em;
+  text-shadow: 0 0 16px #2fffd6, 0 0 32px #00cfff;
+}
+
+.ecl {
+  font-size: 3.2em;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 16px #fff, 0 0 32px #00cfff;
 }
