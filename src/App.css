@@ -52,7 +52,7 @@ body, html, #root {
   color: #fff;
   font-family:  sans-serif;
   line-height: 1;
-  text-shadow: 0 0 16px #fff, 0 0 32px #00cfff;
+  text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
   padding-bottom: -0.1em;
 }
 
@@ -71,7 +71,7 @@ body, html, #root {
   color: #2fffd6;
   line-height: 1;
   margin-right: 0.05em;
-  text-shadow: 0 0 16px #2fffd6, 0 0 32px #00cfff;
+  text-shadow: 0 0 12px #2fffd6, 0 0 24px #00cfff;
 }
 
 .ecl {
@@ -80,5 +80,5 @@ body, html, #root {
   font-weight: 700;
   color: #fff;
   line-height: 1;
-  text-shadow: 0 0 16px #fff, 0 0 32px #00cfff;
+  text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
 }
