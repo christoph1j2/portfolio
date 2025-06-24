@@ -82,3 +82,15 @@ body, html, #root {
   line-height: 1;
   text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
 }
+
+.description {
+  font-size: 1.66em;
+  /*! Změnit font, nehodí se */
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0em;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 0;
+  max-width: 650px; /* Limit the width of the description */
+  text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
+}
