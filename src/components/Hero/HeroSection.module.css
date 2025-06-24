@@ -1,0 +1,100 @@
+/* Hero section styles */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center vertically */
+  text-align: center;
+}
+
+.headingFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
+}
+
+.angleBracket {
+  font-size: 5em;
+  font-weight: 700;
+  color: #fff;
+  font-family: sans-serif;
+  line-height: 1;
+  text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
+  padding-bottom: -0.1em;
+}
+
+.slashEcl {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  letter-spacing: 0.3em;
+}
+
+.slash {
+  font-size: 3.2em;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  color: #2fffd6;
+  line-height: 1;
+  margin-right: 0.05em;
+  text-shadow: 0 0 12px #2fffd6, 0 0 24px #00cfff;
+}
+
+.ecl {
+  font-size: 3.2em;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
+}
+
+.description {
+  font-size: 1.66em;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0em;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 0;
+  max-width: 650px; /* Limit the width of the description */
+  text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
+}
+
+.arrowContainer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.arrowLink {
+  text-decoration: none;
+}
+
+.arrow {
+  font-size: 48px;
+  color: #fff;
+  transition: filter 0.4s, color 0.4s;
+}
+
+.arrowLink:hover .arrow {
+  color: #00e6d8; /* highlight on hover */
+  filter: drop-shadow(0 0 12px #00e6d8) drop-shadow(0 0 24px #00e6d8);
+}

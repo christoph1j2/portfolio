@@ -1,29 +1,29 @@
 import React from "react";
-import ParticlesBackground from "./ParticlesBackground";
-import '../App.css'; // Assuming you have a CSS file for styles
+import ParticlesBackground from "../ParticlesBackground";
+import styles from './HeroSection.module.css';
 import { ReactTyped } from "react-typed";
 import { IoIosArrowDown } from "react-icons/io";
 
 const HeroSection: React.FC = () => { 
   return (
-    <div className="hero">
+    <div className={styles.hero}>
       <ParticlesBackground />
-      <div className="content">
+      <div className={styles.content}>
               <div className="text-center text-white">
-        <h1 className="heading-flex mb-4">
-          <span className="angle-bracket">&lt;</span>
-          <span className="slash-ecl">
-            <span className="slash">/</span><span className="ecl">ECL</span>
+        <h1 className={`${styles.headingFlex} mb-4`}>
+          <span className={styles.angleBracket}>&lt;</span>
+          <span className={styles.slashEcl}>
+            <span className={styles.slash}>/</span><span className={styles.ecl}>ECL</span>
           </span>
-          <span className="angle-bracket">&gt;</span>
+          <span className={styles.angleBracket}>&gt;</span>
         </h1>
       </div>
       <div className="text-center text-white">
-        <p className='m-auto description text-2xl md:text-3xl lg:text-4xl'>
+        <p className={`m-auto ${styles.description} text-2xl md:text-3xl lg:text-4xl`}>
           <ReactTyped
             strings={[
               'Vítejte na mém <span style="color: #2fffd6; font-weight: bold;">portfoliu.</span>',
-              'Tvořím weby, které prodávají.',
+              'Tvorba webů, které prodávají.',
               'Spolehlivý servis pro vaše PC.',
               'Profesionální online prezentace pro váš podnik.',
               'Montáž a údržba počítačů.',
@@ -37,9 +37,9 @@ const HeroSection: React.FC = () => {
         </p>
       </div>
       </div>
-      <div className="arrow-container">
-          <a href="#next-section" className="arrow-link">
-            <IoIosArrowDown className="arrow" />
+      <div className={styles.arrowContainer}>
+          <a href="#next-section" className={styles.arrowLink}>
+            <IoIosArrowDown className={styles.arrow} />
           </a>
       </div>
     </div>
