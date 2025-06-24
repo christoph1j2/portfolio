@@ -13,7 +13,11 @@ const App = () => {
           </span>
           <span className="angle-bracket">&gt;</span>
         </h1>
-        
+      </div>
+      <div className="text-center text-white">
+        <p className='m-auto'>
+          
+        </p>
       </div>
     </HeroSection>
   );
