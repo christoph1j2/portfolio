@@ -2,6 +2,7 @@ import React from "react";
 import ParticlesBackground from "./ParticlesBackground";
 import '../App.css'; // Assuming you have a CSS file for styles
 import { ReactTyped } from "react-typed";
+import { IoIosArrowDown } from "react-icons/io";
 
 const HeroSection: React.FC = () => { 
   return (
@@ -35,6 +36,11 @@ const HeroSection: React.FC = () => {
           />
         </p>
       </div>
+      </div>
+      <div className="arrow-container">
+          <a href="#next-section" className="arrow-link">
+            <IoIosArrowDown className="arrow" />
+          </a>
       </div>
     </div>
   );

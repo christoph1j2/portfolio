@@ -94,3 +94,29 @@ body, html, #root {
   max-width: 650px; /* Limit the width of the description */
   text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
 }
+
+.arrow-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.arrow-link {
+  text-decoration: none;
+}
+
+.arrow {
+  font-size: 48px;
+  color: #fff;
+  transition: filter 0.4s, color 0.4s;
+}
+
+.arrow-link:hover .arrow {
+  color: #00e6d8; /* highlight on hover */
+  filter: drop-shadow(0 0 12px #00e6d8) drop-shadow(0 0 24px #00e6d8);
+  /* Optional for smoother effect: */
+}
