@@ -1,15 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --primary-color: #0d47a1;
+  --secondary-color: #2fffd6;
+  --text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
