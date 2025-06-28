@@ -44,12 +44,13 @@ const HeroSection: React.FC = () => {
               backSpeed={50}
               loop
               backDelay={1000}
+              startWhenVisible
             />
           </p>
         </motion.div>
         <motion.div 
           className="flex flex-col md:flex-row mt-10 gap-4 z-10"
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
