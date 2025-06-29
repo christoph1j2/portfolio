@@ -5,6 +5,7 @@
   height: 100vh;
   height: 100svh; /* Use 100svh for better mobile support */
   height: -webkit-fill-available; /* Fallback for older browsers */
+  height: calc(var(--vh, 1vh) * 100); /* Fallback for browsers that support CSS variables */
   overflow: hidden;
 }
 @supports (-webkit-touch-callout: none) {

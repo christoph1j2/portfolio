@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ParticlesBackground from "../ParticlesBackground";
 import styles from './HeroSection.module.css';
 import { ReactTyped } from "react-typed";
 import { motion } from "motion/react";
 import { IoIosArrowDown } from "react-icons/io";
 
-const HeroSection: React.FC = () => { 
+const HeroSection: React.FC = () => {
+  useEffect(() => {
+    const setViewportHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    setViewportHeight();
+
+    window.addEventListener('resize', setViewportHeight);
+    return () => { window.removeEventListener('resize', setViewportHeight); };
+  }, []);
+
   return (
     <div className={styles.hero}>
       <ParticlesBackground />
