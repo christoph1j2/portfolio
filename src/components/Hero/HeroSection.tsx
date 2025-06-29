@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
             <ReactTyped
               strings={[
                 'Vítejte na mém <span style="color: #2fffd6; font-weight: bold;">portfoliu.</span>',
-                'Tvořím weby, které <span style="color:#2fffd6; font-weight: bold;">prodávají</span>.',
+                'Tvorba webů, které <span style="color:#2fffd6; font-weight: bold;">prodávají</span>.',
                 'Profesionální <span style="color:#2fffd6; font-weight: bold;">PC servis</span> bez zbytečných keců.',
                 'Moderní prezentace, co <span style="color:#2fffd6; font-weight: bold;">zvednou váš byznys</span>.',
                 'Spolehlivý <span style="color:#2fffd6; font-weight: bold;">IT specialista</span> pro weby i hardware.',
