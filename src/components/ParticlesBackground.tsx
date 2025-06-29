@@ -376,6 +376,7 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
           #tsparticles {
             width: 100% !important;       /* Force full width */
             height: 100vh !important;     /* Force full viewport height */
+            height: 100svh !important; /* Use 100svh for better mobile support */
             position: absolute;           /* Position absolutely in container */
             top: 0;
             left: 0;

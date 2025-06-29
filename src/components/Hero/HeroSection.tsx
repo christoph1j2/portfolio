@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
               backSpeed={50}
               loop
               backDelay={1000}
-              startWhenVisible
+              /* startWhenVisible */ // Broke on mobile, so removed
             />
           </p>
         </motion.div>

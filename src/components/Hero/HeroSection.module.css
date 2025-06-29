@@ -3,9 +3,15 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  height: 100svh; /* Use 100svh for better mobile support */
+  height: -webkit-fill-available; /* Fallback for older browsers */
   overflow: hidden;
 }
-
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    height: -webkit-fill-available; /* Ensure full height on iOS */
+  }
+}
 
 
 .hero::after {
