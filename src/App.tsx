@@ -1,9 +1,12 @@
-//import React from 'react';
 import HeroSection from './components/Hero/HeroSection';
+import './App.css';
 
 const App = () => {
   return (
-    <HeroSection/> // This will render the HeroSection component which includes the particles background and the typed text
+    <div className="app-container">
+      <HeroSection/>
+      {/* Future sections will go here */}
+    </div>
   );
 };
 

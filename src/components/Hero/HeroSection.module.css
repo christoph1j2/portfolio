@@ -1,13 +1,18 @@
 /* Hero section styles */
 .hero {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  height: 100svh; /* Use 100svh for better mobile support */
-  height: -webkit-fill-available; /* Fallback for older browsers */
-  height: calc(var(--vh, 1vh) * 100); /* Fallback for browsers that support CSS variables */
+  width: 100%;
+  height: 100vh; /* Standard viewport height */
+  height: 100dvh; /* Dynamic viewport height - modern browsers */
+  height: calc(var(--vh, 1vh) * 100); /* Fallback using CSS variables */
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+  /* Fix for iOS Safari */
+  padding-top: env(safe-area-inset-top); 
+  padding-bottom: env(safe-area-inset-bottom);
 }
+
 @supports (-webkit-touch-callout: none) {
   .hero {
     height: -webkit-fill-available; /* Ensure full height on iOS */

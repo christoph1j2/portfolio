@@ -1,16 +1,38 @@
-/* Apply a global box-sizing rule to all elements */
-* {
+/* Reset box-sizing */
+*, 
+*::before, 
+*::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin and padding from all elements */
-body, html, #root {
+/* Remove margin and padding */
+body, 
+html {
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  position: fixed; /* This prevents bounce/scroll on single-section sites */
+  overflow-y: auto; /* But allows vertical scrolling */
 }
 
-/* Global font styles */
+/* Root element styles */
+#root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #0d47a1;
+}
+
+/* Container for the app */
+.app-container {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Font styles */
 .antonRegular {
   font-family: "Anton", sans-serif;
   font-weight: 400;
