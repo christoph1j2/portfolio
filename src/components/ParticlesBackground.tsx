@@ -355,7 +355,7 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
        * These apply to the entire app, not just this component
        * The <style> tag adds CSS directly to the document
        */}
-      <style>
+      <style >
         {`
           /* Reset margins and ensure full-page coverage */
           body, html {
@@ -383,6 +383,19 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
             left: 0;
             margin: 0;
             padding: 0;
+          }
+
+            /* Add this */
+          body::before,
+          #tsparticles::before {
+            content: '';
+            position: fixed;
+            top: -100px; /* Extend above viewport */
+            left: 0;
+            right: 0;
+            height: 200px;
+            background-color: #0d47a1;
+            z-index: -1;
           }
 
           /* Target the canvas element created by the particles library */
