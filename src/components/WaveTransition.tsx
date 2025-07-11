@@ -19,7 +19,7 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
       className={`relative w-full ${height} ${className}`}
       style={{ backgroundColor }}
     >
-      <motion.div 
+{/*       <motion.div 
         className="absolute inset-0 w-full h-full pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -27,15 +27,15 @@ const WaveTransition: React.FC<WaveTransitionProps> = ({
         style={{
           //background: `radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0.3) 100%)`
         }}
-      />
+      /> */}
       
       <motion.svg 
         className="absolute bottom-0 w-full h-full" 
         viewBox="0 0 1200 120" 
         preserveAspectRatio="none"
-        initial={{ y: 20, opacity: 0 }}
+/*         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+        transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }} */
       >
         {/* Gradient definice pro silnější přechod */}
         <defs>
