@@ -1,7 +1,8 @@
 import HeroSection from './components/Hero/HeroSection';
-import AboutSection from './components/About/AboutSection';
+//import AboutSection from './components/About/AboutSection';
 import './App.css';
 import WaveTransition from './components/WaveTransition';
+import ProjectsSection from './components/Projects/ProjectsSection';
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
         className="-mt-1" 
       />
 
-      <AboutSection/>
+      {/* <AboutSection/> */}
+      <ProjectsSection/>
     </div>
   );
 };

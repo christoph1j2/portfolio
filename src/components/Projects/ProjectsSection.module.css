@@ -1,0 +1,53 @@
+.projectItem {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.projectItem>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    transition:  0.3s ease-in-out;
+    display: block;
+}
+
+.projectItem:hover>img {
+    transform: scale(1.05);
+    opacity: 0.5
+}
+
+.projectItem:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: rgb(64, 64, 64);
+}
+
+.projectItem>h3, .projectItem>p {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    color: white;
+    text-align: block;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.projectItem>h3 {
+    font-size: 1.5em;
+    transform: translateY(-100%);
+}
+
+.projectItem>p {
+    font-size: 1em;
+    max-height: 200px;
+}
+
+.projectItem:hover>h3, .projectItem:hover>p {
+    opacity: 1;
+}
