@@ -1,53 +1,251 @@
-.projectItem {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    margin: 20px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease-in-out;
+/* Portfolio Section Styles */
+.portfolioSection {
+  padding: 5rem 1.5rem;
+  background-color: #f3f4f6;
 }
 
-.projectItem>img {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    transition:  0.3s ease-in-out;
-    display: block;
+.darkMode {
+  background-color: #111827;
 }
 
-.projectItem:hover>img {
-    transform: scale(1.05);
-    opacity: 0.5
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
 }
 
-.projectItem:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    background-color: rgb(64, 64, 64);
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  
 }
 
-.projectItem>h3, .projectItem>p {
-    position: absolute;
-    top: 25%;
-    left: 10%;
-    color: white;
-    text-align: block;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-.projectItem>h3 {
-    font-size: 1.5em;
-    transform: translateY(-100%);
+/* Portfolio Heading Styles - Similar to ECL */
+.portfolioHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
+  font-family: "Anton", sans-serif;
+  margin-bottom: 2rem;
 }
 
-.projectItem>p {
-    font-size: 1em;
-    max-height: 200px;
+.portfolioBracket {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #374151;
+  font-family: sans-serif;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(55, 65, 81, 0.3);
 }
 
-.projectItem:hover>h3, .projectItem:hover>p {
-    opacity: 1;
+.portfolioSlash {
+  font-size: 4.5rem;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  color: #2fffd6;
+  line-height: 1;
+  margin-right: 0.05em;
+  text-shadow: 0 0 8px #2fffd6;
+}
+
+.portfolioText {
+  font-size: 4.5rem;
+  font-family: "Anton", sans-serif;
+  font-weight: 700;
+  color: #374151;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(55, 65, 81, 0.3);
+}
+
+/* Dark mode styles */
+.darkMode .portfolioBracket,
+.darkMode .portfolioText {
+  color: #fff;
+  text-shadow: 0 0 12px #fff, 0 0 24px #00cfff;
+}
+
+/* See All Button */
+.seeAllBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #2fffd6, #00cfff);
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(47, 255, 214, 0.3);
+}
+
+.seeAllBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(47, 255, 214, 0.4);
+}
+
+.seeAllBtnIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.seeAllBtn:hover .seeAllBtnIcon {
+  transform: translateX(4px);
+}
+
+/* Carousel Container */
+.carouselContainer {
+  padding: 20px 0;
+  overflow: visible;
+  margin: 0 auto; /* Center the carousel */
+}
+
+@media (min-width: 1000px) {
+  .carouselContainer {
+    margin: 0 -40px; /* Negative margin to allow side items to show on desktop */
+  }
+}
+
+@media (max-width: 999px) {
+  .carouselContainer {
+    margin: -20px; /* Reset margin on smaller screens for proper centering */
+  }
+}
+
+/* Project Card */
+.projectCard {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.projectCard:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Project Image */
+.projectImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.1);
+}
+
+.projectOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.projectCard:hover .projectOverlay {
+  opacity: 1;
+}
+
+/* Project Content */
+.projectContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.projectCard:hover .projectContent {
+  transform: translateY(0);
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #2fffd6;
+  text-shadow: 0 0 8px rgba(47, 255, 214, 0.5);
+}
+
+.projectDescription {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.techTag {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.visitLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #2fffd6, #00cfff);
+  color: #000;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.visitLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(47, 255, 214, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .portfolioBracket,
+  .portfolioSlash,
+  .portfolioText {
+    font-size: 2rem;
+  }
+
+  .projectCard {
+    height: 250px;
+    margin: 0 5px;
+  }
 }
