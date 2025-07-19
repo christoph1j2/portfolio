@@ -1,8 +1,9 @@
 import HeroSection from './components/Hero/HeroSection';
-//import AboutSection from './components/About/AboutSection';
+import AboutSection from './components/About/AboutSection';
 import './App.css';
-import WaveTransition from './components/WaveTransition';
+import WaveTransition from './components/Transitions_AI/WaveTransition';
 import ProjectsSection from './components/Projects/ProjectsSection';
+import ModernTransition from './components/Transitions_AI/ModernTransition';
 
 const App = () => {
   return (
@@ -16,8 +17,14 @@ const App = () => {
         className="-mt-1" 
       />
 
-      {/* <AboutSection/> */}
       <ProjectsSection/>
+      <ModernTransition 
+        fromColor="#f3f4f6"
+        toColor="#ffde59"
+        height="h-32 md:h-40"
+        className="transition-section"
+      />
+      <AboutSection/>
     </div>
   );
 };

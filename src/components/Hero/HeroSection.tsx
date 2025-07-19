@@ -81,7 +81,7 @@ const HeroSection: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.5 }}
       >
-        <a href="#next-section" className={styles.arrowLink}>
+        <a href="#portfolio" className={styles.arrowLink}>
           <IoIosArrowDown className={styles.arrow} />
         </a>
       </motion.div>

@@ -3,6 +3,7 @@
 *::before, 
 *::after {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* Remove margin and padding */
@@ -37,4 +38,39 @@ html {
   font-family: "Anton", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.transition {
+  background-image: linear-gradient(to bottom, #f3f4f6, #ffde59);
+  position: relative;
+  overflow: hidden;
+}
+
+.transition::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(243, 244, 246, 0.1), rgba(255, 222, 89, 0.05));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+              0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+/* Modern transition section styles */
+.transition-section {
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure smooth transitions between sections */
+.app-container > section,
+.app-container > div {
+  position: relative;
+  z-index: 1;
 }

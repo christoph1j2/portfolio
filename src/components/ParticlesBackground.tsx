@@ -394,7 +394,7 @@ const ParticlesBackground: React.FC<ParticlesBackgroundProps> = ({
             left: 0;
             right: 0;
             height: 200px;
-            background-color: #0d47a1;
+            /* background-color: #0d47a1; */
             z-index: -1;
           }
 

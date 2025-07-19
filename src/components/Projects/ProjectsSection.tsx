@@ -87,7 +87,7 @@ const ProjectsSection: React.FC = () => {
   const isMobile = windowWidth < 1000;
 
   return (
-    <section className={`${styles.portfolioSection} dark:${styles.darkMode}`}>
+    <section id="portfolio" className={` ${styles.portfolioSection} dark:${styles.darkMode}`}>
       <div className={styles.container}>
         {/* Header */}
         <motion.div
