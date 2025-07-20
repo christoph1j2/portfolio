@@ -4,6 +4,7 @@ import styles from './HeroSection.module.css';
 import { ReactTyped } from "react-typed";
 import { motion } from "motion/react";
 import { IoIosArrowDown } from "react-icons/io";
+import { Cpu, Globe } from "lucide-react";
 
 const HeroSection: React.FC = () => {
   useEffect(() => {
@@ -67,10 +68,16 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <a href="#kontakt">
-            <button className={styles.btnPrimary}>Chci web na míru</button>
+            <button className={styles.btnPrimary}>
+              <Globe size={24} className="mr-2" />
+              <span>Chci web na míru</span>
+            </button>
           </a>
           <a href="#sluzby">
-            <button className={styles.btnSecondary}>Potřebuju PC servis</button>
+            <button className={styles.btnSecondary}>
+              <Cpu size={24} className="mr-2" />
+              <span>Potřebuju PC servis</span>
+            </button>
           </a>
         </motion.div>
       </div>

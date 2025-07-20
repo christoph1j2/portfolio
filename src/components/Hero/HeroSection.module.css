@@ -169,13 +169,16 @@
 .btnPrimary {
   /* Your primary button styles */
   padding: 10px 20px;
-  background-color: #2fffd6;
+  background: linear-gradient(135deg, #2fffd6, #00cfff);
+  font-weight: 600;
   color: #1a1a1a;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: .5px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btnPrimary:hover {
@@ -187,12 +190,16 @@
   /* Your secondary button styles */
   padding: 10px 20px;
   background-color: transparent;
+  font-weight: 600;
   color: #fff;
   border: 2px solid #2fffd6;
+  border-image: linear-gradient(135deg, #2fffd6, #00cfff) 1;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: .5px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btnSecondary:hover {

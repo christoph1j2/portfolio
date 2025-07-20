@@ -95,7 +95,7 @@ const ProjectsSection: React.FC = () => {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 1, delay: 0.2 }}
         >
           {/* Portfolio Heading - styled like ECL */}
           <div className={styles.portfolioHeading}>
@@ -113,7 +113,7 @@ const ProjectsSection: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className={styles.carouselContainer}
         >
           <Carousel
@@ -179,7 +179,7 @@ const ProjectsSection: React.FC = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
             className="m-auto mt-8 flex justify-center"
           >
             <button className={styles.seeAllBtn}>
