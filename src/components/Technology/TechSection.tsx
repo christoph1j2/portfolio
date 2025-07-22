@@ -22,6 +22,7 @@ import {
   SiTailwindcss,
   SiLinux
 } from 'react-icons/si'
+import { motion } from "motion/react";
 
 const TechSection = () => {
   const [sliderRef] = useKeenSlider({
@@ -71,60 +72,132 @@ const TechSection = () => {
   return (
     <>
       <div ref={sliderRef} className="keen-slider tech-section">
-          <div className="keen-slider__slide slide-html">
+          <motion.div className="keen-slider__slide slide-html"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
             <FaHtml5 className="tech-icon" style={{ color: '#e34c26' }} />
-          </div>
-          <div className="keen-slider__slide slide-css">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-css"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.7 }}
+          >
             <FaCss3Alt className="tech-icon" style={{ color: '#1572b6' }} />
-          </div>
-          <div className="keen-slider__slide slide-js">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-js"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
             <FaJs className="tech-icon" style={{ color: '#f7df1e' }} />
-          </div>
-          <div className="keen-slider__slide slide-react">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-react"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.9 }}
+          >
             <FaReact className="tech-icon" style={{ color: '#61dafb' }} />
-          </div>
-          <div className="keen-slider__slide slide-typescript">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-typescript"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.0 }}
+          >
             <SiTypescript className="tech-icon" style={{ color: '#007acc' }} />
-          </div>
-          <div className="keen-slider__slide slide-node">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-node"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.1 }}
+          >
             <FaNode className="tech-icon" style={{ color: '#68a063' }} />
-          </div>
-          <div className="keen-slider__slide slide-nestjs">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-nestjs"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
             <SiNestjs className="tech-icon" style={{ color: '#e0234e' }} />
-          </div>
-          <div className="keen-slider__slide slide-java">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-java"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.3 }}
+          >
             <FaJava className="tech-icon" style={{ color: '#f89820' }} />
-          </div>
-          <div className="keen-slider__slide slide-spring">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-spring"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.4 }}
+          >
             <SiSpring className="tech-icon" style={{ color: '#6db33f' }} />
-          </div>
-          <div className="keen-slider__slide slide-php">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-php"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+          >
             <FaPhp className="tech-icon" style={{ color: '#777bb4' }} />
-          </div>
-          <div className="keen-slider__slide slide-linux">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-linux"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.6 }}
+          >
             <SiLinux className="tech-icon" style={{ color: '#000000' }} />
-          </div>
-          <div className="keen-slider__slide slide-docker">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-docker"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.7 }}
+          >
             <FaDocker className="tech-icon" style={{ color: '#0db7ed' }} />
-          </div>
-          <div className="keen-slider__slide slide-mysql">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-mysql"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.8 }}
+          >
             <SiMysql className="tech-icon" style={{ color: '#00758f' }} />
-          </div>
-          <div className="keen-slider__slide slide-postgresql">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-postgresql"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.9 }}
+          >
             <SiPostgresql className="tech-icon" style={{ color: '#336791' }} />
-          </div>
-          <div className="keen-slider__slide slide-redis">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-redis"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 2.0 }}
+          >
             <SiRedis className="tech-icon" style={{ color: '#dc382d' }} />
-          </div>
-          <div className="keen-slider__slide slide-arduino">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-arduino"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 2.1 }}
+          >
             <SiArduino className="tech-icon" style={{ color: '#00979d' }} />
-          </div>
-          <div className="keen-slider__slide slide-bootstrap">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-bootstrap"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 2.2 }}
+          >
             <SiBootstrap className="tech-icon" style={{ color: '#7952b3' }} />
-          </div>
-          <div className="keen-slider__slide slide-tailwind">
+          </motion.div>
+          <motion.div className="keen-slider__slide slide-tailwind"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 2.3 }}
+          >
             <SiTailwindcss className="tech-icon" style={{ color: '#38bdf8' }} />
-          </div>
+          </motion.div>
       </div>
       <style>
         {`
@@ -153,13 +226,13 @@ const TechSection = () => {
             .keen-slider__slide {
               min-width: 100px;
               height: 100px;
-              padding: 0.5rem;
+              padding: 1rem;
             }
             
             .tech-icon {
               width: 40px !important;
               height: 40px !important;
-              margin: 0.5rem !important;
+              margin: 1rem !important;
             }
             
             .tech-section {
