@@ -4,6 +4,7 @@ import './App.css';
 import WaveTransition from './components/Transitions_AI/WaveTransition';
 import ProjectsSection from './components/Projects/ProjectsSection';
 import ModernTransition from './components/Transitions_AI/ModernTransition';
+import TechSection from './components/Technology/TechSection';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         className="transition-section"
       />
       <AboutSection/>
+      <TechSection/>
     </div>
   );
 };
