@@ -47,11 +47,12 @@ const AboutSection = () => {
                 {/* Left side - About content */}
                 <div className={styles.aboutContent}>
                     <motion.h1 
-                        className={styles.title}
+                        className="m-4"
                         initial={{ opacity: 0, y: -20 }}
                         animate={morphComplete ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 1, delay: 0.2 }}>
-                            O NÁS
+                            <span className={styles.portfolioSlash}>/</span>
+                            <span className={styles.title}>O NÁS</span>
                     </motion.h1>
                     <div className={styles.textContent}>
                         <motion.div 

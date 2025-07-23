@@ -5,6 +5,7 @@ import WaveTransition from './components/Transitions_AI/WaveTransition';
 import ProjectsSection from './components/Projects/ProjectsSection';
 import ModernTransition from './components/Transitions_AI/ModernTransition';
 import TechSection from './components/Technology/TechSection';
+import OfferSection from './components/Offers/OfferSection';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
       />
       <AboutSection/>
       <TechSection/>
+      <OfferSection/>
     </div>
   );
 };

@@ -31,7 +31,7 @@
 }
 
 .portfolioBracket {
-  font-size: 5rem;
+  font-size: 5.5rem;
   font-weight: 700;
   color: #374151;
   font-family: sans-serif;
@@ -40,7 +40,7 @@
 }
 
 .portfolioSlash {
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-family: "Anton", sans-serif;
   font-weight: 700;
   color: #2fffd6;
@@ -50,7 +50,7 @@
 }
 
 .portfolioText {
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-family: "Anton", sans-serif;
   font-weight: 700;
   color: #374151;

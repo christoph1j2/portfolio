@@ -165,10 +165,10 @@ const ProjectsSection: React.FC = () => {
             Each part is separately styled for visual effect
           */}
           <div className={styles.portfolioHeading}>
-            <span className={styles.portfolioBracket}>&lt;</span>    {/* Opening bracket */}
+{/*             <span className={styles.portfolioBracket}>&lt;</span> */}
             <span className={styles.portfolioSlash}>/</span>         {/* Closing tag slash */}
-            <span className={styles.portfolioText}>Portfolio</span>  {/* Main text */}
-            <span className={styles.portfolioBracket}>&gt;</span>    {/* Closing bracket */}
+            <span className={styles.portfolioText}>PROJEKTY</span>  {/* Main text */}
+{/*             <span className={styles.portfolioBracket}>&gt;</span> */}
           </div>
           
 

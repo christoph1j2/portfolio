@@ -231,7 +231,7 @@ const TechSection = () => {
       <style>
         {`
           .tech-section {
-            background: linear-gradient(to bottom, #0d47a1 0%, #4a7bd0 100%);
+            background: linear-gradient(to bottom, #0d47a1 0%, #4a7bd0 50%, #90caf9 75%, #ffffffff 100%);
             padding: 2rem 0;
             position: relative;
           }
