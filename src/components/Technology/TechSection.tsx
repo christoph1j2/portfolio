@@ -25,46 +25,75 @@ import {
 import { motion } from "motion/react";
 
 const TechSection = () => {
+  // Initialize the Keen Slider with configuration options
   const [sliderRef] = useKeenSlider({
+    // Enable infinite loop - when we reach the end, it goes back to the beginning
     loop: true,
+    
+    // Use performance mode for better rendering (GPU acceleration)
     renderMode: "performance",
+    
+    // Default slide configuration
     slides: {
-      perView: 'auto',
-      spacing: 15,
+      perView: 'auto', // Let slides size themselves based on content
+      spacing: 15,     // 15px gap between slides
     },
+    
+    // Responsive breakpoints - different slide counts for different screen sizes
     breakpoints: {
+      // Small phones (400px and up): show 2 slides at once
       '(min-width: 400px)': {
         slides: { perView: 2, spacing: 15 }
       },
+      // Tablets (768px and up): show 4 slides at once
       '(min-width: 768px)': {
         slides: { perView: 4, spacing: 15 }
       },
+      // Small laptops (1024px and up): show 6 slides at once
       '(min-width: 1024px)': {
         slides: { perView: 6, spacing: 15 }
       },
+      // Large screens (1200px and up): show 8 slides at once
       '(min-width: 1200px)': {
         slides: { perView: 8, spacing: 15 }
       },
     },
+    
+    // This runs when the slider is first created/mounted
     created(s) {
+      // Animation settings for the automatic sliding
       const animation = {
-        duration: 90000, // 90 seconds for full cycle
-        easing: (t: number) => t, // Linear easing for constant speed
+        duration: 90000, // Take 90 seconds (1.5 minutes) to complete one full cycle
+        easing: (t: number) => t, // Linear easing = constant speed (no acceleration/deceleration)
       }
+      // Move to the end of all slides with the animation
+      // s.track.details.slides.length = total number of slides
+      // This starts the infinite scrolling animation
       s.moveToIdx(s.track.details.slides.length, true, animation)
     },
+    
+    // This runs whenever the slider is updated (like window resize)
     updated(s) {
+      // Same animation settings as above
       const animation = {
         duration: 90000,
         easing: (t: number) => t,
       }
+      // Continue the animation from current position
+      // s.track.details.abs = current absolute position
+      // Add slides.length to continue the infinite loop
       s.moveToIdx(s.track.details.abs + s.track.details.slides.length, true, animation)
     },
+    
+    // This runs when an animation finishes
     animationEnded(s) {
+      // Same animation settings again
       const animation = {
         duration: 90000,
         easing: (t: number) => t,
       }
+      // Restart the animation to keep it going infinitely
+      // This creates the continuous auto-scroll effect
       s.moveToIdx(s.track.details.abs + s.track.details.slides.length, true, animation)
     },
   })
