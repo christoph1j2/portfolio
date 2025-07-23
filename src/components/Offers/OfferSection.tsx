@@ -116,7 +116,7 @@ const OfferSection = () => {
                             </div>
                             <div className="px-4 sm:px-6 py-4 sm:py-6">
                                 <ul className="space-y-4 sm:space-y-6">
-                                    <li className="text-gray-700 text-sm sm:text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}
