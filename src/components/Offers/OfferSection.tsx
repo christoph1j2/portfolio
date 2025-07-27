@@ -5,7 +5,7 @@ import styles from './OfferSection.module.css';
 const OfferSection = () => {
     return (
         <>
-            <section className={styles.offerSection}>
+            <section className={styles.offerSection} id="offers">
                 {/* Large background decorative elements - responsive */}
                 <div className="absolute top-10 right-20 w-32 h-32 rounded-full opacity-20 animate-pulse md:block hidden" style={{backgroundColor: '#a5ccff', animationDuration: '3s'}}></div>
                 <div className="absolute bottom-32 left-16 w-40 h-24 opacity-15 animate-bounce md:block hidden" style={{backgroundColor: '#a5ccff', borderRadius: '50% 20% 80% 30%', animationDelay: '1s', animationDuration: '4s'}}></div>
@@ -21,10 +21,10 @@ const OfferSection = () => {
                             <span className={styles.portfolioSlash}>/</span>
                             <span className={styles.offerTitle}>NABÍDKA SLUŽEB</span>
                     </motion.h1>
-                    <div className={`cardsContainer flex justify-center mx-4 md:mx-16 gap-4 md:gap-16 flex-wrap ${styles.cardsContainer}`} >
+                    <div className={`cardsContainer flex justify-center mx-4 md:mx-16 gap-4 md:gap-16 ${styles.cardsContainer}`} >
                         {/* Web Development Card - Blue Design #0d47a1 */}
                         <motion.div 
-                            className={`w-full sm:max-w-sm rounded-xl overflow-hidden shadow-2xl border hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 ${styles.card}`}
+                            className={`w-full sm:max-w-lg rounded-xl overflow-hidden shadow-2xl border hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 ${styles.card}`}
                             style={{
                                 background: `linear-gradient(to bottom right, #e3f2fd, #bbdefb)`,
                                 borderColor: '#90caf9'
@@ -44,32 +44,35 @@ const OfferSection = () => {
                                 <div className="flex items-center justify-center gap-2 sm:gap-3">
                                     <MdLanguage className="text-2xl sm:text-3xl" />
                                     <h5 className="text-lg sm:text-2xl font-bold text-center">Webdesign a tvorba webu</h5>
+                                    <div className="text-2xl sm:text-3xl opacity-0">
+                                        <MdLanguage />
+                                    </div>
                                 </div>
                             </div>
                             <div className="px-4 sm:px-6 py-4 sm:py-6">
                                 <ul className="space-y-4 sm:space-y-6">
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#0d47a1' }}
                                         ></span>
                                         Webové prezentace na míru
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#0d47a1' }}
                                         ></span>
                                         Funkční a dynamické webové aplikace
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#0d47a1' }}
                                         ></span>
                                         SEO optimalizace
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#0d47a1' }}
@@ -85,14 +88,14 @@ const OfferSection = () => {
                                         background: `linear-gradient(to right, #0d47a1, #1565c0)`
                                     }}
                                 >
-                                    Zjistit Více
+                                    <a href="#" className="block w-full h-full">Zjistit Více</a>
                                 </button>
                             </div>
                         </motion.div>
 
                         {/* PC Service Card - Cool Cyan Design #dcedf9 */}
                         <motion.div 
-                            className={`w-full sm:max-w-sm rounded-xl overflow-hidden shadow-2xl border hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 ${styles.card}`}
+                            className={`w-full sm:max-w-lg rounded-xl overflow-hidden shadow-2xl border hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 ${styles.card}`}
                             style={{
                                 background: `linear-gradient(to bottom right, #dcedf9, #b3d9f2)`,
                                 borderColor: '#81c7e8'
@@ -112,32 +115,35 @@ const OfferSection = () => {
                                 <div className="flex items-center justify-center gap-2 sm:gap-3">
                                     <MdComputer className="text-2xl sm:text-3xl" />
                                     <h5 className="text-lg sm:text-2xl font-bold text-center">PC Servis</h5>
+                                    <div className="text-2xl sm:text-3xl opacity-0">
+                                        <MdComputer />
+                                    </div>
                                 </div>
                             </div>
                             <div className="px-4 sm:px-6 py-4 sm:py-6">
                                 <ul className="space-y-4 sm:space-y-6">
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}
                                         ></span>
                                         Diagnostika a oprava počítačů
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}
                                         ></span>
                                         Stavba PC na míru
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}
                                         ></span>
                                         Upgrade počítačových komponent
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center">
+                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}
@@ -153,7 +159,7 @@ const OfferSection = () => {
                                         background: `linear-gradient(to right, #1976d2, #42a5f5)`
                                     }}
                                 >
-                                    Zjistit Více
+                                    <a href="#" className="block w-full h-full">Zjistit Více</a>
                                 </button>
                             </div>
                         </motion.div>

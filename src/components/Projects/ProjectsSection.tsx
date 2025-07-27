@@ -266,7 +266,7 @@ const ProjectsSection: React.FC = () => {
                       className={styles.visitLink}
                     >
                       <ExternalLink size={16} />         {/* Icon component */}
-                      Navštívit web                      {/* Czech text: "Visit website" */}
+                      Odkaz                      {/* Czech text: "Visit website" */}
                     </a>
                   </div>
                 </div>
@@ -289,7 +289,7 @@ const ProjectsSection: React.FC = () => {
         >
           {/* Action button styled to match overall design */}
           <button className={styles.seeAllBtn}>
-            <span>Zobrazit všechny projekty</span>     {/* Czech: "Show all projects" */}
+            <a href="#">Zobrazit všechny projekty</a>     {/* Czech: "Show all projects" */}
             <ExternalLink size={16} className={styles.seeAllBtnIcon} />
           </button>
         </motion.div>

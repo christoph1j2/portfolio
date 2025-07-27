@@ -20,7 +20,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <div className={styles.hero}>
+    <div className={styles.hero} id="home">
       <ParticlesBackground />
       <div className={`${styles.content} gap-0.1`}>
         <motion.div 

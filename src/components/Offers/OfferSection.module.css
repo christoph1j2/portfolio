@@ -9,7 +9,17 @@
     position: relative;
     padding: 4rem 0 4rem 0;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #f3f4f6;
+}
+
+button {
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .cardsContainer {
+        flex-wrap: wrap;
+    }
 }
 
 /* Mobile responsive adjustments */

@@ -1,9 +1,11 @@
 import HeroSection from './components/Hero/HeroSection';
 import AboutSection from './components/About/AboutSection';
+import ContactSection from './components/Contact/ContactSection';
+import Footer from './components/Footer/Footer';
 import './App.css';
-import WaveTransition from './components/Transitions_AI/WaveTransition';
+import WaveTransition from './components/Transitions/WaveTransition';
 import ProjectsSection from './components/Projects/ProjectsSection';
-import ModernTransition from './components/Transitions_AI/ModernTransition';
+import ModernTransition from './components/Transitions/ModernTransition';
 import TechSection from './components/Technology/TechSection';
 import OfferSection from './components/Offers/OfferSection';
 
@@ -28,7 +30,15 @@ const App = () => {
       />
       <AboutSection/>
       <TechSection/>
+      <WaveTransition 
+        color="#0d47a1" 
+        backgroundColor="#f3f4f6"
+        height="h-12 md:h-20"
+        className="-mt-1" 
+      />
       <OfferSection/>
+      <ContactSection/>
+      <Footer/>
     </div>
   );
 };

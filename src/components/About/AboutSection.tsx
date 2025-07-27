@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { BsLinkedin } from 'react-icons/bs';
+import { BsInstagram } from 'react-icons/bs';
 import Xarrow from 'react-xarrows';
 import styles from './AboutSection.module.css';
 import { motion, useInView } from 'motion/react';
@@ -11,7 +11,7 @@ const AboutSection = () => {
     const isInView = useInView(ref, { once: true, amount: 0.3 });
 
     return (
-        <section ref={ref} className={styles.aboutSection}>
+        <section ref={ref} className={styles.aboutSection} id="about">
             {/* Animated SVG Background */}
             <div className={styles.svgBackground}>
                 <svg 
@@ -89,7 +89,13 @@ const AboutSection = () => {
                     <div 
                         className={`${styles.photoWrapper} ${isHovered ? styles.hovered : ''}`}
                         onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
+                        onMouseLeave={(e) => {
+                            // Only hide if not moving to an annotation
+                            const relatedTarget = e.relatedTarget as HTMLElement;
+                            if (!relatedTarget?.closest('.annotation')) {
+                                setIsHovered(false);
+                            }
+                        }}
                     >
                         <img 
                             src="/src/assets/placeholder.png" 
@@ -109,33 +115,47 @@ const AboutSection = () => {
                             style={{ bottom: '25%', left: '30%',}}
                         ></div>
                         {/* TODO: add hover on anchor points so that social media badges appear */}
-                        {/* Top-right annotation - DEZO */}
-                        <div 
-                            id="dezo-badge"
+                        {/* Top-right annotation - Chris */}
+                        <a 
+                            href="https://instagram.com/christoph1j2"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            id="chris-badge"
                             className={`${styles.annotation} ${styles.topRightAnnotation} ${isHovered ? styles.visible : ''}`}
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => {
+                                setTimeout(() => setIsHovered(false), 100);
+                            }}
                         >
                             <div className={styles.annotationBadge}>
-                                <span className={styles.annotationText}>DEZO</span>
-                                <BsLinkedin className={styles.linkedinIcon} />
+                                <span className={styles.annotationText}>Chris</span>
+                                <BsInstagram className={styles.instagramIcon} />
                             </div>
-                        </div>
+                        </a>
 
-                        {/* Bottom-left annotation - DYLYNA */}
-                        <div 
-                            id="dylyna-badge"
+                        {/* Bottom-left annotation - Zůze */}
+                        <a 
+                            href="https://instagram.com/z.kap__"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            id="zuze-badge"
                             className={`${styles.annotation} ${styles.bottomLeftAnnotation} ${isHovered ? styles.visible : ''}`}
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => {
+                                setTimeout(() => setIsHovered(false), 100);
+                            }}
                         >
                             <div className={styles.annotationBadge}>
-                                <span className={styles.annotationText}>DYLYNA</span>
-                                <BsLinkedin className={styles.linkedinIcon} />
+                                <span className={styles.annotationText}>Zůze</span>
+                                <BsInstagram className={styles.instagramIcon} />
                             </div>
-                        </div>
+                        </a>
 
                         {/* Arrows connecting anchor points to badges */}
                         {isHovered && (
                             <>
                                 <Xarrow
-                                    start="dezo-badge"
+                                    start="chris-badge"
                                     end="person1-point"
                                     /* dashness={{strokeLen: 10, nonStrokeLen: 5, animation: 1}} */
                                     curveness={3}
@@ -148,7 +168,7 @@ const AboutSection = () => {
  */                                    /* endAnchor="top" */
                                 />
                                 <Xarrow
-                                    start="dylyna-badge"
+                                    start="zuze-badge"
                                     end="person2-point"
                                     curveness={3}
                                     color="white"

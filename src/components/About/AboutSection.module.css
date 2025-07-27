@@ -132,10 +132,12 @@
 }
 
 .photoWrapper:hover .annotation,
+.annotation:hover,
 .visible {
     opacity: 1 !important;
     visibility: visible !important;
     transform: scale(1) !important;
+    pointer-events: all !important;
 }
 
 /* Anchor points - hidden elements for arrow connections */
@@ -159,6 +161,37 @@
     gap: 0.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.annotationBadge:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.annotation {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 10;
+    text-decoration: none;
+}
+
+.annotation:hover {
+    pointer-events: all;
+}
+
+.photoWrapper:hover .annotation,
+.annotation:hover {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) !important;
+    pointer-events: all !important;
 }
 
 .annotationText {
@@ -166,21 +199,31 @@
     font-weight: 600;
     font-size: 0.9rem;
     white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
-.linkedinIcon {
-    color: #0077b5;
+.annotationBadge:hover .annotationText {
+    color: #e1306c;
+}
+
+.instagramIcon {
+    color: #e1306c;
     font-size: 1.1rem;
+    transition: transform 0.3s ease;
 }
 
-/* Top-right annotation - DEZO */
+.annotationBadge:hover .instagramIcon {
+    transform: scale(1.2);
+}
+
+/* Top-right annotation - Chris */
 .topRightAnnotation {
     top: -20px;
     right: -80px;
     transform: scale(0.8);
 }
 
-/* Bottom-left annotation - DYLYNA */
+/* Bottom-left annotation - Zůze */
 .bottomLeftAnnotation {
     bottom: -20px;
     left: -80px;
