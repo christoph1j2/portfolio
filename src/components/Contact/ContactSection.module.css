@@ -515,7 +515,8 @@
   }
   
   .imageContainer {
-    height: 300px;
+    height: 0px;
+    visibility: hidden;
     overflow: visible;
   }
   

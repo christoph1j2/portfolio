@@ -187,4 +187,5 @@ const AboutSection = () => {
     );
 }
 
+// TODO: add link to tech
 export default AboutSection;

@@ -1,13 +1,23 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { IoIosArrowUp } from 'react-icons/io';
 import { Globe, Code, Heart } from 'lucide-react';
 import styles from './Footer.module.css';
 
 const Footer: React.FC = () => {
+  const location = useLocation();
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.querySelector(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const socialLinks = [
@@ -17,12 +27,12 @@ const Footer: React.FC = () => {
   ];
 
   const quickLinks = [
-    { name: 'Domů', href: '#home' },
-    { name: 'Projekty', href: '#portfolio' },
-    { name: 'O nás', href: '#about' },
-    { name: 'Technologie', href: '#tech' },  /*TODO: tech link after routing */
-    { name: 'Služby', href: '#offers' },
-    { name: 'Kontakt', href: '#contact' },
+    { name: 'Domů', href: '/', isInternal: true },
+    { name: 'Portfolio', href: '/portfolio', isInternal: true },
+    { name: 'O nás', href: '#about', isInternal: true, isAnchor: true },
+    { name: 'Technologie', href: '/technologie', isInternal: true },
+    { name: 'Služby', href: '/servis', isInternal: true },
+    { name: 'Kontakt', href: '#contact', isInternal: true, isAnchor: true },
   ];
 
   return (
@@ -75,9 +85,25 @@ const Footer: React.FC = () => {
                   whileHover={{ x: 5, color: '#2fffd6' }}
                   transition={{ duration: 0.2 }}
                 >
-                  <a href={link.href} className={styles.footerLink}>
-                    {link.name}
-                  </a>
+                  {link.isInternal ? (
+                    link.isAnchor && location.pathname === '/' ? (
+                      <button 
+                        onClick={() => scrollToSection(link.href)}
+                        className={styles.footerLink}
+                        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link to={link.href} className={styles.footerLink}>
+                        {link.name}
+                      </Link>
+                    )
+                  ) : (
+                    <a href={link.href} className={styles.footerLink}>
+                      {link.name}
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </ul>
@@ -120,7 +146,7 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h3 className={styles.sectionTitle}>Kde mě najdete</h3>
+            <h3 className={styles.sectionTitle}>Profily</h3>
             <div className={styles.socialLinks}>
               {socialLinks.map((social, index) => (
                 <motion.a
