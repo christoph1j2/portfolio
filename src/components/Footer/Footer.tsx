@@ -10,7 +10,13 @@ const Footer: React.FC = () => {
   const location = useLocation();
   
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const container = document.querySelector("#root");
+    if (container) {
+      container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      // Fallback k window scroll pokud #root neexistuje
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -180,8 +186,9 @@ const Footer: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className={styles.copyright}>
+            <p>© {new Date().getFullYear()} ECL Portfolio.</p>
             <p>
-              © {new Date().getFullYear()} ECL Portfolio. Vytvořeno s{' '}
+              Vytvořeno s{' '}
               <Heart className={styles.heartIcon} />
               {' '}a spoustou kofeinu.
             </p>
@@ -231,7 +238,7 @@ const Footer: React.FC = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <a href="#home"><IoIosArrowUp className={styles.arrowIcon} /></a>
+        <IoIosArrowUp className={styles.arrowIcon} />
       </motion.button>
     </footer>
   );

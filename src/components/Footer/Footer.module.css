@@ -1,3 +1,5 @@
+
+
 .footer {
   background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #0d47a1 100%);
   color: white;
@@ -5,6 +7,13 @@
   overflow: hidden;
   min-height: 400px;
   padding: 4rem 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    min-height: 350px;
+    padding: 3rem 0 2rem;
+  }
 }
 
 .footer::before {
@@ -39,6 +48,19 @@
   transition: all 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .scrollToTop {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .arrowIcon {
+    font-size: 1.2rem;
+  }
+}
+
 .scrollToTop:hover {
   box-shadow: 0 12px 40px rgba(47, 255, 214, 0.5);
   background: linear-gradient(45deg, #00bcd4, #2fffd6);
@@ -70,6 +92,48 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
+  }
+  
+  .brandSection {
+    max-width: 100%;
+  }
+  
+  .logo {
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  
+  .angleBracket {
+    font-size: 2rem;
+  }
+  
+  .slash {
+    font-size: 1.8rem;
+  }
+  
+  .ecl {
+    font-size: 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  .sectionTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .contactInfo {
+    align-items: center;
+  }
+  
+  .contactLink {
+    justify-content: center;
+    padding: 0.75rem;
+    max-width: 280px;
+    margin: 0 auto;
   }
 }
 
@@ -251,6 +315,16 @@
   .socialLinks {
     justify-content: center;
   }
+  
+  .socialLink {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .socialIcon {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .socialLink {
@@ -300,13 +374,24 @@
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    padding-top: 1.5rem;
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
+    gap: 0.2rem;
+  }
+  
+  .techStack {
+    font-size: 0.75rem;
   }
 }
 
 .copyright {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
 }
@@ -315,7 +400,7 @@
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .heartIcon {

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import styles from "./Navigation.module.css";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,8 +111,16 @@ const Navigation = () => {
             <ul className="hidden md:flex space-x-6 items-center">
               <li>
                 <NavLink
+                  to="/"
+                  className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                >
+                  Domů
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/portfolio"
-                  className={`${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
                 >
                   Projekty
                 </NavLink>
@@ -119,7 +128,7 @@ const Navigation = () => {
               <li>
                 <NavLink
                   to="/technologie"
-                  className={`${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
                 >
                   Technologie
                 </NavLink>
@@ -127,7 +136,7 @@ const Navigation = () => {
               <li>
                 <NavLink
                   to="/servis"
-                  className={`${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
                 >
                   Tvorba Webů
                 </NavLink>
@@ -135,7 +144,7 @@ const Navigation = () => {
               <li>
                 <NavLink
                   to="/web"
-                  className={`${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
                 >
                   Servis PC
                 </NavLink>
