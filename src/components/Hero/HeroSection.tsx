@@ -5,6 +5,7 @@ import { ReactTyped } from "react-typed";
 import { motion } from "motion/react";
 import { IoIosArrowDown } from "react-icons/io";
 import { Cpu, Globe } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const HeroSection: React.FC = () => {
   useEffect(() => {
@@ -67,18 +68,44 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <a href="#kontakt">
+          <NavLink to="/web"
+              onClick={() => {
+                // Scroll to top when navigating to portfolio page
+                setTimeout(() => {
+                  const container = document.querySelector("#root");
+                  if (container) {
+                    container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                  } else {
+                    // Fallback to window scroll if #root doesn't exist
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                  }
+                }, 100); // Small delay to ensure navigation completes first
+              }}
+          >
             <button className={styles.btnPrimary}>
               <Globe size={24} className="mr-2" />
               <span>Chci web na míru</span>
             </button>
-          </a>
-          <a href="#sluzby">
+          </NavLink>
+          <NavLink to="/servis"
+              onClick={() => {
+                // Scroll to top when navigating to portfolio page
+                setTimeout(() => {
+                  const container = document.querySelector("#root");
+                  if (container) {
+                    container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                  } else {
+                    // Fallback to window scroll if #root doesn't exist
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                  }
+                }, 100); // Small delay to ensure navigation completes first
+              }}
+          >
             <button className={styles.btnSecondary}>
               <Cpu size={24} className="mr-2" />
               <span>Potřebuju PC servis</span>
             </button>
-          </a>
+          </NavLink>
         </motion.div>
       </div>
 

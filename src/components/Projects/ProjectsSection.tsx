@@ -5,6 +5,7 @@ import "./carousel.css";                               // Custom carousel overri
 import { motion } from "motion/react";                 // Animation library for smooth transitions
 import { ExternalLink } from "lucide-react";           // Icon component for external links
 import styles from "./ProjectsSection.module.css";     // CSS modules for component-specific styling
+import { NavLink } from "react-router-dom";
 
 /**
  * Portfolio Data Array
@@ -289,7 +290,23 @@ const ProjectsSection: React.FC = () => {
         >
           {/* Action button styled to match overall design */}
           <button className={styles.seeAllBtn}>
-            <a href="#">Zobrazit všechny projekty</a>     {/* Czech: "Show all projects" */}
+            <NavLink 
+              to="/portfolio"
+              onClick={() => {
+                // Scroll to top when navigating to portfolio page
+                setTimeout(() => {
+                  const container = document.querySelector("#root");
+                  if (container) {
+                    container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                  } else {
+                    // Fallback to window scroll if #root doesn't exist
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                  }
+                }, 100); // Small delay to ensure navigation completes first
+              }}
+            >
+              Zobrazit všechny projekty
+            </NavLink>
             <ExternalLink size={16} className={styles.seeAllBtnIcon} />
           </button>
         </motion.div>

@@ -274,9 +274,8 @@ const TechnologyPage = () => {
                 key={category.id}
                 className="bg-white rounded-2xl shadow-lg p-8" // bg-white = bílé pozadí, rounded-2xl = zaoblené rohy, shadow-lg = stín, p-8 = padding ze všech stran
                 initial={{ opacity: 0, y: 40 }} // Počáteční stav pro animaci
-                whileInView={{ opacity: 1, y: 0 }} // Animace při zobrazení
+                animate={{ opacity: 1, y: 0 }} // Animace při zobrazení
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }} // Postupné animace kategorií
-                viewport={{ once: true }} // Animace pouze jednou
               >
                 {/* Nadpis kategorie */}
                 <motion.div className="text-center mb-8"> {/* text-center = centrovaný text, mb-8 = spodní margin */}
@@ -298,13 +297,12 @@ const TechnologyPage = () => {
                       key={tech.name}
                       className="relative group bg-gray-50 rounded-xl p-6 hover:bg-white hover:shadow-xl transition-all duration-300 cursor-pointer" // relative = relativní pozicování, group = pro group hover efekty, bg-gray-50 = světle šedé pozadí, rounded-xl = zaoblené rohy, p-6 = padding, hover efekty, transition-all = plynulé přechody, duration-300 = doba přechodu, cursor-pointer = ukazatel myši
                       initial={{ opacity: 0, scale: 0.8 }} // Počáteční stav animace
-                      whileInView={{ opacity: 1, scale: 1 }} // Animace při zobrazení
+                      animate={{ opacity: 1, scale: 1 }} // Animace při zobrazení
                       whileHover={{ y: -8, scale: 1.05 }} // Animace při hoveru - posun nahoru a zvětšení
                       transition={{ 
                         duration: 0.3, 
                         delay: categoryIndex * 0.1 + techIndex * 0.05 // Postupné animace technologií
                       }}
-                      viewport={{ once: true }} // Animace pouze jednou
                     >
                       {/* Ikona technologie */}
                       <div className="flex justify-center mb-4"> {/* flex justify-center = centrování, mb-4 = spodní margin */}

@@ -50,9 +50,8 @@ const Footer: React.FC = () => {
           <motion.div 
             className={styles.brandSection}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
           >
             <div className={styles.logo}>
               <span className={styles.angleBracket}>&lt;</span>
@@ -79,9 +78,8 @@ const Footer: React.FC = () => {
           <motion.div 
             className={styles.linksSection}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
           >
             <h3 className={styles.sectionTitle}>Odkazy</h3>
             <ul className={styles.linksList}>
@@ -119,9 +117,8 @@ const Footer: React.FC = () => {
           <motion.div 
             className={styles.contactSection}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
           >
             <h3 className={styles.sectionTitle}>Kontakt</h3>
             <div className={styles.contactInfo}>
@@ -148,9 +145,8 @@ const Footer: React.FC = () => {
           <motion.div 
             className={styles.socialSection}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
           >
             <h3 className={styles.sectionTitle}>Profily</h3>
             <div className={styles.socialLinks}>
@@ -166,9 +162,8 @@ const Footer: React.FC = () => {
                   }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                  viewport={{ once: true }}
                 >
                   <social.icon className={styles.socialIcon} />
                 </motion.a>
@@ -181,9 +176,8 @@ const Footer: React.FC = () => {
         <motion.div 
           className={styles.bottomSection}
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className={styles.copyright}>
             <p>© {new Date().getFullYear()} ECL Portfolio.</p>
@@ -234,9 +228,8 @@ const Footer: React.FC = () => {
         whileHover={{ y: -5, scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
       >
         <IoIosArrowUp className={styles.arrowIcon} />
       </motion.button>

@@ -135,7 +135,7 @@ const Navigation = () => {
               </li>
               <li>
                 <NavLink
-                  to="/servis"
+                  to="/web"
                   className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
                 >
                   Tvorba Webů
@@ -143,7 +143,7 @@ const Navigation = () => {
               </li>
               <li>
                 <NavLink
-                  to="/web"
+                  to="/servis"
                   className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
                 >
                   Servis PC
@@ -156,6 +156,14 @@ const Navigation = () => {
               <ul className={`md:hidden absolute top-16 left-0 right-0 py-4 ${isDarkBackground ? "bg-white/10 backdrop-blur-md border-b border-white/20" : "bg-white/95 backdrop-blur-md border-b border-gray-200/50"} space-y-4 shadow-lg`}>
                 <li>
                   <NavLink
+                    to="/"
+                    className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
+                  >
+                    Domů
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
                     to="/portfolio"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
                     onClick={() => setIsOpen(false)}
@@ -165,29 +173,29 @@ const Navigation = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/tech-stack"
+                    to="/technologie"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
                     onClick={() => setIsOpen(false)}
                   >
-                    Tech Stack
+                    Technologie
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/pc-service"
+                    to="/servis"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
                     onClick={() => setIsOpen(false)}
                   >
-                    PC Service
+                    Servis PC
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/webdev"
+                    to="/web"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
                     onClick={() => setIsOpen(false)}
                   >
-                    Webdev
+                    Tvorba webů
                   </NavLink>
                 </li>
               </ul>

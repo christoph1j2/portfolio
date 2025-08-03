@@ -1,12 +1,538 @@
+import { motion } from 'motion/react';
+import { MdLanguage, MdSpeed,  MdDevices, MdTrendingUp, MdSupportAgent,  MdPinDrop } from 'react-icons/md';
+import { FaReact, FaNodeJs, FaRocket, FaPhp, FaBootstrap } from 'react-icons/fa';
+import { SiTypescript, SiTailwindcss, SiMysql, SiPostgresql, SiSpring, SiNestjs } from 'react-icons/si';
 import Footer from "../components/Footer/Footer";
+import Navigation from '../components/Navigation/Navigation';
+import { ReactTyped } from 'react-typed';
 
 const WebPage = () => {
   return (
     <>
-      <div style={{ padding: '4rem 2rem', maxWidth: '80rem', margin: '0 auto' }}>
-        <h1>Web Development</h1>
-        <p>Welcome to my web development page!</p>
-      </div>
+    <Navigation />
+      {/* Hero Section */}
+      <section style={{ 
+        position: 'relative',
+        padding: '4rem 2rem', 
+        backgroundColor: '#f3f4f6',
+        overflow: 'hidden',
+        top: '3.5em',
+      }}>
+        {/* Decorative background elements */}
+        <div className="absolute top-10 right-20 w-32 h-32 rounded-full opacity-20 animate-pulse z-[-1]" 
+             style={{backgroundColor: '#a5ccff', animationDuration: '3s'}}></div>
+        <div className="absolute bottom-32 left-16 w-40 h-24 opacity-15 animate-bounce z-[-1]" 
+             style={{backgroundColor: '#a5ccff', borderRadius: '50% 20% 80% 30%', animationDelay: '1s', animationDuration: '4s'}}></div>
+        
+        <div style={{ maxWidth: '80rem', margin: '0 auto', textAlign: 'center', zIndex: 10 }}>
+          <motion.h1 
+            style={{ 
+              fontSize: '3rem', 
+              fontWeight: 'bold', 
+              marginBottom: '1.5rem',
+              color: '#1f2937',
+            }}
+            className='antonRegular min-h-[160px] md:min-h-0  items-center justify-center flex-wrap'
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span style={{  }} className='antonRegular text-cyan-400'>/</span> TVORBA WEBU, CO <ReactTyped strings={[
+              'TĚ PRODÁ',
+              'ZVEDNE TVŮJ BYZNYS',
+              'USNADNÍ ŽIVOT',
+              'PŘITÁHNE ZÁKAZNÍKY',
+              'ZVÝŠÍ TVOU VIDITELNOST',
+              ]}
+              typeSpeed={120}
+              backSpeed={120}
+              loop
+              backDelay={1000}
+              style={{
+                fontFamily: 'Anton, sans-serif',
+              }}
+               />
+          </motion.h1>
+          
+          <motion.p 
+            style={{ 
+              fontSize: '1.25rem', 
+              color: '#6b7280', 
+              maxWidth: '60rem', 
+              margin: '0 auto 3rem auto',
+              lineHeight: '1.8'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Vytváření webovek je moje vášeň. Specializuji se na moderní, responzivní a funkční weby, které nejen vypadají skvěle, ale také plní svůj účel. Ať už potřebuješ jednoduchou prezentační stránku nebo komplexní webovou aplikaci, jsem tu, abych pomohl.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Why Choose Me Section */}
+      <section style={{ 
+        padding: '4rem 2rem', 
+        backgroundColor: '#ffffff'
+      }}>
+        <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+          <motion.h2 
+            style={{ 
+              fontSize: '2rem', 
+              fontWeight: 'bold', 
+              textAlign: 'center', 
+              marginBottom: '3rem',
+              color: '#1f2937'
+            }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Proč si vybrat právě mě?
+          </motion.h2>
+
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+            gap: '2rem',
+            marginBottom: '3rem'
+          }}>
+            {[
+              {
+                icon: <MdSpeed className="text-3xl" />,
+                title: "Rychlý vývoj",
+                description: "Díky moderním nástrojům dokážu dodat kvalitní řešení v krátkém časovém intervalu."
+              },
+              {
+                icon: <MdDevices className="text-3xl" />,
+                title: "Responzivní design",
+                description: "Všechny weby jsou optimalizované pro mobily, tablety i počítače."
+              },
+              {
+                icon: <MdTrendingUp className="text-3xl" />,
+                title: "SEO optimalizace",
+                description: "Vaše stránky budou nalezitelné ve vyhledávačích a rychle načítatelné."
+              },
+              {
+                icon: <MdPinDrop className="text-3xl" />,
+                title: "Západočeská kvalita",
+                description: "Místní podpora a osobní přístup. Všechny projekty konzultuji přímo s klientem."
+              },
+              {
+                icon: <MdSupportAgent className="text-3xl" />,
+                title: "Dlouhodobá podpora",
+                description: "Poskytuju ongoing support, aktualizace a technickou pomoc i po dokončení."
+              },
+              {
+                icon: <FaRocket className="text-3xl" />,
+                title: "Moderní technologie",
+                description: "Používám nejnovější frameworky a nástroje pro maximální výkonnost."
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                style={{
+                  padding: '2rem',
+                  backgroundColor: '#f8fafc',
+                  borderRadius: '12px',
+                  border: '1px solid #e2e8f0',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease'
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+
+              >
+                <div style={{ color: '#0d47a1', marginBottom: '1rem' }}>
+                  {item.icon}
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: '#6b7280', lineHeight: '1.6' }}>
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Technologies */}
+          <motion.div
+            style={{ textAlign: 'center', marginTop: '3rem' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>
+              Hlavní technologie, které používám
+            </h3>
+            <p style={{ 
+              color: '#6b7280', 
+              marginBottom: '2rem', 
+              fontSize: '1rem',
+              maxWidth: '600px',
+              margin: '0 auto 2rem auto'
+            }}>
+              Moderní technologie pro rychlé a spolehlivé webové řešení
+            </p>
+            <div style={{ 
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+              gap: '1.5rem',
+              maxWidth: '800px',
+              margin: '0 auto 2rem auto'
+            }}>
+              {[
+                { icon: <FaReact />, name: "React", color: "#61DAFB" },
+                { icon: <SiTypescript />, name: "TypeScript", color: "#3178C6" },
+                { icon: <SiSpring />, name: "Spring", color: "#6DB33F" },
+                { icon: <FaNodeJs />, name: "Node.js", color: "#339933" },
+                { icon: <SiNestjs />, name: "Nest.js", color: "#E0234E" },
+                { icon: <FaPhp />, name: "PHP", color: "#777BB4" },
+                { icon: <FaBootstrap />, name: "Bootstrap", color: "#563D7C" },
+                { icon: <SiTailwindcss />, name: "Tailwind CSS", color: "#06B6D4" },
+                { icon: <SiMysql />, name: "MySQL", color: "#4479A1" },
+                { icon: <SiPostgresql />, name: "PostgreSQL", color: "#336791" },
+
+              ].map((tech, index) => (
+                <motion.div
+                  key={index}
+                  style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    alignItems: 'center',
+                    padding: '1.25rem',
+                    borderRadius: '12px',
+                    backgroundColor: '#f8fafc',
+                    border: '1px solid #e2e8f0',
+                    minWidth: '120px',
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  <div style={{ 
+                    fontSize: '2.5rem', 
+                    color: tech.color, 
+                    marginBottom: '0.75rem',
+                    transition: 'transform 0.3s ease'
+                  }}>
+                    {tech.icon}
+                  </div>
+                  <span style={{ 
+                    fontSize: '0.875rem', 
+                    color: '#374151',
+                    fontWeight: '600',
+                    textAlign: 'center'
+                  }}>
+                    {tech.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+            
+            <motion.div
+              style={{ textAlign: 'center', marginTop: '2rem' }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <p style={{ 
+                color: '#6b7280', 
+                fontSize: '0.95rem',
+                marginBottom: '1rem'
+              }}>
+                A to je jen začátek! Ovládám mnohem více technologií...
+              </p>
+              <a 
+                href="/technologie" 
+                style={{ 
+                  color: '#0d47a1',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  padding: '0.75rem 1.5rem',
+                  border: '2px solid #0d47a1',
+                  borderRadius: '8px',
+                  transition: 'all 0.3s ease',
+                  display: 'inline-block'
+                }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLAnchorElement).style.backgroundColor = '#0d47a1';
+                  (e.target as HTMLAnchorElement).style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  (e.target as HTMLAnchorElement).style.backgroundColor = 'transparent';
+                  (e.target as HTMLAnchorElement).style.color = '#0d47a1';
+                }}
+              >
+                Zobrazit všechny technologie →
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section style={{ 
+        position: 'relative',
+        padding: '4rem 2rem', 
+        backgroundColor: '#f3f4f6',
+        overflow: 'hidden'
+      }}>
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-24 h-36 opacity-18 animate-ping" 
+             style={{backgroundColor: '#a5ccff', borderRadius: '30% 70% 40% 60%', animationDelay: '2s', animationDuration: '5s'}}></div>
+        
+        <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+          <motion.h2 
+            style={{ 
+              fontSize: '2rem', 
+              fontWeight: 'bold', 
+              textAlign: 'center', 
+              marginBottom: '1rem',
+              color: '#1f2937'
+            }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className='text-cyan-400'>/</span> Ceník služeb
+          </motion.h2>
+          
+          <motion.p 
+            style={{ 
+              textAlign: 'center', 
+              color: '#6b7280', 
+              marginBottom: '3rem',
+              fontSize: '1.1rem'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Transparentní ceny bez skrytých poplatků. Každý projekt konzultuji individuálně.
+          </motion.p>
+
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+            gap: '2rem',
+            justifyContent: 'center'
+          }}>
+            {[
+              {
+                title: "Prezentační web",
+                subtitle: "Pro malé firmy a podnikatele",
+                price: "Od 15 000 Kč",
+                gradient: "linear-gradient(to right, #0d47a1, #1565c0)",
+                bgGradient: "linear-gradient(to bottom right, #e3f2fd, #bbdefb)",
+                borderColor: "#90caf9",
+                bulletColor: "#0d47a1",
+                features: [
+                  "Responzivní design pro všechna zařízení",
+                  "Optimalizace pro vyhledávače (SEO)",
+                  "Kontaktní formulář",
+                  "Integrace s Google Analytics",
+                  "SSL certifikát zdarma",
+                  "1 rok technická podpora"
+                ]
+              },
+              {
+                title: "E-shop / Webová aplikace",
+                subtitle: "Pro středně velké firmy",
+                price: "Od 35 000 Kč",
+                gradient: "linear-gradient(to right, #1976d2, #42a5f5)",
+                bgGradient: "linear-gradient(to bottom right, #dcedf9, #b3d9f2)",
+                borderColor: "#81c7e8",
+                bulletColor: "#1976d2",
+                features: [
+                  "Pokročilá funkcionalita na míru",
+                  "Databázové řešení",
+                  "Administrační rozhraní",
+                  "Platební brána integrace",
+                  "Pokročilá SEO optimalizace",
+                  "Neomezená technická podpora"
+                ],
+                popular: true
+              },
+              {
+                title: "Komplexní řešení",
+                subtitle: "Pro velké projekty",
+                price: "Od 60 000 Kč",
+                gradient: "linear-gradient(to right, #1565c0, #0d47a1)",
+                bgGradient: "linear-gradient(to bottom right, #f3e5f5, #e1bee7)",
+                borderColor: "#ba68c8",
+                bulletColor: "#7b1fa2",
+                features: [
+                  "Plně customizované řešení",
+                  "Mikroservicní architektura",
+                  "API integrace",
+                  "Pokročilá analytika",
+                  "DevOps a deployment",
+                  "Celoživotní podpora a aktualizace"
+                ]
+              }
+            ].map((plan, index) => (
+              <motion.div
+                key={index}
+                style={{
+                  position: 'relative',
+                  background: plan.bgGradient,
+                  borderRadius: '12px',
+                  border: `1px solid ${plan.borderColor}`,
+                  overflow: 'hidden',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                {plan.popular && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: 'linear-gradient(45deg, #ff6b6b, #feca57)',
+                    color: 'white',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '20px',
+                    fontSize: '0.875rem',
+                    fontWeight: 'bold',
+                    zIndex: 10
+                  }}>
+                    Nejpopulárnější
+                  </div>
+                )}
+                
+                <div 
+                  style={{
+                    background: plan.gradient,
+                    color: 'white',
+                    padding: '2rem',
+                    textAlign: 'center'
+                  }}
+                >
+                  <MdLanguage style={{ fontSize: '2.5rem', marginBottom: '1rem' }} />
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                    {plan.title}
+                  </h3>
+                  <p style={{ opacity: 0.9, marginBottom: '1rem' }}>
+                    {plan.subtitle}
+                  </p>
+                  <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>
+                    {plan.price}
+                  </div>
+                </div>
+
+                <div style={{ padding: '2rem' }}>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '2rem' }}>
+                    {plan.features.map((feature, featureIndex) => (
+                      <li 
+                        key={featureIndex}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          padding: '0.75rem',
+                          marginBottom: '0.5rem',
+                          backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                          borderRadius: '8px',
+                          fontSize: '0.95rem',
+                          color: '#4b5563'
+                        }}
+                      >
+                        <span 
+                          style={{
+                            width: '8px',
+                            height: '8px',
+                            backgroundColor: plan.bulletColor,
+                            borderRadius: '50%',
+                            marginRight: '0.75rem',
+                            flexShrink: 0
+                          }}
+                        ></span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button 
+                    style={{
+                      width: '100%',
+                      background: plan.gradient,
+                      color: 'white',
+                      fontWeight: 'bold',
+                      padding: '1rem 1.5rem',
+                      borderRadius: '8px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: '1rem',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLButtonElement).style.transform = 'scale(1.05)';
+                      (e.target as HTMLButtonElement).style.boxShadow = '0 6px 16px rgba(0,0,0,0.3)';
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLButtonElement).style.transform = 'scale(1)';
+                      (e.target as HTMLButtonElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+                    }}
+                    onClick={() => {
+                      // Scroll to contact or open contact form
+                      const contactSection = document.getElementById('kontakt');
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    Nezávazná poptávka
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            style={{ 
+              textAlign: 'center', 
+              marginTop: '3rem',
+              padding: '2rem',
+              backgroundColor: 'rgba(255,255,255,0.8)',
+              borderRadius: '12px',
+              border: '1px solid #e2e8f0'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>
+              Máte specifické požadavky?
+            </h3>
+            <p style={{ color: '#6b7280', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto' }}>
+              Každý projekt je jedinečný. Kontaktujte mě pro individuální konzultaci 
+              a cenovou nabídku šitou na míru vašim potřebám.
+            </p>
+            <a href="#kontakt" style={{ textDecoration: 'none', top: '.5rem', position: 'relative' }}>
+              <button style={{
+                background: 'linear-gradient(to right, #0d47a1, #1565c0)',
+                top: '1rem',
+                color: 'white',
+                fontWeight: 'bold',
+                padding: '1rem 2rem',
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '1rem',
+                transition: 'all 0.2s ease',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+              }}>
+                Diskutujme váš projekt
+              </button>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </>
   );
