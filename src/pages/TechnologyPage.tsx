@@ -130,7 +130,7 @@ const technologyCategories = [
   {
     id: 4,
     title: "Programovací Jazyky",
-    description: "Programovací jazyky které ovládám",
+    description: "",
     technologies: [
       {
         name: "Java",
@@ -155,7 +155,7 @@ const technologyCategories = [
   {
     id: 5,
     title: "Nástroje",
-    description: "Moje sada vývojových nástrojů",
+    description: "IDE & sada vývojových nástrojů",
     technologies: [
       {
         name: "Git",
@@ -264,7 +264,7 @@ const TechnologyPage = () => {
             animate={{ opacity: 1, y: 0 }} // Konečný stav animace
             transition={{ duration: 0.6, delay: 0.2 }} // Animace s delay
           >
-            Nástroje a technologie, které používám pro tvorbu webových aplikací, softwarových projektů a hardware řešení.
+            Nástroje a technologie, které používáme pro tvorbu webových aplikací, softwarových projektů a hardware řešení.
           </motion.p>
 
           {/* Kategorie technologií */}

@@ -1,6 +1,7 @@
 import Footer from "../components/Footer/Footer";
 import Navigation from "../components/Navigation/Navigation";
 import { motion } from "motion/react"; // Import framer motion pro animace
+import { Link } from "react-router-dom";
 
 const portfolioItems = [
   {
@@ -8,8 +9,8 @@ const portfolioItems = [
     title: "LaceHub",
     description:
       "Full-stack platforma pro přeprodejce tenisek pomocí Reactu a Nest.js. Moderní e-commerce řešení s pokročilými funkcemi pro správu inventáře, objednávek a uživatelských účtů.",
-    image: "/src/assets/placeholder.png",
-    liveUrl: "https://www.ecl-it.cz/portfolio/lacehub",
+    image: "/lacehub.jpg",
+    liveUrl: "/portfolio/lacehub",
     tech: ["React", "Nest.js", "PostgreSQL"],
   },
   {
@@ -17,8 +18,8 @@ const portfolioItems = [
     title: "Koučink Zdenka Lindenbergová",
     description:
       "Webová prezentace pro koučku s moderním designem a optimalizací pro SEO. Responzivní design s důrazem na uživatelskou přívětivost a profesionální vzhled.",
-    image: "/src/assets/placeholder.png",
-    liveUrl: "https://www.ecl-it.cz/portfolio/koucing-zdenka-lindenbergova",
+    image: "/koucink.jpg",
+    liveUrl: "/lindenbergova/index.html",
     tech: ["HTML5", "CSS3", "JavaScript"],
   },
   {
@@ -26,12 +27,12 @@ const portfolioItems = [
     title: "ECL-IT",
     description:
       "Webová prezentace pro ECL-IT s moderním designem a animacemi. Využívá nejnovější technologie pro vytvoření působivého online zážitku.",
-    image: "/src/assets/placeholder.png",
+    image: "/portfolio.jpg",
     liveUrl: "https://www.ecl-it.cz",
     tech: ["React", "Tailwind", "Framer Motion"],
   },
 
-  {
+/*   {
     id: 4,
     title: "E-commerce Platform",
     description:
@@ -57,7 +58,7 @@ const portfolioItems = [
     image: "/src/assets/placeholder.png",
     liveUrl: "#",
     tech: ["React Native", "Firebase", "Node.js"],
-  },
+  }, */
 ];
 
 const PortfolioPage = () => {
@@ -162,29 +163,62 @@ const PortfolioPage = () => {
                       ))}
                     </div>
                     {/* Odkaz na projekt */}
-                    <a
-                      href={item.liveUrl}
-                      className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-medium transition-colors duration-300 group/link" // inline-flex items-center = řádkový flex s centrovanými prvky, text-cyan-600 = azurová barva, hover:text-cyan-800 = tmavší při hoveru, font-medium = středně tučné, transition-colors = plynulá změna barev, group/link = pojmenovaná skupina pro vnořené efekty
-                      target="_blank" // Otevření v novém okně
-                      rel="noopener noreferrer" // Bezpečnostní atributy
-                    >
-                      Zobrazit projekt
-                      <svg
-                        className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                    {item.liveUrl.startsWith('/portfolio/') ? (
+                      // React Router odkaz pro portfolio komponenty
+                      <Link
+                        to={item.liveUrl}
+                        className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-medium transition-colors duration-300 group/link"
+                        onClick={() => {
+                          // Scroll to top when navigating
+                          setTimeout(() => {
+                            const container = document.querySelector("#root");
+                            if (container) {
+                              container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                            } else {
+                              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                            }
+                          }, 100);
+                        }}
                       >
-                        {" "}
-                        {/* w-4 h-4 = velikost ikony, ml-2 = levý margin, group-hover/link:translate-x-1 = posun doprava při hoveru nad linkem, transition-transform = plynulá transformace */}
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </a>
+                        Zobrazit projekt
+                        <svg
+                          className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-300"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </Link>
+                    ) : (
+                      // Standardní odkaz pro externí weby a statické HTML soubory
+                      <a
+                        href={item.liveUrl}
+                        className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-medium transition-colors duration-300 group/link"
+                        target={item.liveUrl.startsWith('http') ? "_blank" : "_self"}
+                        rel={item.liveUrl.startsWith('http') ? "noopener noreferrer" : undefined}
+                      >
+                        Zobrazit projekt
+                        <svg
+                          className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-300"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               )

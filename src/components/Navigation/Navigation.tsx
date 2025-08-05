@@ -113,6 +113,18 @@ const Navigation = () => {
                 <NavLink
                   to="/"
                   className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  onClick={() => {
+                    // Scroll to top when navigating to portfolio page
+                    setTimeout(() => {
+                      const container = document.querySelector("#root");
+                      if (container) {
+                        container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      } else {
+                        // Fallback to window scroll if #root doesn't exist
+                        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      }
+                    }, 100); // Small delay to ensure navigation completes first
+                  }}
                 >
                   Domů
                 </NavLink>
@@ -121,6 +133,18 @@ const Navigation = () => {
                 <NavLink
                   to="/portfolio"
                   className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  onClick={() => {
+                    // Scroll to top when navigating to portfolio page
+                    setTimeout(() => {
+                      const container = document.querySelector("#root");
+                      if (container) {
+                        container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      } else {
+                        // Fallback to window scroll if #root doesn't exist
+                        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      }
+                    }, 100); // Small delay to ensure navigation completes first
+                  }}
                 >
                   Projekty
                 </NavLink>
@@ -129,6 +153,18 @@ const Navigation = () => {
                 <NavLink
                   to="/technologie"
                   className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  onClick={() => {
+                    // Scroll to top when navigating to portfolio page
+                    setTimeout(() => {
+                      const container = document.querySelector("#root");
+                      if (container) {
+                        container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      } else {
+                        // Fallback to window scroll if #root doesn't exist
+                        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      }
+                    }, 100); // Small delay to ensure navigation completes first
+                  }}
                 >
                   Technologie
                 </NavLink>
@@ -137,6 +173,18 @@ const Navigation = () => {
                 <NavLink
                   to="/web"
                   className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  onClick={() => {
+                    // Scroll to top when navigating to portfolio page
+                    setTimeout(() => {
+                      const container = document.querySelector("#root");
+                      if (container) {
+                        container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      } else {
+                        // Fallback to window scroll if #root doesn't exist
+                        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      }
+                    }, 100); // Small delay to ensure navigation completes first
+                  }}
                 >
                   Tvorba Webů
                 </NavLink>
@@ -145,6 +193,18 @@ const Navigation = () => {
                 <NavLink
                   to="/servis"
                   className={`${styles.navLink} ${textColor} px-4 py-2 rounded-full transition-all ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"} backdrop-blur-sm`}
+                  onClick={() => {
+                    // Scroll to top when navigating to portfolio page
+                    setTimeout(() => {
+                      const container = document.querySelector("#root");
+                      if (container) {
+                        container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      } else {
+                        // Fallback to window scroll if #root doesn't exist
+                        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                      }
+                    }, 100); // Small delay to ensure navigation completes first
+                  }}
                 >
                   Servis PC
                 </NavLink>
@@ -158,6 +218,18 @@ const Navigation = () => {
                   <NavLink
                     to="/"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
+                    onClick={() => {
+                      // Scroll to top when navigating to portfolio page
+                      setTimeout(() => {
+                        const container = document.querySelector("#root");
+                        if (container) {
+                          container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        } else {
+                          // Fallback to window scroll if #root doesn't exist
+                          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        }
+                      }, 100); // Small delay to ensure navigation completes first
+                    }}
                   >
                     Domů
                   </NavLink>
@@ -166,7 +238,19 @@ const Navigation = () => {
                   <NavLink
                     to="/portfolio"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      // Scroll to top when navigating to portfolio page
+                      setTimeout(() => {
+                        const container = document.querySelector("#root");
+                        if (container) {
+                          container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        } else {
+                          // Fallback to window scroll if #root doesn't exist
+                          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        }
+                      }, 100); // Small delay to ensure navigation completes first
+                    }}
                   >
                     Portfolio
                   </NavLink>
@@ -175,27 +259,63 @@ const Navigation = () => {
                   <NavLink
                     to="/technologie"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      // Scroll to top when navigating to portfolio page
+                      setTimeout(() => {
+                        const container = document.querySelector("#root");
+                        if (container) {
+                          container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        } else {
+                          // Fallback to window scroll if #root doesn't exist
+                          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        }
+                      }, 100); // Small delay to ensure navigation completes first
+                    }}
                   >
                     Technologie
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/servis"
+                    to="/web"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      // Scroll to top when navigating to portfolio page
+                      setTimeout(() => {
+                        const container = document.querySelector("#root");
+                        if (container) {
+                          container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        } else {
+                          // Fallback to window scroll if #root doesn't exist
+                          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        }
+                      }, 100); // Small delay to ensure navigation completes first
+                    }}
                   >
-                    Servis PC
+                    Tvorba webů
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/web"
+                    to="/servis"
                     className={`${textColor} block px-4 py-2 ${isDarkBackground ? "hover:bg-white/20" : "hover:bg-gray-100"}`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      // Scroll to top when navigating to portfolio page
+                      setTimeout(() => {
+                        const container = document.querySelector("#root");
+                        if (container) {
+                          container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        } else {
+                          // Fallback to window scroll if #root doesn't exist
+                          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                        }
+                      }, 100); // Small delay to ensure navigation completes first
+                    }}
                   >
-                    Tvorba webů
+                    Servis PC
                   </NavLink>
                 </li>
               </ul>

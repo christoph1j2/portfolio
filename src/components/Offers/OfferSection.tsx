@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { MdLanguage, MdComputer } from 'react-icons/md';
 import styles from './OfferSection.module.css';
+import { Link } from 'react-router-dom';
 
 const OfferSection = () => {
     return (
@@ -88,7 +89,20 @@ const OfferSection = () => {
                                         background: `linear-gradient(to right, #0d47a1, #1565c0)`
                                     }}
                                 >
-                                    <a href="#" className="block w-full h-full">Zjistit Více</a>
+                                    <Link to="/web" className="block w-full h-full"
+                                            onClick={() => {
+                                            // Scroll to top when navigating to portfolio page
+                                            setTimeout(() => {
+                                            const container = document.querySelector("#root");
+                                            if (container) {
+                                                container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                            } else {
+                                                // Fallback to window scroll if #root doesn't exist
+                                                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                            }
+                                            }, 100); // Small delay to ensure navigation completes first
+                                        }}
+                                    >Zjistit Více</Link>
                                 </button>
                             </div>
                         </motion.div>
@@ -159,7 +173,20 @@ const OfferSection = () => {
                                         background: `linear-gradient(to right, #1976d2, #42a5f5)`
                                     }}
                                 >
-                                    <a href="#" className="block w-full h-full">Zjistit Více</a>
+                                    <Link to="/servis" className="block w-full h-full"
+                                            onClick={() => {
+                                            // Scroll to top when navigating to portfolio page
+                                            setTimeout(() => {
+                                            const container = document.querySelector("#root");
+                                            if (container) {
+                                                container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                            } else {
+                                                // Fallback to window scroll if #root doesn't exist
+                                                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                                            }
+                                            }, 100); // Small delay to ensure navigation completes first
+                                        }}
+                                    >Zjistit Více</Link>
                                 </button>
                             </div>
                         </motion.div>

@@ -1,10 +1,273 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { motion } from 'motion/react';
+import { MdComputer, MdSpeed, MdBuild, MdSecurity, MdBackup, MdWifi } from 'react-icons/md';
+import { FaHdd, FaWindows, FaTools } from 'react-icons/fa';
+import { SiIntel, SiAmd, SiNvidia, SiAsus, SiHp, SiDell } from 'react-icons/si';
 import Footer from "../components/Footer/Footer";
-import OfferSection from "../components/Offers/OfferSection";
+import Navigation from '../components/Navigation/Navigation';
+import { ReactTyped } from 'react-typed';
 
 const ServicePage = () => {
   return (
     <>
-      <OfferSection />
+    <Navigation />
+      {/* Hero Section */}
+      <section style={{ 
+        position: 'relative',
+        padding: '4rem 2rem', 
+        backgroundColor: '#f3f4f6',
+        overflow: 'hidden',
+        top: '3.5em',
+      }}>
+        {/* Decorative background elements */}
+        <div className="absolute top-10 right-20 w-32 h-32 rounded-full opacity-20 animate-pulse z-[-1]" 
+             style={{backgroundColor: '#a5ccff', animationDuration: '3s'}}></div>
+        <div className="absolute bottom-32 left-16 w-40 h-24 opacity-15 animate-bounce z-[-1]" 
+             style={{backgroundColor: '#a5ccff', borderRadius: '50% 20% 80% 30%', animationDelay: '1s', animationDuration: '4s'}}></div>
+        
+        <div style={{ maxWidth: '80rem', margin: '0 auto', textAlign: 'center', zIndex: 10 }}>
+          <motion.h1 
+            style={{ 
+              fontSize: '3rem', 
+              fontWeight: 'bold', 
+              marginBottom: '1.5rem',
+              color: '#1f2937'
+            }}
+            className='antonRegular min-h-[160px] md:min-h-0  items-center justify-center flex-wrap'
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className='antonRegular text-cyan-400'>/</span> PC SERVIS, KDE <ReactTyped strings={[
+              'DOSTANETE POČÍTAČ DO FORMY',
+              'VÁM POSTAVÍM NOVÝ STROJ NA MÍRU',
+              'NENECHÁTE CELOU VÝPLATU',
+              'NEČEKÁTE TÝDNY NA OPRAVU',
+              '',
+              ]}
+              typeSpeed={120}
+              backSpeed={120}
+              loop
+              backDelay={1000}
+              style={{ fontFamily: 'Anton, sans-serif' }}
+            />
+          </motion.h1>
+          <motion.p 
+            style={{ 
+              fontSize: '1.25rem', 
+              color: '#6b7280', 
+              maxWidth: '60rem', 
+              margin: '0 auto 3rem auto',
+              lineHeight: '1.8'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Opravy, údržba a stavba počítačů v Teplé a okolí. Jsem student s praxí, dávám důraz na rychlost, srozumitelnost a cenu, která dává smysl. Vhodné pro jednotlivce, seniory i malé firmy.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section style={{ 
+        padding: '4rem 2rem', 
+        backgroundColor: '#ffffff'
+      }}>
+        <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+          <motion.h2 
+            style={{ 
+              fontSize: '2rem', 
+              fontWeight: 'bold', 
+              textAlign: 'center', 
+              marginBottom: '3rem',
+              color: '#1f2937'
+            }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Naše služby
+          </motion.h2>
+
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+            gap: '2rem',
+            marginBottom: '3rem'
+          }}>
+            {[
+              {
+                icon: <MdBuild className="text-3xl" />,
+                title: "Stavba nebo upgrade PC",
+                description: "Poradím s výběrem komponent a postavím počítač přesně podle vašich potřeb - herní, pracovní nebo školní."
+              },
+              {
+                icon: <FaTools className="text-3xl" />,
+                title: "Výměna komponent",
+                description: "Výměna disku, RAM, grafické karty nebo jiných komponent. Rychle a bezpečně, bez zbytečného rizika."
+              },
+              {
+                icon: <MdSpeed className="text-3xl" />,
+                title: "Vyčištění a zrychlení",
+                description: "Vyčištění od prachu, výměna teplovodivé pasty, odstranění nepotřebného softwaru, optimalizace systému."
+              },
+              {
+                icon: <FaWindows className="text-3xl" />,
+                title: "Instalace systému",
+                description: "Reinstalace Windows nebo čistá instalace, včetně ovladačů a základních programů. Možnost zálohování dat."
+              },
+              {
+                icon: <MdBackup className="text-3xl" />,
+                title: "Záloha a přenos dat",
+                description: "Záloha důležitých souborů a přenesení na nový disk nebo jiný počítač."
+              },
+              {
+                icon: <MdWifi className="text-3xl" />,
+                title: "Pomoc s připojením a sítí",
+                description: "Nastavení Wi-Fi & LAN, sdílení souborů nebo síťových zařízení v domácnosti."
+              }
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                style={{
+                  padding: '2rem',
+                  backgroundColor: '#f8fafc',
+                  borderRadius: '12px',
+                  border: '1px solid #e2e8f0',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease'
+                }}
+                className="hover:scale-105 hover:bg-[#76b6eb27]"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div style={{ color: '#0d47a1', marginBottom: '1rem' }}>
+                  {service.icon}
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>
+                  {service.title}
+                </h3>
+                <p style={{ color: '#6b7280', lineHeight: '1.6' }}>
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section style={{ 
+        position: 'relative',
+        padding: '4rem 2rem', 
+        backgroundColor: '#f3f4f6',
+        overflow: 'hidden'
+      }}>
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-24 h-36 opacity-18 animate-ping" 
+             style={{backgroundColor: '#a5ccff', borderRadius: '30% 70% 40% 60%', animationDelay: '2s', animationDuration: '5s'}}></div>
+        
+        <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+          <motion.h2 
+            style={{ 
+              fontSize: '2.5rem', 
+              fontWeight: 'bold', 
+              textAlign: 'center', 
+              marginBottom: '1rem',
+              color: '#1f2937'
+            }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Přehled cen
+          </motion.h2>
+          
+          <motion.p 
+            style={{ 
+              textAlign: 'center',
+              fontSize: '1.125rem', 
+              color: '#6b7280', 
+              marginBottom: '3rem',
+              maxWidth: '600px',
+              margin: '0 auto 3rem auto'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Transparentní ceník našich služeb
+          </motion.p>
+
+          <motion.div
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '16px',
+              padding: '3rem',
+              boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+              maxWidth: '800px',
+              margin: '0 auto'
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div style={{ 
+              display: 'grid', 
+              gap: '1.5rem'
+            }}>
+              {[
+                { service: "Instalace systému Windows", price: "od 400 Kč" },
+                { service: "Vyčištění počítače (HW + SW)", price: "od 500 Kč" },
+                { service: "Sestavení PC / upgrade", price: "dle dohody" },
+                { service: "Výměna komponent", price: "od 200 Kč / kus" },
+                { service: "Záloha a přenos dat", price: "od 500 Kč" },
+                { service: "Pomoc se sítí", price: "od 500 Kč" }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '1.5rem',
+                    backgroundColor: '#f8fafc',
+                    borderRadius: '8px',
+                    border: '1px solid #e2e8f0'
+                  }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                >
+                  <span style={{ fontWeight: '600', color: '#1f2937', fontSize: '1.1rem' }}>
+                    {item.service}
+                  </span>
+                  <span style={{ fontWeight: 'bold', color: '#0d47a1', fontSize: '1.1rem' }}>
+                    {item.price}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+            
+            <motion.p 
+              style={{ 
+                marginTop: '2rem', 
+                fontSize: '0.95rem', 
+                color: '#6b7280',
+                textAlign: 'center',
+                fontStyle: 'italic'
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1 }}
+            >
+              Uvedené ceny jsou orientační. Finální cena závisí na konkrétní situaci a domluvě.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
       <Footer />
     </>
   );

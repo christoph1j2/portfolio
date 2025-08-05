@@ -66,7 +66,7 @@ const WebPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Vytváření webovek je moje vášeň. Specializuji se na moderní, responzivní a funkční weby, které nejen vypadají skvěle, ale také plní svůj účel. Ať už potřebuješ jednoduchou prezentační stránku nebo komplexní webovou aplikaci, jsem tu, abych pomohl.
+            Vytváření webovek je naše vášeň. A design je vášeň mé přítelkyně. Specializujeme se na moderní, responzivní a funkční weby, které nejen vypadají skvěle, ale také plní svůj účel. Ať už potřebujete jednoduchou prezentační stránku nebo komplexní webovou aplikaci, jsme tu, abychom pomohli.
           </motion.p>
         </div>
       </section>
@@ -89,7 +89,7 @@ const WebPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Proč si vybrat právě mě?
+            Proč si vybrat právě nás?
           </motion.h2>
 
           <div style={{ 
@@ -102,12 +102,12 @@ const WebPage = () => {
               {
                 icon: <MdSpeed className="text-3xl" />,
                 title: "Rychlý vývoj",
-                description: "Díky moderním nástrojům dokážu dodat kvalitní řešení v krátkém časovém intervalu."
+                description: "Díky moderním nástrojům dodáváme kvalitní řešení v krátkém časovém intervalu."
               },
               {
                 icon: <MdDevices className="text-3xl" />,
-                title: "Responzivní design",
-                description: "Všechny weby jsou optimalizované pro mobily, tablety i počítače."
+                title: "Moderní & responzivní design",
+                description: "Všechny stránky jsou pečlivě navrženy a jsou optimalizované pro mobily, tablety i počítače."
               },
               {
                 icon: <MdTrendingUp className="text-3xl" />,
@@ -117,18 +117,19 @@ const WebPage = () => {
               {
                 icon: <MdPinDrop className="text-3xl" />,
                 title: "Západočeská kvalita",
-                description: "Místní podpora a osobní přístup. Všechny projekty konzultuji přímo s klientem."
+                description: "Místní podpora a osobní přístup. Všechny projekty jsou konzultovány přímo s klientem."
               },
               {
                 icon: <MdSupportAgent className="text-3xl" />,
                 title: "Dlouhodobá podpora",
-                description: "Poskytuju ongoing support, aktualizace a technickou pomoc i po dokončení."
+                description: "Poskytujeme ongoing support, aktualizace a technickou pomoc i po dokončení."
               },
               {
                 icon: <FaRocket className="text-3xl" />,
                 title: "Moderní technologie",
-                description: "Používám nejnovější frameworky a nástroje pro maximální výkonnost."
-              }
+                description: "Používáme nejnovější frameworky a nástroje pro maximální výkonnost."
+              },
+              
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -166,7 +167,7 @@ const WebPage = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>
-              Hlavní technologie, které používám
+              Hlavní technologie, které tvoří naše projekty
             </h3>
             <p style={{ 
               color: '#6b7280', 
@@ -177,7 +178,8 @@ const WebPage = () => {
             }}>
               Moderní technologie pro rychlé a spolehlivé webové řešení
             </p>
-            <div style={{ 
+            <div 
+            style={{ 
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
               gap: '1.5rem',
@@ -187,12 +189,12 @@ const WebPage = () => {
               {[
                 { icon: <FaReact />, name: "React", color: "#61DAFB" },
                 { icon: <SiTypescript />, name: "TypeScript", color: "#3178C6" },
-                { icon: <SiSpring />, name: "Spring", color: "#6DB33F" },
-                { icon: <FaNodeJs />, name: "Node.js", color: "#339933" },
-                { icon: <SiNestjs />, name: "Nest.js", color: "#E0234E" },
                 { icon: <FaPhp />, name: "PHP", color: "#777BB4" },
                 { icon: <FaBootstrap />, name: "Bootstrap", color: "#563D7C" },
                 { icon: <SiTailwindcss />, name: "Tailwind CSS", color: "#06B6D4" },
+                { icon: <SiSpring />, name: "Spring", color: "#6DB33F" },
+                { icon: <FaNodeJs />, name: "Node.js", color: "#339933" },
+                { icon: <SiNestjs />, name: "Nest.js", color: "#E0234E" },
                 { icon: <SiMysql />, name: "MySQL", color: "#4479A1" },
                 { icon: <SiPostgresql />, name: "PostgreSQL", color: "#336791" },
 
@@ -205,11 +207,11 @@ const WebPage = () => {
                     alignItems: 'center',
                     padding: '1.25rem',
                     borderRadius: '12px',
-                    backgroundColor: '#f8fafc',
                     border: '1px solid #e2e8f0',
                     minWidth: '120px',
                     transition: 'all 0.3s ease'
                   }}
+                  className={`hover:scale-105 bg-[#f8fafc] hover:bg-[#76b6eb27]`}
                 >
                   <div style={{ 
                     fontSize: '2.5rem', 
@@ -242,7 +244,7 @@ const WebPage = () => {
                 fontSize: '0.95rem',
                 marginBottom: '1rem'
               }}>
-                A to je jen začátek! Ovládám mnohem více technologií...
+                A to je jen začátek! Používáme mnohem více technologií...
               </p>
               <a 
                 href="/technologie" 
@@ -286,7 +288,7 @@ const WebPage = () => {
         <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
           <motion.h2 
             style={{ 
-              fontSize: '2rem', 
+              fontSize: '2.5rem', 
               fontWeight: 'bold', 
               textAlign: 'center', 
               marginBottom: '1rem',
@@ -296,7 +298,7 @@ const WebPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className='text-cyan-400'>/</span> Ceník služeb
+            <span className='text-cyan-400'>/</span> CENÍK SLUŽEB
           </motion.h2>
           
           <motion.p 
@@ -310,7 +312,8 @@ const WebPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Transparentní ceny bez skrytých poplatků. Každý projekt konzultuji individuálně.
+            Ceny jsou orientační. Vždy záleží na rozsahu, složitosti a domluvě. <br />
+            Nabízíme řešení, která dávají smysl.
           </motion.p>
 
           <div style={{ 
@@ -322,54 +325,55 @@ const WebPage = () => {
             {[
               {
                 title: "Prezentační web",
-                subtitle: "Pro malé firmy a podnikatele",
-                price: "Od 15 000 Kč",
+                subtitle: "Ideální pro řemeslníky, živnostníky, malé podniky a firmy",
+                price: "od 4 999,- Kč",
+                priceWithDPH: "6 049,- Kč s DPH",
                 gradient: "linear-gradient(to right, #0d47a1, #1565c0)",
                 bgGradient: "linear-gradient(to bottom right, #e3f2fd, #bbdefb)",
                 borderColor: "#90caf9",
                 bulletColor: "#0d47a1",
                 features: [
-                  "Responzivní design pro všechna zařízení",
-                  "Optimalizace pro vyhledávače (SEO)",
+                  "Responzivní web na míru (bez využití šablony)",
                   "Kontaktní formulář",
-                  "Integrace s Google Analytics",
-                  "SSL certifikát zdarma",
-                  "1 rok technická podpora"
-                ]
+                  "Propojení na Google Maps, sociální sítě",
+                  "Základní SEO nastavení",
+                  "Nasazení na doménu a hosting",
+                ],
+                popular: true,
               },
               {
-                title: "E-shop / Webová aplikace",
-                subtitle: "Pro středně velké firmy",
-                price: "Od 35 000 Kč",
+                title: "Webová aplikace",
+                subtitle: "Vhodné pro menší firmy se specifickými potřebami",
+                price: "od 9 999,- Kč",
+                priceWithDPH: "12 099,- Kč s DPH",
                 gradient: "linear-gradient(to right, #1976d2, #42a5f5)",
                 bgGradient: "linear-gradient(to bottom right, #dcedf9, #b3d9f2)",
                 borderColor: "#81c7e8",
                 bulletColor: "#1976d2",
                 features: [
-                  "Pokročilá funkcionalita na míru",
-                  "Databázové řešení",
-                  "Administrační rozhraní",
-                  "Platební brána integrace",
-                  "Pokročilá SEO optimalizace",
-                  "Neomezená technická podpora"
+                  "Uživatelské účty, přihlašování",
+                  "Práce s databází (MySQL / PostgreSQL / SQLite)",
+                  "Admin rozhraní (např. správa obsahu)",
+                  "API integrace (REST)",
+                  "Pokročilejší logika, custom skripty"
                 ],
-                popular: true
+                popular: false,
               },
               {
-                title: "Komplexní řešení",
-                subtitle: "Pro velké projekty",
-                price: "Od 60 000 Kč",
+                title: "Individuální řešení",
+                subtitle: "Pro firmy s konkrétní představou a vlastním zadáním",
+                price: "od 14 999,- Kč",
+                priceWithDPH: "18 149,- Kč s DPH",
                 gradient: "linear-gradient(to right, #1565c0, #0d47a1)",
                 bgGradient: "linear-gradient(to bottom right, #f3e5f5, #e1bee7)",
                 borderColor: "#ba68c8",
                 bulletColor: "#7b1fa2",
                 features: [
-                  "Plně customizované řešení",
-                  "Mikroservicní architektura",
-                  "API integrace",
-                  "Pokročilá analytika",
-                  "DevOps a deployment",
-                  "Celoživotní podpora a aktualizace"
+                  "Společně navrhneme architekturu a klíčové funkce",
+                  "Backend & frontend přesně podle potřeby",
+                  "Pravidelné konzultace a upřímný feedback",
+                  "Možnost dlouhodobé spolupráce a rozvoje",
+                  "Flexibilní přístup k vývoji"
                 ]
               }
             ].map((plan, index) => (
@@ -398,7 +402,7 @@ const WebPage = () => {
                     borderRadius: '20px',
                     fontSize: '0.875rem',
                     fontWeight: 'bold',
-                    zIndex: 10
+                    zIndex: 10,
                   }}>
                     Nejpopulárnější
                   </div>
@@ -421,6 +425,9 @@ const WebPage = () => {
                   </p>
                   <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>
                     {plan.price}
+                  </div>
+                  <div style={{ fontSize: '1rem', color: '#e0e0e0' }}>
+                    {plan.priceWithDPH}
                   </div>
                 </div>
 
@@ -492,6 +499,7 @@ const WebPage = () => {
             ))}
           </div>
 
+          {/* Doplňkové služby */}
           <motion.div 
             style={{ 
               textAlign: 'center', 
@@ -505,11 +513,126 @@ const WebPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
+            <h4 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>
+              Doplňkové služby
+            </h4>
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+              gap: '2rem',
+              marginBottom: '2rem'
+            }}>
+              <div style={{ 
+                backgroundColor: 'rgba(255,255,255,0.9)', 
+                borderRadius: '12px', 
+                padding: '1.5rem',
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+              }}>
+                <table style={{ 
+                  width: '100%', 
+                  borderCollapse: 'collapse',
+                  fontSize: '0.95rem'
+                }}>
+                  <tbody>
+                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                      <td style={{ 
+                        padding: '1rem 0', 
+                        textAlign: 'left', 
+                        color: '#4b5563',
+                        fontWeight: '500'
+                      }}>
+                        Správa hostingu + domény
+                      </td>
+                      <td style={{ 
+                        padding: '1rem 0', 
+                        textAlign: 'right',
+                        fontWeight: 'bold', 
+                        color: '#0d47a1' 
+                      }}>
+                        od 500 Kč / rok
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                      <td style={{ 
+                        padding: '1rem 0', 
+                        textAlign: 'left', 
+                        color: '#4b5563',
+                        fontWeight: '500'
+                      }}>
+                        Úpravy na hotovém webu
+                      </td>
+                      <td style={{ 
+                        padding: '1rem 0', 
+                        textAlign: 'right',
+                        fontWeight: 'bold', 
+                        color: '#0d47a1' 
+                      }}>
+                        dle domluvy
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid #f1f5f9' }}>
+                      <td style={{ 
+                        padding: '1rem 0', 
+                        textAlign: 'left', 
+                        color: '#4b5563',
+                        fontWeight: '500'
+                      }}>
+                        Redesign / modernizace webu
+                      </td>
+                      <td style={{ 
+                        padding: '1rem 0', 
+                        textAlign: 'right',
+                        fontWeight: 'bold', 
+                        color: '#0d47a1' 
+                      }}>
+                        od 2 999 Kč
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={{ 
+                        padding: '1rem 0', 
+                        textAlign: 'left', 
+                        color: '#4b5563',
+                        fontWeight: '500'
+                      }}>
+                        Školení / konzultace
+                      </td>
+                      <td style={{ 
+                        padding: '1rem 0', 
+                        textAlign: 'right',
+                        fontWeight: 'bold', 
+                        color: '#0d47a1' 
+                      }}>
+                        500 Kč
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+            </div>
+          </motion.div>
+
+          {/* Specifické požadavky */}
+          <motion.div 
+            style={{ 
+              textAlign: 'center', 
+              marginTop: '2rem',
+              padding: '2rem',
+              backgroundColor: 'rgba(255,255,255,0.9)',
+              borderRadius: '12px',
+              border: '1px solid #e2e8f0'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
             <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>
               Máte specifické požadavky?
             </h3>
-            <p style={{ color: '#6b7280', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto' }}>
-              Každý projekt je jedinečný. Kontaktujte mě pro individuální konzultaci 
+            <p style={{ color: '#6b7280', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem auto' }}>
+              Kontaktujte nás pro individuální konzultaci 
               a cenovou nabídku šitou na míru vašim potřebám.
             </p>
             <a href="#kontakt" style={{ textDecoration: 'none', top: '.5rem', position: 'relative' }}>
@@ -525,7 +648,8 @@ const WebPage = () => {
                 fontSize: '1rem',
                 transition: 'all 0.2s ease',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
-              }}>
+              }}
+              className='hover:scale-105'>
                 Diskutujme váš projekt
               </button>
             </a>

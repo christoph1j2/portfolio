@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ernst Christoph Leschka">
+    <meta name="description" content="Jsem profesionální ICF koučka. Absolvovala jsem vzdělání v akreditovaném programu s certifikací ICF v mezinárodní škole CoachVille. Zkuste se zasnít: Jaký život by jste chtěli žít, kdyby jste neměli žádná omezení. Dovolte si to aspoň na chvíli. Co vidíte? Co vnímáte? Jaký máte pocit?" >
+    <meta name="keywords" content="Zdeňka, Lindenbergová, ICF, koučink, coaching">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.zdenkalindenbergova.cz/">
+    <meta property="og:title" content="Koučink Lindenbergová - Profesionální ICF koučka">
+    <meta property="og:description" content="Cesta z problému se objeví v okamžiku, kdy se rozhodneš vidět věci jinak. Profesionální koučování pro osobní růst a rozvoj.">
+    <meta property="og:image" content="https://www.zdenkalindenbergova.cz/foto/ZdenkaLindenbergova (1).jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.zdenkalindenbergova.cz/">
+    <meta property="twitter:title" content="Koučink Lindenbergová - Profesionální ICF koučka">
+    <meta property="twitter:description" content="Cesta z problému se objeví v okamžiku, kdy se rozhodneš vidět věci jinak. Profesionální koučování pro osobní růst a rozvoj.">
+    <meta property="twitter:image" content="https://www.zdenkalindenbergova.cz/foto/ZdenkaLindenbergova (1).jpg">
+    
+    <!-- Additional SEO meta tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="cs">
+    <meta name="theme-color" content="#002366">
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <title>Koučink Lindenbergová - Cesta z problému se objeví v okamžiku, kdy se rozhodneš vidět věci jinak.</title>
+</head>
+<body onload="rok()">
+    
+    <!-- Portfolio Preview Bar - Fixed/Sticky -->
+    <div style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+        color: white;
+        padding: 0.75rem 1rem;
+        z-index: 9999;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+    ">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="
+                background: rgba(255,255,255,0.2);
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-weight: 600;
+                font-size: 0.8rem;
+            ">PORTFOLIO PREVIEW</span>
+            <span>Koučink Zdenka Lindenbergová</span>
+        </div>
+        <a href="/portfolio" style="
+            background: rgba(255,255,255,0.15);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        " onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='translateY(-1px)'" 
+           onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='translateY(0)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Zpět do portfolia
+        </a>
+    </div>
+    
+    <!-- Modern enhancements -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Koučink Header - Static -->
+    <header class="header" style="position: static; margin-top: 56px;">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Koučink<br><span class="logo-subtitle">Lindenbergová</span></h1>
+            </div>
+            <nav class="desktop-nav">
+                <ul class="nav">
+                    <li><a href="#main-content" class="nav-link">ÚVOD</a></li>
+                    <li><a href="#about-me-title" class="nav-link">O MNĚ</a></li>
+                    <li><a href="#coaching-title" class="nav-link">KOUČINK</a></li>
+                    <li><a href="#kontakt-title" class="nav-link">KONTAKT</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="mobile-nav" id="mobileNav">
+                <ul class="mobile-nav-list">
+                    <li><a href="#main-content" class="mobile-nav-link">ÚVOD</a></li>
+                    <li><a href="#about-me-title" class="mobile-nav-link">O MNĚ</a></li>
+                    <li><a href="#coaching-title" class="mobile-nav-link">KOUČINK</a></li>
+                    <li><a href="#kontakt-title" class="mobile-nav-link">KONTAKT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="hero" id="main-content">
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-text">
+                <p class="hero-subtitle">Když něco nevypadá krásně, máme příležitost z toho něco krásného udělat</p>
+                <h2 class="hero-title">Cesta z problému se objeví v okamžiku, kdy se rozhodneš vidět věci jinak.</h2>
+                <button class="cta-button">
+                    <a href="#kontakt-title">
+                        <span>KONTAKT</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </button>
+            </div>
+        </div>
+        <a href="#about-me-title" class="scroll-indicator" data-aos="fade-up" data-aos-delay="1500">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </main>
+    <section class="section-title" id="about-me-title" data-aos="fade-up">
+        <div class="section-title-content">
+            <h2>O MNĚ</h2>
+            <div class="title-underline"></div>
+        </div>
+    </section>
+    
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content" data-aos="fade-up" data-aos-delay="200">
+                <div class="about-text">
+                    <div class="about-card">
+                        <p>Jsem profesionální ICF koučka. Absolvovala jsem vzdělání v akreditovaném programu s certifikací ICF v mezinárodní škole CoachVille.</p>
+                        
+                        <div class="certificates-section">
+                            <h4>ABSOLVOVANÉ TRÉNINKY:</h4>
+                            <ul class="certificates-list">
+                                <li><a href="/certifikaty/zivot_jako_hra1.pdf"><i class="fas fa-certificate"></i>Život jako hra I.</a></li>
+                                <li><a href="/certifikaty/zivot_jako_hra2.pdf"><i class="fas fa-certificate"></i>Život jako hra II.</a></li>
+                                <li><a href="/certifikaty/profesionalni_koucovaci_dovednosti.pdf"><i class="fas fa-certificate"></i>Profesionální koučovací dovednosti</a></li>
+                                <li><a href="/certifikaty/zakladni_koucovaci_dovednosti_a_etika_v_koucovani.pdf"><i class="fas fa-certificate"></i>Transformační koučování</a></li>
+                            </ul>
+                        </div>
+                        
+                        <p>Jsem členkou komunity koučů a neustále se vzdělávám a získávám další zkušenosti a dovednosti.</p>
+                        <p>Na koučování mě nejvíc baví lehkost a hravost, kterou je možno zapojit do jakéhokoliv procesu.</p>
+                        <p>Jako členka ICF dodržuji jejich <a href="https://www.coachfederation.cz/en/eticky-kodex-icf">etický kodex</a> naplno. Respektuji klienty, chráním důvěrnost a usiluji o osobní růst a profesní rozvoj.</p>
+                        
+                        <div class="highlight-box">
+                            <i class="fas fa-video"></i>
+                            <div>
+                                <strong>Koučink ON-LINE na dálku z bezpečí vašeho domova</strong>
+                                <p>Možno i telefonicky</p>
+                            </div>
+                        </div>
+                        
+                        <div class="icf-logo-container">
+                            <img src="./img/icf.png" alt="icf-logo" class="icf-logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left" data-aos-delay="400">
+                    <img src="./foto/ZdenkaLindenbergova (1).jpg" alt="Zdeňka Lindenbergová" class="profile-image">
+                    <div class="image-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="process-section">
+        <div class="container">
+            <h3 class="section-subtitle" data-aos="fade-up">Jak to probíhá?</h3>
+            <div class="process-content" data-aos="fade-up" data-aos-delay="200">
+                <div class="process-intro">
+                    <p>První koučovací setkání (cca 30 min) zdarma poskytuji novým klientům, kteří se chtějí seznámit s koučováním a jeho principy. Vyzkouší si, jaké to je být koučován, nahlédnou, co jim spolupráce s koučem může přinést. Cena navazujícího koučovacího sezení je stanovena dohodou a odvíjí se dle rozsahu a charakteru služby kouče a předpokládané délce spolupráce.</p>
+                </div>
+                
+                <div class="process-steps">
+                    <div class="step" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <div class="step-content">
+                            <p>Pokud nám to bude oboustranně ladit a dávat smysl, domluvíme se na praktických detailech naší spolupráce</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" data-aos="fade-up" data-aos-delay="400">
+                        <div class="step-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="step-content">
+                            <p>Budeme se potkávat podle toho, jak si to nastavíte 1 x za týden, 1 x za 14dní</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" data-aos="fade-up" data-aos-delay="500">
+                        <div class="step-icon">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                        <div class="step-content">
+                            <p>Obvyklá doba spolupráce je na 3 měsíce, záleží na tématu</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" data-aos="fade-up" data-aos-delay="600">
+                        <div class="step-icon">
+                            <i class="fas fa-comment-medical"></i>
+                        </div>
+                        <div class="step-content">
+                            <p>Jednorázově je možno pro trénink nějaké průlomové konverzace</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" data-aos="fade-up" data-aos-delay="700">
+                        <div class="step-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="step-content">
+                            <p>Po celou dobu naší spolupráce máte mou plnou podporu, budu vám držet bezpečný prostor, motivovat vás a jemně a s respektem vás povzbuzovat k akci – budete mít někoho, kdo ve vás věří a vidí váš potenciál</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" data-aos="fade-up" data-aos-delay="800">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="step-content">
+                            <p>Na konci celého procesu zhodnotíme naplnění vašeho záměru</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-footer">
+                    <p><strong>Cenu za spolupráci dohodneme na prvním bezplatném setkání, záleží na druhu spolupráce</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-title" id="coaching-title" data-aos="fade-up">
+        <div class="section-title-content">
+            <h2>KOUČINK</h2>
+            <div class="title-underline"></div>
+        </div>
+    </section>
+    <section class="coaching-reasons">
+        <h3 class="section-subtitle" data-aos="fade-up">Proč si najít kouče?</h3>
+        <div class="flex">
+        <ul id="duvod">
+            <li>1. Získání jasného směru a cílů. Kouč vám pomůže definovat vaše cíle a vypracovat plán, jak jich dosáhnout. Tím získáte jasnou představu o tom, kam směřujete a co potřebujete udělat.</li>
+            <li>2. Posunutí přes překážky. Většinou narážíme na různé překážky v našem životě, které nás zastavují nebo zpomalují. Kouč vám pomůže tyto překážky překonat a najít nové způsoby jak se s nimi vypořádat a posunout se dále.</li>
+            <li>3. Získání nové perspektivy. Kouč vám může nabídnout jinou perspektivu na vaše problémy a situace, které vám mohou pomoci objevit nové řešení.</li>
+            <li>4. Podpora při změnách. Koučování vám může pomoci při změnách v životě, jako jsou změny v práci, ve vztazích nebo osobním životě. Kouč vám může poskytnout podporu a pomoci vám najít způsoby, jak tyto změny úspěšně zvládnout.</li>
+            <li>5. Zlepšení sebedůvěry. Koučování vám může pomoci zlepšit vaši sebedůvěru a sebevědomí, což vám pomůže překonat vaše obavy a pochybnosti.</li>
+            <li>6. Osobní růst. Koučování vám umožní objevit svůj vnitřní potencionál a rozvíjet se jako osoba. Může vám pomoci objevit vaše silné stránky, zlepšit vaše dovednosti a posunout se dále na cestě k osobnímu růstu.</li>
+            <li>7. Překonání prokrastinace. Koučování má metody, jak překonat rezistenci a různé „strachy“</li>
+        </ul>
+        <img src="./img/grafika1.png" alt="solution" id="solution" style="display: none;">
+        <div class="solution-icon-container">
+            <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" class="coaching-journey-svg">
+                <defs>
+                    <!-- Simple gradients matching the photo -->
+                    <linearGradient id="problemGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FF6F00;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FF8F00;stop-opacity:1" />
+                    </linearGradient>
+                    
+                    <linearGradient id="coachGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00BFB2;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#008B82;stop-opacity:1" />
+                    </linearGradient>
+                    
+                    <linearGradient id="solutionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00BFB2;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#006B62;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Simple curved line from Problem to Coach (like in photo) -->
+                <path d="M150 100 Q200 140 180 180 Q160 220 120 200 Q80 180 100 140 Q120 100 150 120 Q180 140 160 160 Q140 180 150 200 Q160 220 140 240 Q120 260 150 270 Q180 280 150 290" 
+                    stroke="#FF6F00" 
+                    stroke-width="3" 
+                    fill="none" 
+                    stroke-linecap="round"
+                    opacity="0.8"/>
+                
+                <!-- Simple straight line from Coach to Solution (like in photo) -->
+                <path d="M140 310 L140 520" 
+                      stroke="#00BFB2" 
+                      stroke-width="3" 
+                      fill="none" 
+                      stroke-linecap="round"/>
+                
+                <!-- Problem bubble (top - orange like in photo) -->
+                <circle cx="150" cy="80" r="25" fill="url(#problemGradient)"/>
+                
+                <!-- Coach bubble (middle - teal like in photo) -->
+                <circle cx="140" cy="310" r="28" fill="url(#coachGradient)"/>
+                
+                <!-- Solution bubble (bottom - teal like in photo) -->
+                <circle cx="140" cy="540" r="25" fill="url(#solutionGradient)"/>
+                
+                <!-- Text labels next to bubbles (like in photo) -->
+                <text x="220" y="70" font-family="Inter" font-size="24" font-weight="700" fill="#002366">PROBLÉM</text>
+                <text x="220" y="90" font-family="Inter" font-size="16" fill="#7f8c8d">Chaos, nejistota, zmatení</text>
+                
+                <text x="220" y="300" font-family="Inter" font-size="24" font-weight="700" fill="#002366">KOUČ</text>
+                <text x="220" y="320" font-family="Inter" font-size="16" fill="#7f8c8d">Podpora, vedení, struktura</text>
+                
+                <text x="220" y="530" font-family="Inter" font-size="24" font-weight="700" fill="#002366">ŘEŠENÍ</text>
+                <text x="220" y="550" font-family="Inter" font-size="16" fill="#7f8c8d">Jasnost, směr, úspěch</text>
+                
+                <!-- Small decorative dots (like in photo) -->
+                <circle cx="100" cy="150" r="2" fill="#FFB74D" opacity="0.6"/>
+                <circle cx="200" cy="200" r="2" fill="#81C784" opacity="0.6"/>
+                <circle cx="80" cy="250" r="2" fill="#64B5F6" opacity="0.6"/>
+                <circle cx="180" cy="300" r="2" fill="#FF8A65" opacity="0.6"/>
+                <circle cx="120" cy="380" r="2" fill="#A1C181" opacity="0.6"/>
+            </svg>
+        </div>
+        </div>
+    </section>
+    
+    <section class="info-cards-section">
+        <div class="container">
+            <div class="info-cards-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3><i class="fas fa-bullseye"></i>Možná témata, kde umím lidem pomáhat</h3>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-rocket"></i>Podnikání, rozvoj, zahájení, vize</li>
+                            <li><i class="fas fa-chart-line"></i>Kariérní růst</li>
+                            <li><i class="fas fa-theater-masks"></i>Roleplay – trénink klíčových konverzací (pracovní pohovor, vystoupení na veřejnosti, komunikace s lidmi na jakékoliv téma)</li>
+                            <li><i class="fas fa-user-plus"></i>Seberozvoj</li>
+                            <li><i class="fas fa-heart"></i>Vztahy</li>
+                            <li><i class="fas fa-smile"></i>Duševní pohoda</li>
+                            <li><i class="fas fa-lightbulb"></i>Nebo jakékoliv téma, které si klient do koučování přinese</li>
+                            <li><i class="fas fa-star"></i>Jednoduše, pomáhám lidem na jejich cestě k šťastnějšímu, tvořivějšímu životu. Pomáhám lidem při cestě za jejich vizí.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card highlight-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3><i class="fas fa-gift"></i>Co můžeš získat</h3>
+                    <div class="card-content">
+                        <p><strong>Bezpečné prostředí, podporu a nehodnotící prostor ve kterém:</strong></p>
+                        <ul>
+                            <li><i class="fas fa-compass"></i>Najdeš a pojmenuješ svůj cíl, sen, vizi</li>
+                            <li><i class="fas fa-gem"></i>Najdeš a budeš rozvíjet své silné stránky, talenty a dary</li>
+                            <li><i class="fas fa-palette"></i>Objevíš (znovuobjevíš) hravost, radost, kreativitu a zvídavost</li>
+                            <li><i class="fas fa-hands-helping"></i>Pomocí společné tvorby půjdeme společně za tvým snem</li>
+                            <li><i class="fas fa-sync-alt"></i>Příležitost přehodnotit, jak a co žiješ</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card" data-aos="fade-up" data-aos-delay="500">
+                    <h3><i class="fas fa-trophy"></i>Benefity, které spolupráce s koučem přináší</h3>
+                    <div class="card-content">
+                        <ul>
+                            <li><i class="fas fa-expand-arrows-alt"></i>Rozšíření možností které máte</li>
+                            <li><i class="fas fa-user-check"></i>Objevení, kdo jsem já – co si myslím, čemu věřím</li>
+                            <li><i class="fas fa-fingerprint"></i>Spojit se sám se sebou, být autentický</li>
+                            <li><i class="fas fa-eye"></i>Nacházení příležitostí</li>
+                            <li><i class="fas fa-fast-forward"></i>Rychlejší a zábavnější dosahování cílů</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div class="flex strong-point-up">
+            <article class="strong-point">
+                <h3>Uvědomění si vlastních silných stránek</h3>
+                <p>Naše silné stránky jsou tak přirozené, že jsou mimo náš úhel pohledu. Navíc jsme se většinou v průběhu života a to zejména ve škole naučili, pracovat na tom co nám nejde a tak jsme své silné stránky nenechali vyniknout. Společně můžeme pracovat na zvědomení si svých jedinečných talentů a vytvářet možnosti, v nichž můžete vynikat a rozkvést.</p>
+            </article>
+            <div class="feature-icon-container">
+                <i class="fas fa-chart-line feature-icon" style="color: var(--secondary-color); font-size: 6rem;"></i>
+            </div>
+        </div>
+        <div class="flex inspo-up">
+            <div class="feature-icon-container">
+                <i class="fas fa-lightbulb feature-icon" style="color: var(--accent-color); font-size: 6rem;"></i>
+            </div>
+            <article class="inspo">
+                <h3>Malá inspirace</h3>
+                <p>Zkuste se zasnít: Jaký život by jste chtěli žít, kdyby jste neměli žádná omezení. Dovolte si to aspoň na chvíli. Co vidíte? Co vnímáte? Jaký máte pocit?</p>
+            </article>
+        </div>
+    </section>
+
+    <footer class="contact-section" id="kontakt-title">
+        <div class="section-title-content" data-aos="fade-up">
+            <h2>KONTAKT</h2>
+            <div class="title-underline"></div>
+        </div>
+        <div class="container">
+            <div class="contact-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4>MOBIL</h4>
+                    <p><a href="tel:+420601337820">+420 601 337 820</a></p>
+                </div>
+                <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>EMAIL</h4>
+                    <p><a href="mailto:zl-kouc@seznam.cz">zl-kouc@seznam.cz</a></p>
+                </div>
+                <div class="contact-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>KDE JSEM DOMA</h4>
+                    <p><a href="https://maps.google.com/?q=Teplá+u+Toužimě" target="_blank" rel="noopener noreferrer">Teplá u Toužimě</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="year">2023</span> Koučink Lindenbergová. All rights reserved. Developed by <a href="https://www.ecl-it.cz">ECL-IT. </a><a href="attributes.html">Attributions</a></p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        function rok() {
+            const date = new Date();
+            let year = date.getFullYear();
+            console.log(year);
+            document.getElementById('year').innerHTML = year;
+        }
+
+        // Initialize AOS with enhanced settings
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const scrollProgress = document.getElementById('scrollProgress');
+
+            function toggleMobileMenu() {
+                mobileMenuBtn.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            }
+
+            function closeMobileMenu() {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+            // Close menu when clicking on a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // Enhanced smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = target.offsetTop - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Enhanced header scroll effect with scroll progress
+            let lastScrollTop = 0;
+            const header = document.querySelector('.header');
+            
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                let documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+                let scrollPercent = (scrollTop / documentHeight) * 100;
+                
+                // Update scroll progress
+                scrollProgress.style.width = scrollPercent + '%';
+                
+                // Header effects
+                if (scrollTop > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+
+            // Parallax effect for hero section
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                window.addEventListener('scroll', function() {
+                    const scrolled = window.pageYOffset;
+                    const parallax = scrolled * 0.5;
+                    /* hero.style.transform = `translateY(${parallax}px)`; */
+                });
+            }
+
+            // Add intersection observer for enhanced animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('aos-animate');
+                        
+                        // Add stagger effect to children
+                        const children = entry.target.querySelectorAll('.reason-item, .step, .info-card, .feature-item');
+                        children.forEach((child, index) => {
+                            setTimeout(() => {
+                                child.classList.add('aos-animate');
+                            }, index * 100);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for enhanced animations
+            document.querySelectorAll('.coaching-reasons, .process-section, .info-cards-section, .feature-sections').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add loading animation
+            window.addEventListener('load', function() {
+                document.body.classList.add('loaded');
+                
+                // Trigger AOS refresh
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 100);
+            });
+
+            // Add keyboard navigation support
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Enhanced CTA button interaction
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            }
+
+/*             // Add scroll-to-top functionality
+            const scrollToTop = document.createElement('button');
+            scrollToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+            scrollToTop.className = 'scroll-to-top';
+            scrollToTop.setAttribute('aria-label', 'Scroll to top');
+            document.body.appendChild(scrollToTop);
+
+            scrollToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }); */
+
+/*             window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTop.classList.add('visible');
+                } else {
+                    scrollToTop.classList.remove('visible');
+                }
+            }); */
+        });
+    </script>
+</body>
+</html>

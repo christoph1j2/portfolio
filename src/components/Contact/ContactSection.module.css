@@ -15,7 +15,7 @@
   left: -5%;
   width: 110%;
   height: 110%;
-  background-image: url('../../../public/ruce-removebg-preview.png');
+  background-image: url('/ruce-removebg-preview.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -284,7 +284,7 @@
   width: 52%;
   height: 40%;
   background-color: #1e40afb0;
-  background-image: url('../../../public/ruce-removebg-preview.png');
+  background-image: url('/ruce-removebg-preview.png');
   background-size: 85%;
   background-position: center;
   background-repeat: no-repeat;
