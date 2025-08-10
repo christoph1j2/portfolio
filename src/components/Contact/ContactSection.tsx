@@ -77,35 +77,6 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
      * 
      * @param {Event} event - The form submission event
      */
-      serviceType: 'web', // Default service type for radio buttons
-    });
-    const [status, setStatus] = useState({
-      submitted: false,
-      success: false,
-      message: ''
-    });
-    const [loading, setLoading] = useState(false);
-
-    /**
-     * Handle the form submission
-     * 
-     * This function handles the entire form submission process:
-     * 1. Validates required fields (email, name, message)
-     * 2. Validates email format
-     * 3. Sends the form data to your email using EmailJS
-     * 4. Displays appropriate success/error messages
-     * 5. Resets the form on successful submission
-     * 
-     * The form collects and sends:
-     * - user_email: The sender's email (required)
-     * - user_phone: The sender's phone number (optional)
-     * - user_name: The sender's name (required)
-     * - message: The message content (required)
-     * - service_type: Selected service from radio buttons (for order forms)
-     * - form_type: Hidden field indicating whether this is a contact or order form
-     * 
-     * @param {Event} event - The form submission event
-     */
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         
@@ -130,8 +101,6 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
             });
             return;
         }
-        
-        // Validate email format using a simple regex pattern
         
         // Validate email format using a simple regex pattern
         if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
@@ -322,12 +291,6 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             />
             
-            <input
-              type="hidden"
-              name="form_type"
-              value={formType || 'contact'}
-            />
-            
             {/* Hidden field to track form type */}
             <input
               type="hidden"
@@ -470,7 +433,6 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
                 <motion.input
                   type="email"
                   name="user_email"
-                  name="user_email"
                   placeholder="E-Mail*"
                   className={styles.inputField}
                   required
@@ -482,8 +444,6 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
                   viewport={{ once: true }}
                 />
                 <motion.input
-                  type="tel"
-                  name="user_phone"
                   type="tel"
                   name="user_phone"
                   placeholder="Telefon"
@@ -500,7 +460,6 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               <motion.input
                 type="text"
                 name="user_name"
-                name="user_name"
                 placeholder="Jméno*"
                 className={`${styles.inputField} ${styles.fullWidth}`}
                 required
@@ -513,7 +472,6 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               />
               
               <motion.textarea
-                name="message"
                 name="message"
                 placeholder="Ahoj, rád bych se zeptal na...*"
                 className={`${styles.inputField} ${styles.textArea}`}
