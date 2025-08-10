@@ -5,8 +5,10 @@ import { SiTypescript, SiTailwindcss, SiMysql, SiPostgresql, SiSpring, SiNestjs 
 import Footer from "../components/Footer/Footer";
 import Navigation from '../components/Navigation/Navigation';
 import { ReactTyped } from 'react-typed';
+import { useContactForm } from '../contexts/ContactFormContext';
 
 const WebPage = () => {
+  const { openContactForm } = useContactForm();
   return (
     <>
     <Navigation />
@@ -66,7 +68,7 @@ const WebPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Vytváření webovek je naše vášeň. A design je vášeň mé přítelkyně. Specializujeme se na moderní, responzivní a funkční weby, které nejen vypadají skvěle, ale také plní svůj účel. Ať už potřebujete jednoduchou prezentační stránku nebo komplexní webovou aplikaci, jsme tu, abychom pomohli.
+            Vytváření webovek je moje vášeň. A design je vášeň mé přítelkyně. Specializujeme se na moderní, responzivní a funkční weby, které nejen vypadají skvěle, ale také plní svůj účel. Ať už potřebujete jednoduchou prezentační stránku nebo komplexní webovou aplikaci, jsme tu, abychom pomohli.
           </motion.p>
         </div>
       </section>
@@ -484,13 +486,7 @@ const WebPage = () => {
                       (e.target as HTMLButtonElement).style.transform = 'scale(1)';
                       (e.target as HTMLButtonElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
                     }}
-                    onClick={() => {
-                      // Scroll to contact or open contact form
-                      const contactSection = document.getElementById('kontakt');
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
+                    onClick={() => openContactForm('order')}
                   >
                     Nezávazná poptávka
                   </button>
@@ -635,8 +631,9 @@ const WebPage = () => {
               Kontaktujte nás pro individuální konzultaci 
               a cenovou nabídku šitou na míru vašim potřebám.
             </p>
-            <a href="#kontakt" style={{ textDecoration: 'none', top: '.5rem', position: 'relative' }}>
-              <button style={{
+            <button 
+              onClick={() => openContactForm('contact')}
+              style={{
                 background: 'linear-gradient(to right, #0d47a1, #1565c0)',
                 top: '1rem',
                 color: 'white',
@@ -645,14 +642,22 @@ const WebPage = () => {
                 borderRadius: '8px',
                 border: 'none',
                 cursor: 'pointer',
-                fontSize: '1rem',
+                fontSize: '1.1rem',
                 transition: 'all 0.2s ease',
                 boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
               }}
-              className='hover:scale-105'>
+              className='hover:scale-105 hover:shadow-lg'
+              onMouseEnter={(e) => {
+                (e.target as HTMLButtonElement).style.transform = 'scale(1.05)';
+                (e.target as HTMLButtonElement).style.boxShadow = '0 6px 16px rgba(0,0,0,0.3)';
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLButtonElement).style.transform = 'scale(1)';
+                (e.target as HTMLButtonElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+              }}
+            >
                 Diskutujme váš projekt
-              </button>
-            </a>
+            </button>
           </motion.div>
         </div>
       </section>

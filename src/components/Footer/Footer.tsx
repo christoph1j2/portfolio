@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { IoIosArrowUp } from 'react-icons/io';
 import { Globe, Code, Heart } from 'lucide-react';
@@ -8,6 +8,7 @@ import styles from './Footer.module.css';
 
 const Footer: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   
   const scrollToTop = () => {
     const container = document.querySelector("#root");
@@ -24,6 +25,29 @@ const Footer: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  // When clicking an anchor link from a non-home page: go to home, scroll up smoothly, then to section
+  const handleAnchorClick = (sectionId: string) => {
+    if (location.pathname === '/') {
+      scrollToSection(sectionId);
+      return;
+    }
+    navigate('/');
+    // small delay to ensure navigation/mount completes
+    setTimeout(() => {
+      // replicate global smooth scroll-up effect used elsewhere
+      const container = document.querySelector('#root');
+      if (container) {
+        container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      }
+      // then smooth-scroll to the target section
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 150);
+    }, 100);
   };
 
   const socialLinks = [
@@ -90,14 +114,24 @@ const Footer: React.FC = () => {
                   transition={{ duration: 0.2 }}
                 >
                   {link.isInternal ? (
-                    link.isAnchor && location.pathname === '/' ? (
-                      <button 
-                        onClick={() => scrollToSection(link.href)}
-                        className={styles.footerLink}
-                        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-                      >
-                        {link.name}
-                      </button>
+                    link.isAnchor ? (
+                      location.pathname === '/' ? (
+                        <button 
+                          onClick={() => scrollToSection(link.href)}
+                          className={styles.footerLink}
+                          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                        >
+                          {link.name}
+                        </button>
+                      ) : (
+                        <button 
+                          onClick={() => handleAnchorClick(link.href)}
+                          className={styles.footerLink}
+                          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                        >
+                          {link.name}
+                        </button>
+                      )
                     ) : (
                       <Link to={link.href} className={styles.footerLink}>
                         {link.name}
@@ -221,7 +255,7 @@ const Footer: React.FC = () => {
         />
       </div>
 
-            {/* Scroll to top button */}
+      {/* Scroll to top button */}
       <motion.button
         className={styles.scrollToTop}
         onClick={scrollToTop}

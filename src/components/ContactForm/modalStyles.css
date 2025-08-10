@@ -1,0 +1,12 @@
+/* Global styles for modal functionality */
+body.modal-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.modal-open > *:not(.modal-wrapper) {
+  pointer-events: none !important;
+  user-select: none !important;
+}
