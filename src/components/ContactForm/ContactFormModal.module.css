@@ -299,3 +299,36 @@
     font-size: 0.85rem !important;
   }
 }
+
+/* Modal-specific rate limit warning styles */
+.modalRateLimitWarning {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+}
+
+.modalRateLimitWarning .content {
+  gap: 10px;
+}
+
+.modalRateLimitWarning .icon {
+  font-size: 18px;
+}
+
+/* Disabled button styles for modal */
+.disabled {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 50%, #4b5563 100%) !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.disabled:hover {
+  transform: none !important;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 50%, #4b5563 100%) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.disabled::before {
+  display: none;
+}

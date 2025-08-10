@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { motion } from 'motion/react';
-import { MdComputer, MdSpeed, MdBuild, MdSecurity, MdBackup, MdWifi } from 'react-icons/md';
-import { FaHdd, FaWindows, FaTools } from 'react-icons/fa';
-import { SiIntel, SiAmd, SiNvidia, SiAsus, SiHp, SiDell } from 'react-icons/si';
+import { MdSpeed, MdBuild, MdBackup, MdWifi } from 'react-icons/md';
+import { FaWindows, FaTools } from 'react-icons/fa';
 import Footer from "../components/Footer/Footer";
 import Navigation from '../components/Navigation/Navigation';
 import { ReactTyped } from 'react-typed';

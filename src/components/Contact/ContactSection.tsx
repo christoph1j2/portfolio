@@ -5,6 +5,8 @@ import modalStyles from '../ContactForm/ContactFormModal.module.css'; // Import 
 import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import emailjs from '@emailjs/browser';
+import useRateLimit from '../../hooks/useRateLimit';
+import RateLimitWarning from '../RateLimitWarning/RateLimitWarning';
 
 interface ContactSectionProps {
   modalForm?: boolean;
@@ -27,6 +29,19 @@ interface ContactSectionProps {
  */
 const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSectionProps) => {
     const form = useRef<HTMLFormElement>(null);
+    
+    // Rate limiting hook
+    const {
+      isBlocked,
+      blockReason,
+      timeUntilReset,
+      attemptsRemaining,
+      checkRateLimit,
+      recordAttempt,
+      dailySubmissionsUsed,
+      formatTimeRemaining
+    } = useRateLimit();
+    
     // State for form fields
     const [formData, setFormData] = useState({
       email: '',
@@ -65,8 +80,20 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         
+        // First check rate limiting
+        if (!checkRateLimit()) {
+            recordAttempt(false); // Record failed attempt
+            setStatus({
+              submitted: true,
+              success: false,
+              message: `Odesílání je dočasně blokováno. ${blockReason || 'Zkuste to prosím později.'}`
+            });
+            return;
+        }
+        
         // Form validation - check required fields (name, email, message)
         if (!formData.email || !formData.name || !formData.message) {
+            recordAttempt(false); // Record failed attempt due to validation
             setStatus({
               submitted: true,
               success: false,
@@ -77,6 +104,7 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
         
         // Validate email format using a simple regex pattern
         if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+            recordAttempt(false); // Record failed attempt due to validation
             setStatus({
               submitted: true,
               success: false,
@@ -118,10 +146,10 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
             // EmailJS sendForm method extracts all form field values from the form element
             // and sends them to your configured email address
             emailjs.sendForm(
-                'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-                'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+                'service_y4e800y', // Replace with your EmailJS service ID
+                'template_xi8gc8u', // Replace with your EmailJS template ID
                 form.current,
-                'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+                'L4FTXDnaQFlWAcpM9' // Replace with your EmailJS public key
             )
             .then((result) => {
                 /**
@@ -133,8 +161,12 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
                  * 3. Reset all form fields to their default values
                  * 4. Turn off loading state
                  * 5. Track event in analytics (if available)
+                 * 6. Record successful submission for rate limiting
                  */
                 console.log('Email sent successfully:', result.text);
+                
+                // Record successful submission for rate limiting
+                recordAttempt(true);
                 
                 // Update UI with success message
                 setStatus({
@@ -175,14 +207,18 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
                  * 1. Log detailed error information for debugging
                  * 2. Update UI status to show error message with alternative contact method
                  * 3. Turn off loading state
+                 * 4. Record failed attempt for rate limiting
                  */
                 console.error('Email sending failed:', error.text);
+                
+                // Record failed submission attempt for rate limiting
+                recordAttempt(false);
                 
                 // Show user-friendly error message with alternative contact method
                 setStatus({
                   submitted: true,
                   success: false,
-                  message: 'Došlo k chybě při odesílání. Zkuste to prosím znovu nebo mě kontaktujte přímo na info@ecl-it.cz'
+                  message: 'Došlo k chybě při odesílání. Zkuste to prosím znovu nebo mě kontaktujte přímo na ernst.leschka@gmail.com'
                 });
                 
                 // Turn off loading indicator
@@ -210,6 +246,17 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
     return (
       <div className={styles.modalContactSection}>
         <div className={styles.formContainer}>
+          {/* Rate limiting warning */}
+          <RateLimitWarning
+            isBlocked={isBlocked}
+            blockReason={blockReason}
+            timeUntilReset={timeUntilReset}
+            attemptsRemaining={attemptsRemaining}
+            dailySubmissionsUsed={dailySubmissionsUsed}
+            formatTimeRemaining={formatTimeRemaining}
+            className={modalStyles.modalRateLimitWarning}
+          />
+          
           <motion.form className={`${styles.contactForm} ${modalStyles.modalContactForm}`} ref={form} onSubmit={handleSubmit}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -329,8 +376,8 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
             
             <button 
               type="submit" 
-              className={`${styles.submitButton} ${modalStyles.modalSubmitButton} ${loading ? styles.loading : ''}`}
-              disabled={loading}
+              className={`${styles.submitButton} ${modalStyles.modalSubmitButton} ${loading ? styles.loading : ''} ${isBlocked ? styles.disabled : ''}`}
+              disabled={loading || isBlocked}
             >
               {loading ? (
                 <>
@@ -339,7 +386,7 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
                   <span className={styles.loadingDot}>.</span>
                   ODESÍLÁNÍ
                 </>
-              ) : 'ODESLAT'}
+              ) : isBlocked ? 'BLOKOVÁNO' : 'ODESLAT'}
             </button>
           </motion.form>
           
@@ -349,8 +396,8 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               <a href="tel:+420605944418" className={styles.contactLink}>
                 +420 605 944 418
               </a>
-              <a href="mailto:info@ecl-it.cz" className={styles.contactLink}>
-                INFO@ECL-IT.CZ
+              <a href="mailto:ernst.leschka@gmail.com" className={styles.contactLink}>
+                ernst.leschka@gmail.com
               </a>
             </div>
           )}
@@ -372,6 +419,16 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               <span className={styles.titleSlash}>/</span>
               <span className={styles.titleText}>KONTAKT</span>
             </motion.h2>
+            
+            {/* Rate limiting warning */}
+            <RateLimitWarning
+              isBlocked={isBlocked}
+              blockReason={blockReason}
+              timeUntilReset={timeUntilReset}
+              attemptsRemaining={attemptsRemaining}
+              dailySubmissionsUsed={dailySubmissionsUsed}
+              formatTimeRemaining={formatTimeRemaining}
+            />
             
             <motion.form className={styles.contactForm} ref={form} onSubmit={handleSubmit}
               initial={{ opacity: 0, y: -20 }}
@@ -447,14 +504,14 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               
               <motion.button 
                 type="submit" 
-                className={`${styles.submitButton} ${loading ? styles.loading : ''}`}
-                disabled={loading}
+                className={`${styles.submitButton} ${loading ? styles.loading : ''} ${isBlocked ? styles.disabled : ''}`}
+                disabled={loading || isBlocked}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.9 }}
                 viewport={{ once: true }}
               >
-                {loading ? 'ODESÍLÁNÍ...' : 'ODESLAT'}
+                {loading ? 'ODESÍLÁNÍ...' : isBlocked ? 'BLOKOVÁNO' : 'ODESLAT'}
               </motion.button>
             </motion.form>
             
@@ -467,8 +524,8 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               <a href="tel:+420605944418" className={styles.contactLink}>
                 +420 605 944 418
               </a>
-              <a href="mailto:info@ecl-it.cz" className={styles.contactLink}>
-                INFO@ECL-IT.CZ
+              <a href="mailto:ernst.leschka@gmail.com" className={styles.contactLink}>
+                ernst.leschka@gmail.com
               </a>
             </motion.div>
           </div>

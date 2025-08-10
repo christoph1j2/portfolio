@@ -275,6 +275,24 @@
   opacity: 0.8;
 }
 
+.disabled {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 50%, #4b5563 100%) !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.disabled:hover {
+  transform: none !important;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 50%, #4b5563 100%) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.disabled::before {
+  display: none;
+}
+
 /* Loading animation for dots */
 .loadingDot {
   display: inline-block;

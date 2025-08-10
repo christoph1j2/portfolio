@@ -157,12 +157,12 @@ const Footer: React.FC = () => {
             <h3 className={styles.sectionTitle}>Kontakt</h3>
             <div className={styles.contactInfo}>
               <motion.a 
-                href="mailto:info@ecl-it.cz" 
+                href="mailto:ernst.leschka@gmail.com" 
                 className={styles.contactLink}
                 whileHover={{ x: 5, color: '#2fffd6' }}
               >
                 <FaEnvelope className={styles.contactIcon} />
-                info@ecl-it.cz
+                ernst.leschka@gmail.com
               </motion.a>
               <motion.a 
                 href="tel:+420123456789" 
