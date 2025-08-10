@@ -1,30 +1,363 @@
 
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import styles from './ContactSection.module.css';
-import { useState } from 'react';
+import modalStyles from '../ContactForm/ContactFormModal.module.css'; // Import modal styles
+import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
+import emailjs from '@emailjs/browser';
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  modalForm?: boolean;
+  formType?: 'contact' | 'order' | null;
+}
+
+/**
+ * ContactSection Component
+ * 
+ * This component handles two types of contact forms:
+ * 1. Regular contact form ('contact')
+ * 2. Order/inquiry form ('order')
+ * 
+ * It can be displayed in two modes:
+ * - As a regular section on a page (modalForm=false)
+ * - As a modal dialog (modalForm=true)
+ * 
+ * @param {boolean} modalForm - Whether this form is rendered in a modal
+ * @param {string} formType - Type of form: 'contact' or 'order'
+ */
+const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSectionProps) => {
+    const form = useRef<HTMLFormElement>(null);
+    // State for form fields
     const [formData, setFormData] = useState({
       email: '',
       phone: '',
       name: '',
       message: '',
+      serviceType: 'web', // Default service type for radio buttons
     });
+    const [status, setStatus] = useState({
+      submitted: false,
+      success: false,
+      message: ''
+    });
+    const [loading, setLoading] = useState(false);
 
+    /**
+     * Handle the form submission
+     * 
+     * This function handles the entire form submission process:
+     * 1. Validates required fields (email, name, message)
+     * 2. Validates email format
+     * 3. Sends the form data to your email using EmailJS
+     * 4. Displays appropriate success/error messages
+     * 5. Resets the form on successful submission
+     * 
+     * The form collects and sends:
+     * - user_email: The sender's email (required)
+     * - user_phone: The sender's phone number (optional)
+     * - user_name: The sender's name (required)
+     * - message: The message content (required)
+     * - service_type: Selected service from radio buttons (for order forms)
+     * - form_type: Hidden field indicating whether this is a contact or order form
+     * 
+     * @param {Event} event - The form submission event
+     */
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
+        
+        // Form validation - check required fields (name, email, message)
         if (!formData.email || !formData.name || !formData.message) {
-            console.error('Please fill in all required fields.');
+            setStatus({
+              submitted: true,
+              success: false,
+              message: 'Vyplňte prosím všechna povinná pole.'
+            });
             return;
         }
+        
+        // Validate email format using a simple regex pattern
         if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
-            console.error('Please enter a valid email address.');
+            setStatus({
+              submitted: true,
+              success: false,
+              message: 'Zadejte prosím platnou emailovou adresu.'
+            });
             return;
+        }
+        
+        // Set loading state to show UI feedback during email sending process
+        setLoading(true);
+        
+        // Prepare the form data for EmailJS
+        // Log form submission attempt for debugging
+        console.log('Attempting to send email with form type:', formType);
+        if (formType === 'order') {
+            console.log('Selected service type:', formData.serviceType);
+        }
+        
+        /**
+         * EmailJS Integration
+         * ------------------
+         * 1. Configuration:
+         *    - Service ID: This identifies your EmailJS service (connected to your email provider)
+         *    - Template ID: This identifies the email template with placeholders for your form data
+         *    - Public Key: Your EmailJS account's public key for authentication
+         * 
+         * 2. Form Data Mapping:
+         *    The form's named inputs are automatically sent to EmailJS:
+         *    - user_email: The sender's email address
+         *    - user_phone: The sender's phone number (optional)
+         *    - user_name: The sender's name
+         *    - message: The message content
+         *    - service_type: The selected service type radio button
+         *    - form_type: Hidden field indicating whether this is a contact or order form
+         *
+         * 3. Make sure these input name attributes match the template variables in your EmailJS template
+         */
+        if (form.current) {
+            // EmailJS sendForm method extracts all form field values from the form element
+            // and sends them to your configured email address
+            emailjs.sendForm(
+                'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+                'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+                form.current,
+                'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+            )
+            .then((result) => {
+                /**
+                 * EmailJS Success Handling
+                 * ----------------------
+                 * When EmailJS successfully delivers the message:
+                 * 1. Log success information for debugging
+                 * 2. Update UI status to show success message
+                 * 3. Reset all form fields to their default values
+                 * 4. Turn off loading state
+                 * 5. Track event in analytics (if available)
+                 */
+                console.log('Email sent successfully:', result.text);
+                
+                // Update UI with success message
+                setStatus({
+                  submitted: true,
+                  success: true,
+                  message: 'Zpráva byla úspěšně odeslána! Brzy vás kontaktuji. Děkuji za váš zájem.'
+                });
+                
+                // Reset all form fields to their default values
+                setFormData({
+                  email: '',
+                  phone: '',
+                  name: '',
+                  message: '',
+                  serviceType: 'web', // Reset to default service type
+                });
+                
+                // Turn off loading indicator
+                setLoading(false);
+                
+                // Track successful submission in Google Analytics (if available)
+                try {
+                    if (window.gtag) {
+                        window.gtag('event', 'form_submission', {
+                            'event_category': 'Contact',
+                            'event_label': formType || 'contact'
+                        });
+                    }
+                } catch (e) {
+                    console.error('Analytics error:', e);
+                }
+            })
+            .catch((error) => {
+                /**
+                 * EmailJS Error Handling
+                 * --------------------
+                 * If EmailJS encounters an error:
+                 * 1. Log detailed error information for debugging
+                 * 2. Update UI status to show error message with alternative contact method
+                 * 3. Turn off loading state
+                 */
+                console.error('Email sending failed:', error.text);
+                
+                // Show user-friendly error message with alternative contact method
+                setStatus({
+                  submitted: true,
+                  success: false,
+                  message: 'Došlo k chybě při odesílání. Zkuste to prosím znovu nebo mě kontaktujte přímo na info@ecl-it.cz'
+                });
+                
+                // Turn off loading indicator
+                setLoading(false);
+            });
         }
     }
+
+  /**
+   * Generate a custom message placeholder for the message textarea based on form type
+   * - 'contact' type shows a general contact message placeholder
+   * - 'order' type shows a placeholder for inquiries/orders
+   * 
+   * @returns {string} The placeholder text for the message textarea
+   */
+  const getFormPlaceholder = () => {
+    if (formType === 'order') {
+      return "Dobrý den, mám zájem o nezávaznou poptávku na...*";
+    }
+    return "Ahoj, rád bych se zeptal na...*";
+  };
+
+  // Different styling and structure for modal vs page display
+  if (modalForm) {
+    return (
+      <div className={styles.modalContactSection}>
+        <div className={styles.formContainer}>
+          <motion.form className={`${styles.contactForm} ${modalStyles.modalContactForm}`} ref={form} onSubmit={handleSubmit}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}>
+            <div className={styles.formRow}>
+              <input
+                type="email"
+                name="user_email"
+                placeholder="E-Mail*"
+                className={`${styles.inputField} ${modalStyles.modalInput}`}
+                required
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              />
+              <input
+                type="tel"
+                name="user_phone"
+                placeholder="Telefon"
+                className={`${styles.inputField} ${modalStyles.modalInput}`}
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              />
+            </div>
+
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Jméno*"
+              className={`${styles.inputField} ${styles.fullWidth} ${modalStyles.modalInput}`}
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            />
+            
+            <input
+              type="hidden"
+              name="form_type"
+              value={formType || 'contact'}
+            />
+            
+            {/* Hidden field to track form type */}
+            <input
+              type="hidden"
+              name="form_type"
+              value={formType || 'contact'}
+            />
+            
+            {/* Radio buttons for service selection - only shown for order form type */}
+            {formType === 'order' && (
+              <div className={`${styles.serviceOptions} ${modalForm ? modalStyles.modalServiceOptions : ''}`}>
+                <h3 className={`${styles.serviceOptionsTitle} ${modalForm ? modalStyles.modalSectionTitle : ''}`}>Vyberte službu:</h3>
+                
+                <div className={`${styles.radioGroup} ${modalForm ? modalStyles.modalRadioGroup : ''}`}>
+                  <label className={`${styles.radioLabel} ${modalForm ? modalStyles.modalRadioLabel : ''}`}>
+                    <input
+                      type="radio"
+                      name="service_type"
+                      value="web"
+                      checked={formData.serviceType === 'web'}
+                      onChange={() => setFormData({ ...formData, serviceType: 'web' })}
+                      className={`${styles.radioInput} ${modalForm ? modalStyles.modalRadioInput : ''}`}
+                    />
+                    <span className={`${styles.radioText} ${modalForm ? modalStyles.modalRadioText : ''}`}>Tvorba webu</span>
+                    <span className={`${styles.radioDescription} ${modalForm ? modalStyles.modalRadioDescription : ''}`}>Moderní, responzivní webové stránky</span>
+                  </label>
+                  
+                  <label className={`${styles.radioLabel} ${modalForm ? modalStyles.modalRadioLabel : ''}`}>
+                    <input
+                      type="radio"
+                      name="service_type"
+                      value="app"
+                      checked={formData.serviceType === 'app'}
+                      onChange={() => setFormData({ ...formData, serviceType: 'app' })}
+                      className={`${styles.radioInput} ${modalForm ? modalStyles.modalRadioInput : ''}`}
+                    />
+                    <span className={`${styles.radioText} ${modalForm ? modalStyles.modalRadioText : ''}`}>Webová aplikace</span>
+                    <span className={`${styles.radioDescription} ${modalForm ? modalStyles.modalRadioDescription : ''}`}>Komplexní webové aplikace na míru</span>
+                  </label>
+                  
+                  <label className={`${styles.radioLabel} ${modalForm ? modalStyles.modalRadioLabel : ''}`}>
+                    <input
+                      type="radio"
+                      name="service_type"
+                      value="maintenance"
+                      checked={formData.serviceType === 'maintenance'}
+                      onChange={() => setFormData({ ...formData, serviceType: 'maintenance' })}
+                      className={`${styles.radioInput} ${modalForm ? modalStyles.modalRadioInput : ''}`}
+                    />
+                    <span className={`${styles.radioText} ${modalForm ? modalStyles.modalRadioText : ''}`}>Individuální řešení</span>
+                    <span className={`${styles.radioDescription} ${modalForm ? modalStyles.modalRadioDescription : ''}`}>Složitější řešení na míru</span>
+                  </label>
+                </div>
+              </div>
+            )}
+            
+            {/* Message text area */}
+            <textarea
+              name="message"
+              placeholder={getFormPlaceholder()}
+              className={`${styles.inputField} ${styles.textArea} ${modalStyles.modalTextArea} ${modalStyles.modalInput}`}
+              rows={4} /* Reduced rows for modal */
+              required
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            ></textarea>
+            
+            {status.submitted && (
+              <motion.div 
+                className={`${styles.statusMessage} ${status.success ? styles.successMessage : styles.errorMessage}`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {status.message}
+              </motion.div>
+            )}
+            
+            <button 
+              type="submit" 
+              className={`${styles.submitButton} ${modalStyles.modalSubmitButton} ${loading ? styles.loading : ''}`}
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <span className={styles.loadingDot}>.</span>
+                  <span className={styles.loadingDot}>.</span>
+                  <span className={styles.loadingDot}>.</span>
+                  ODESÍLÁNÍ
+                </>
+              ) : 'ODESLAT'}
+            </button>
+          </motion.form>
+          
+          {/* Only show contact info when not in modal form */}
+          {!modalForm && (
+            <div className={styles.contactInfo}>
+              <a href="tel:+420605944418" className={styles.contactLink}>
+                +420 605 944 418
+              </a>
+              <a href="mailto:info@ecl-it.cz" className={styles.contactLink}>
+                INFO@ECL-IT.CZ
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section className={styles.contactSection} id="contact">
@@ -40,7 +373,7 @@ const ContactSection = () => {
               <span className={styles.titleText}>KONTAKT</span>
             </motion.h2>
             
-            <motion.form className={styles.contactForm} onSubmit={handleSubmit}
+            <motion.form className={styles.contactForm} ref={form} onSubmit={handleSubmit}
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -48,6 +381,7 @@ const ContactSection = () => {
               <div className={styles.formRow}>
                 <motion.input
                   type="email"
+                  name="user_email"
                   placeholder="E-Mail*"
                   className={styles.inputField}
                   required
@@ -59,7 +393,8 @@ const ContactSection = () => {
                   viewport={{ once: true }}
                 />
                 <motion.input
-                  type="phone"
+                  type="tel"
+                  name="user_phone"
                   placeholder="Telefon"
                   className={styles.inputField}
                   initial={{ opacity: 0, x: -20 }}
@@ -73,6 +408,7 @@ const ContactSection = () => {
 
               <motion.input
                 type="text"
+                name="user_name"
                 placeholder="Jméno*"
                 className={`${styles.inputField} ${styles.fullWidth}`}
                 required
@@ -85,6 +421,7 @@ const ContactSection = () => {
               />
               
               <motion.textarea
+                name="message"
                 placeholder="Ahoj, rád bych se zeptal na...*"
                 className={`${styles.inputField} ${styles.textArea}`}
                 rows={5}
@@ -97,13 +434,27 @@ const ContactSection = () => {
                 viewport={{ once: true }}
               ></motion.textarea>
               
-              <motion.button type="submit" className={styles.submitButton}
+              {status.submitted && (
+                <motion.div 
+                  className={`${styles.statusMessage} ${status.success ? styles.successMessage : styles.errorMessage}`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {status.message}
+                </motion.div>
+              )}
+              
+              <motion.button 
+                type="submit" 
+                className={`${styles.submitButton} ${loading ? styles.loading : ''}`}
+                disabled={loading}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.9 }}
                 viewport={{ once: true }}
               >
-                ODESLAT
+                {loading ? 'ODESÍLÁNÍ...' : 'ODESLAT'}
               </motion.button>
             </motion.form>
             

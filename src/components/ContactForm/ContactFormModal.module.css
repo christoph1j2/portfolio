@@ -1,0 +1,301 @@
+/**
+ * Modal overlay - full screen background
+ * 
+ * Creates a semi-transparent backdrop behind the modal.
+ * Fixed to viewport coordinates to ensure it covers everything.
+ * Darker overlay for better focus on the modal.
+ */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: rgba(0, 0, 0, 0.9); /* Darker background for better blocking */
+  backdrop-filter: blur(5px); /* Blur for more emphasis */
+  z-index: 999999; /* Very high z-index */
+  margin: 0;
+  padding: 0;
+  cursor: pointer; /* Show that it's clickable */
+  display: block; /* Ensure it displays properly */
+  pointer-events: all; /* Ensure it captures clicks */
+  user-select: none; /* Prevent text selection */
+}
+
+/* Modal container - fixed positioning in the middle of the screen */
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  z-index: 1000000; /* Even higher z-index than the overlay */
+  padding: 0;
+  pointer-events: none; /* Allow clicks to pass through to overlay */
+}
+
+/* The modal box itself */
+/* The modal itself - positioned in center of screen */
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px; /* Smaller width for more compact appearance */
+  max-height: 80vh; /* Reduced height to ensure it fits in viewport */
+  background: #f3f4f6;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  z-index: 1000001; /* Ensure it's above everything */
+  pointer-events: auto; /* Enable interactions with modal content */
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto; /* Center horizontally */
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  color: #1e40af;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000002; /* Above the modal */
+  transition: all 0.2s;
+  pointer-events: auto; /* Ensure it's clickable */
+}
+
+.closeButton:hover {
+  background: #f3f4f6;
+  color: #dc2626;
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px -2px rgba(0, 0, 0, 0.15);
+  background: #f9fafb;
+}
+
+/* Modal content area with reduced padding for more compact layout */
+.modalContent {
+  padding: .75rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(80vh - 2.5rem); /* Adjusted height */
+  flex: 1;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  position: relative; /* Create a stacking context */
+  z-index: 1000001; /* Match modal z-index */
+}
+
+/* Smaller title for more compact modal */
+.modalTitle {
+  font-size: 1.5rem; /* Even smaller for more compact appearance */
+  font-weight: 700;
+  color: #1e40af;
+  text-align: center;
+  margin-bottom: 0.75rem; /* Reduced margin */
+  padding-top: 0.5rem; /* Small padding at the top */
+}
+
+/* Specific styles for the contact form when used in a modal */
+.modalContactForm {
+  gap: 0.5rem !important; /* Reduce spacing between form elements */
+}
+
+/* Smaller fields for more compact form */
+.modalInput {
+  padding: 0.75rem !important;
+  font-size: 0.9rem !important;
+}
+
+/* Smaller textarea for modal */
+.modalTextArea {
+  min-height: 100px !important;
+}
+
+/* Smaller buttons for modal */
+.modalButton {
+  padding: 0.75rem 1.5rem !important;
+}
+
+/* Smaller submit button for modal */
+.modalSubmitButton {
+  padding: 0.75rem 1.5rem !important;
+  margin-top: 0.5rem !important;
+  width: auto !important;
+  font-size: 0.9rem !important;
+}
+
+/* Container for the contact form inside the modal - more compact */
+.contactFormContainer {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  position: relative; /* Create a stacking context */
+  z-index: 1000001; /* Match modal z-index */
+}
+
+/* More compact service options in modal */
+.modalServiceOptions {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Smaller section title in modal */
+.modalSectionTitle {
+  font-size: 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* More compact radio group in modal */
+.modalRadioGroup {
+  gap: 0.5rem !important;
+}
+
+/* More compact radio label in modal */
+.modalRadioLabel {
+  padding: 0.5rem !important;
+}
+
+/* More compact radio text in modal */
+.modalRadioText {
+  font-size: 0.9rem !important;
+  margin-bottom: 0 !important;
+}
+
+/* More compact radio description in modal */
+.modalRadioDescription {
+  font-size: 0.75rem !important;
+}
+
+/* More compact radio input in modal */
+.modalRadioInput {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 92%;
+    max-height: 85vh; /* Ensure it fits within the viewport */
+    top: 50%;
+    margin: 0;
+    border-radius: 12px; /* Slightly smaller radius on mobile */
+  }
+  
+  .modalContent {
+    padding: 0.75rem;
+    max-height: calc(85vh - 2rem); /* Ensure content fits */
+  }
+  
+  .modalTitle {
+    font-size: 1.2rem; /* Smaller on mobile */
+    padding-top: 0.25rem;
+    margin-bottom: 0.5rem; /* Reduced margin */
+  }
+  
+  /* Further reduce spacing on mobile */
+  .modalContactForm {
+    gap: 0.4rem !important;
+  }
+  
+  .modalInput {
+    padding: 0.5rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .modalRadioGroup {
+    gap: 0.3rem !important;
+  }
+  
+  .modalRadioLabel {
+    padding: 0.4rem !important;
+  }
+  
+  .modalTextArea {
+    min-height: 80px !important;
+  }
+  
+  .modalSubmitButton {
+    padding: 0.6rem 1.25rem !important;
+    margin-top: 0.4rem !important;
+  }
+  
+  /* Adjust close button size for mobile */
+  .closeButton {
+    width: 32px;
+    height: 32px;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 375px) {
+  .modal {
+    width: 95%;
+    max-height: 90vh;
+    border-radius: 10px;
+  }
+  
+  .modalContent {
+    padding: 0.6rem;
+  }
+  
+  .modalTitle {
+    font-size: 1.1rem;
+  }
+  
+  .modalTextArea {
+    min-height: 70px !important;
+  }
+  
+  /* Make form elements even more compact */
+  .modalInput {
+    padding: 0.45rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .closeButton {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+  
+  /* Make radio options more compact */
+  .modalRadioText {
+    font-size: 0.8rem !important;
+  }
+  
+  .modalRadioDescription {
+    font-size: 0.65rem !important;
+  }
+  
+  .modalSubmitButton {
+    font-size: 0.85rem !important;
+  }
+}

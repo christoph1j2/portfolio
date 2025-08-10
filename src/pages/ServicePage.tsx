@@ -6,8 +6,10 @@ import { SiIntel, SiAmd, SiNvidia, SiAsus, SiHp, SiDell } from 'react-icons/si';
 import Footer from "../components/Footer/Footer";
 import Navigation from '../components/Navigation/Navigation';
 import { ReactTyped } from 'react-typed';
+import { useContactForm } from '../contexts/ContactFormContext';
 
 const ServicePage = () => {
+  const { openContactForm } = useContactForm();
   return (
     <>
     <Navigation />
@@ -265,6 +267,40 @@ const ServicePage = () => {
             >
               Uvedené ceny jsou orientační. Finální cena závisí na konkrétní situaci a domluvě.
             </motion.p>
+            
+            <motion.div
+              style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+            >
+              <button
+                onClick={() => openContactForm('contact')}
+                style={{
+                  background: 'linear-gradient(to right, #0d47a1, #1565c0)',
+                  color: 'white',
+                  fontWeight: 'bold',
+                  padding: '1rem 2.5rem',
+                  borderRadius: '8px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '1.1rem',
+                  transition: 'all 0.2s ease',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                }}
+                className='hover:scale-105'
+                onMouseEnter={(e) => {
+                  (e.target as HTMLButtonElement).style.transform = 'scale(1.05)';
+                  (e.target as HTMLButtonElement).style.boxShadow = '0 6px 16px rgba(0,0,0,0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.target as HTMLButtonElement).style.transform = 'scale(1)';
+                  (e.target as HTMLButtonElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+                }}
+              >
+                Potřebuji pomoc s počítačem
+              </button>
+            </motion.div>
           </motion.div>
         </div>
       </section>

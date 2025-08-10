@@ -6,24 +6,27 @@ import TechnologyPage from './pages/TechnologyPage';
 import ServicePage from './pages/ServicePage';
 import WebPage from './pages/WebPage';
 import { LaceHubPreview } from './pages/portfolio';
+import { ContactFormProvider } from './contexts/ContactFormContext';
+import ContactFormModal from './components/ContactForm/ContactFormModal';
 
 const App = () => {
   return (
-    
-    <BrowserRouter>
-    <div className="app-container">
-      <Routes>
-          <Route index element={<Home />} />
-          <Route path="portfolio" element={<PortfolioPage />} />
-          <Route path="portfolio/lacehub" element={<LaceHubPreview />} />
-          <Route path="technologie" element={<TechnologyPage />} />
-          <Route path="web" element={<WebPage />} />
-          <Route path="servis" element={<ServicePage />} />
-          <Route path="*" element={<Home />} />
-      </Routes>
-    </div>
-    </BrowserRouter>
-    
+    <ContactFormProvider>
+      <BrowserRouter>
+        <div className="app-container">
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="portfolio" element={<PortfolioPage />} />
+            <Route path="portfolio/lacehub" element={<LaceHubPreview />} />
+            <Route path="technologie" element={<TechnologyPage />} />
+            <Route path="web" element={<WebPage />} />
+            <Route path="servis" element={<ServicePage />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+          <ContactFormModal />
+        </div>
+      </BrowserRouter>
+    </ContactFormProvider>
   );
 };
 

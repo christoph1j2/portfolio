@@ -6,6 +6,7 @@ import { motion } from "motion/react";                 // Animation library for 
 import { ExternalLink } from "lucide-react";           // Icon component for external links
 import styles from "./ProjectsSection.module.css";     // CSS modules for component-specific styling
 import { NavLink } from "react-router-dom";
+import { FaGithub } from 'react-icons/fa';
 
 /**
  * Portfolio Data Array
@@ -16,7 +17,8 @@ import { NavLink } from "react-router-dom";
  * - title: Project name displayed as heading
  * - description: Brief project summary in Czech
  * - image: Path to project screenshot/preview image
- * - liveUrl: External link to live project
+ * - liveUrl?: External link to live project (optional)
+ * - githubUrl?: Link to source code repository (optional)
  * - tech: Array of technology stack used
  */
 const portfolioItems = [
@@ -26,6 +28,7 @@ const portfolioItems = [
     description: "Full-stack platforma pro přeprodejce tenisek pomocí Reactu a Nest.js",
     image: "/lacehub.jpg",
     liveUrl: "https://www.ecl-it.cz/portfolio/lacehub",
+    githubUrl: "https://github.com/christoph1j2/lacehub",
     tech: ["React", "Nest.js", "PostgreSQL"],
   },
   {
@@ -256,19 +259,31 @@ const ProjectsSection: React.FC = () => {
                       ))}
                     </div>
 
-                    {/* 
-                      External Link Button
-                      Opens project in new tab with security attributes
-                    */}
-                    <a
-                      href={item.liveUrl}
-                      target="_blank"                     // Open in new tab
-                      rel="noopener noreferrer"          // Security: prevent opener access
-                      className={styles.visitLink}
-                    >
-                      <ExternalLink size={16} />         {/* Icon component */}
-                      Odkaz                      {/* Czech text: "Visit website" */}
-                    </a>
+                    {/* Links: show Preview and/or GitHub if present */}
+                    <div className="flex flex-wrap gap-3">
+                      {item.liveUrl && (
+                        <a
+                          href={item.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.visitLink}
+                        >
+                          <ExternalLink size={16} />
+                          Odkaz
+                        </a>
+                      )}
+                      {item.githubUrl && (
+                        <a
+                          href={item.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.visitLink}
+                        >
+                          <FaGithub size={16} />
+                          GitHub
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
