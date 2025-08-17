@@ -24,22 +24,7 @@ const ContactFormModal = () => {
   const { isContactFormOpen, formType, closeContactForm } = useContactForm();
   const modalRef = useRef<HTMLDivElement>(null);
   
-  // Close modal on outside click
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-        closeContactForm();
-      }
-    };
-
-    if (isContactFormOpen) {
-      document.addEventListener('mousedown', handleOutsideClick);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [isContactFormOpen, closeContactForm]);
+  // Zjednodušení: zavírání řešíme pouze klikem na overlay/X, ne globálním listenerem
 
   // Close modal on escape key
   useEffect(() => {
@@ -68,8 +53,7 @@ const ContactFormModal = () => {
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none'; // Disable touch scrolling
-      document.body.style.pointerEvents = 'none'; // Disable pointer events on body
+  document.body.style.touchAction = 'none'; // Disable touch scrolling
     } else {
       // Restore scroll position when modal closes
       const scrollY = document.body.style.top;
@@ -79,7 +63,6 @@ const ContactFormModal = () => {
       document.body.style.width = '';
       document.body.style.overflow = '';
       document.body.style.touchAction = '';
-      document.body.style.pointerEvents = '';
       if (scrollY) {
         window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
       }
@@ -94,22 +77,38 @@ const ContactFormModal = () => {
   return (
     <div className="modal-wrapper" style={{ position: 'relative', zIndex: 999999 }}>
       {/* Overlay background */}
-      <div 
+      <div
         className={styles.overlay}
-        onClick={closeContactForm} // Close when clicking overlay
+        role="button"
+        aria-label="Zavřít modal kliknutím na pozadí"
+        onPointerDown={(e) => { e.preventDefault(); e.stopPropagation(); }}
+        onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); }}
+        onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); }}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); closeContactForm(); }}
         aria-hidden="true"
       />
-      
+
       {/* Modal container */}
       <div className={styles.modalContainer}>
         {/* Modal content */}
-        <div 
-          className={styles.modal} 
-          ref={modalRef}
-        >
-          <button className={styles.closeButton} onClick={closeContactForm} aria-label="Close">
+        <div className={styles.modal} ref={modalRef}>
+          {/* Zavíratko modalu – zajistíme, že událost neprobublá */}
+          <button
+            type="button"
+            className={styles.closeButton}
+            onPointerDown={(e) => { e.preventDefault(); e.stopPropagation(); }}
+            onTouchStart={(e) => { e.preventDefault(); e.stopPropagation(); }}
+            onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); }}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setTimeout(() => closeContactForm(), 60);
+            }}
+            aria-label="Close"
+          >
             <FaTimes />
           </button>
+
           <div className={styles.modalContent}>
             <h2 className={styles.modalTitle}>
               {formType === 'order' ? 'Nezávazná poptávka' : 'Kontaktujte nás'}

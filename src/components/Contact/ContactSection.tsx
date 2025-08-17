@@ -246,16 +246,19 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
     return (
       <div className={styles.modalContactSection}>
         <div className={styles.formContainer}>
-          {/* Rate limiting warning */}
-          <RateLimitWarning
-            isBlocked={isBlocked}
-            blockReason={blockReason}
-            timeUntilReset={timeUntilReset}
-            attemptsRemaining={attemptsRemaining}
-            dailySubmissionsUsed={dailySubmissionsUsed}
-            formatTimeRemaining={formatTimeRemaining}
-            className={modalStyles.modalRateLimitWarning}
-          />
+          {/* UPOZORNĚNÍ: Po prvním úspěšném odeslání nechceme hned zobrazovat "Odesílání blokováno". */}
+          {/* Proto varování zobrazíme jen pokud není zrovna vidět pozitivní flash zpráva o úspěchu. */}
+          {!status.success && (
+            <RateLimitWarning
+              isBlocked={isBlocked}
+              blockReason={blockReason}
+              timeUntilReset={timeUntilReset}
+              attemptsRemaining={attemptsRemaining}
+              dailySubmissionsUsed={dailySubmissionsUsed}
+              formatTimeRemaining={formatTimeRemaining}
+              className={modalStyles.modalRateLimitWarning}
+            />
+          )}
           
           <motion.form className={`${styles.contactForm} ${modalStyles.modalContactForm}`} ref={form} onSubmit={handleSubmit}
             initial={{ opacity: 0 }}
@@ -382,6 +385,12 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
                 </>
               ) : isBlocked ? 'BLOKOVÁNO' : 'ODESLAT'}
             </button>
+            {/* Když je odesílání blokované, ukaž zbývající čas pod tlačítkem (modal varianta) */}
+            {isBlocked && (timeUntilReset ?? 0) > 0 && (
+              <div style={{ marginTop: '0.5rem', textAlign: 'center', color: '#6b7280', fontSize: '0.95rem' }}>
+                Další zprávu můžete poslat za <strong>{formatTimeRemaining(timeUntilReset!)}</strong>
+              </div>
+            )}
           </motion.form>
           
           {/* Only show contact info when not in modal form */}
@@ -414,15 +423,17 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               <span className={styles.titleText}>KONTAKT</span>
             </motion.h2>
             
-            {/* Rate limiting warning */}
-            <RateLimitWarning
-              isBlocked={isBlocked}
-              blockReason={blockReason}
-              timeUntilReset={timeUntilReset}
-              attemptsRemaining={attemptsRemaining}
-              dailySubmissionsUsed={dailySubmissionsUsed}
-              formatTimeRemaining={formatTimeRemaining}
-            />
+            {/* Varování zobrazíme jen pokud zrovna neukazujeme pozitivní flash zprávu po odeslání */}
+            {!status.success && (
+              <RateLimitWarning
+                isBlocked={isBlocked}
+                blockReason={blockReason}
+                timeUntilReset={timeUntilReset}
+                attemptsRemaining={attemptsRemaining}
+                dailySubmissionsUsed={dailySubmissionsUsed}
+                formatTimeRemaining={formatTimeRemaining}
+              />
+            )}
             
             <motion.form className={styles.contactForm} ref={form} onSubmit={handleSubmit}
               initial={{ opacity: 0, y: -20 }}
@@ -507,6 +518,12 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
               >
                 {loading ? 'ODESÍLÁNÍ...' : isBlocked ? 'BLOKOVÁNO' : 'ODESLAT'}
               </motion.button>
+              {/* Když je blokováno, ukaž zbývající čas přímo pod tlačítkem */}
+              {isBlocked && (timeUntilReset ?? 0) > 0 && (
+                <div style={{ marginTop: '0.5rem', textAlign: 'center', color: '#6b7280' }}>
+                  Další zprávu můžete poslat za <strong>{formatTimeRemaining(timeUntilReset!)}</strong>
+                </div>
+              )}
             </motion.form>
             
             <motion.div className={styles.contactInfo}
@@ -525,10 +542,10 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
           </div>
           
           <motion.div className={styles.imageContainer}
+            /* Úprava: animace vždy (animate), ne až při zobrazení (whileInView) */
             initial={{ x: 600 }}
-            whileInView={{ x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            viewport={{ once: true }}>
+            animate={{ x: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}>
             <div className={styles.laptopImage}>
               <img src="/pc_poster_2-removebg-preview_1.png" alt="Laptop" />
               

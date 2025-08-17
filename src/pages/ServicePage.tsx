@@ -265,6 +265,24 @@ const ServicePage = () => {
             >
               Uvedené ceny jsou orientační. Finální cena závisí na konkrétní situaci a domluvě.
             </motion.p>
+
+            {/* Informace o mobilním servisu – dojezd k zákazníkovi dle domluvy */}
+            <motion.div
+              style={{
+                marginTop: '0.75rem',
+                textAlign: 'center',
+                color: '#374151',
+                background: '#eff6ff',
+                border: '1px solid #bfdbfe',
+                borderRadius: '10px',
+                padding: '0.9rem 1.2rem'
+              }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.15 }}
+            >
+              Jsem mobilní – po domluvě přijedu osobně k vám a vyřeším problém přímo na místě.
+            </motion.div>
             
             <motion.div
               style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}

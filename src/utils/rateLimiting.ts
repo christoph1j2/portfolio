@@ -61,7 +61,8 @@ class RateLimitManager {
       const fingerprintString = JSON.stringify(fingerprint);
       return this.simpleHash(fingerprintString);
     } catch {
-      console.warn('Failed to generate fingerprint, using fallback');
+  // Nepodařilo se vygenerovat otisk zařízení – použijeme záložní metodu
+  console.warn('Nepodařilo se vygenerovat otisk zařízení, používá se náhradní metoda');
       return this.simpleHash(navigator.userAgent + screen.width + screen.height);
     }
   }
@@ -114,7 +115,8 @@ class RateLimitManager {
       
       return data;
     } catch {
-      console.warn('Failed to load rate limit data from storage');
+  // Chyba při načítání dat z localStorage
+  console.warn('Nepodařilo se načíst data pro omezení z localStorage');
       return null;
     }
   }
@@ -126,7 +128,8 @@ class RateLimitManager {
     try {
       localStorage.setItem(key, JSON.stringify(data));
     } catch {
-      console.warn('Failed to save rate limit data to storage');
+  // Chyba při ukládání do localStorage
+  console.warn('Nepodařilo se uložit data pro omezení do localStorage');
     }
   }
 
@@ -139,7 +142,8 @@ class RateLimitManager {
       if (!stored) return null;
       return JSON.parse(stored) as RateLimitEntry;
     } catch {
-      console.warn('Failed to load session rate limit data');
+  // Chyba při načítání dat ze sessionStorage
+  console.warn('Nepodařilo se načíst session data pro omezení');
       return null;
     }
   }
@@ -151,7 +155,8 @@ class RateLimitManager {
     try {
       sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(data));
     } catch {
-      console.warn('Failed to save session rate limit data');
+  // Chyba při ukládání do sessionStorage
+  console.warn('Nepodařilo se uložit session data pro omezení');
     }
   }
 
@@ -173,7 +178,8 @@ class RateLimitManager {
     if (memoryEntry && memoryEntry.blockUntil && currentTime < memoryEntry.blockUntil) {
       return {
         blocked: true,
-        reason: 'Too many attempts from this device',
+        // Překlad: Příliš mnoho pokusů z tohoto zařízení
+        reason: 'Příliš mnoho pokusů z tohoto zařízení',
         timeUntilReset: memoryEntry.blockUntil - currentTime
       };
     }
@@ -219,7 +225,8 @@ class RateLimitManager {
 
       return {
         blocked: true,
-        reason: 'Daily submission limit reached (1 per day)',
+        // Překlad: Denní limit odeslání dosažen (1 za den)
+        reason: 'Dosažen denní limit odeslání (1 za den)',
         timeUntilReset: timeUntilMidnight
       };
     }
@@ -235,7 +242,8 @@ class RateLimitManager {
       
       return {
         blocked: true,
-        reason: 'Too many attempts in the last hour',
+        // Překlad: Příliš mnoho pokusů za poslední hodinu
+        reason: 'Příliš mnoho pokusů za poslední hodinu',
         timeUntilReset: Math.max(timeUntilReset, 0)
       };
     }
@@ -244,8 +252,9 @@ class RateLimitManager {
     if (sessionData.count >= 1) {
       return {
         blocked: true,
-        reason: 'Only one submission per session allowed',
-        timeUntilReset: 0 // Will reset when page is refreshed/new session
+        // Překlad: V rámci jedné relace je povoleno pouze jedno odeslání
+        reason: 'V rámci jedné relace je povoleno pouze jedno odeslání',
+        timeUntilReset: 0 // Reset při obnovení stránky / nové relaci
       };
     }
 

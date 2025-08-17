@@ -84,12 +84,13 @@ const OfferSection = () => {
                             </div>
                             <div className="px-6 pb-6">
                                 <button 
-                                    className="w-full text-white font-semibold py-3 px-6 rounded-lg transform transition-all duration-200 hover:scale-105 shadow-lg hover:brightness-110"
+                                    className="w-full text-white font-semibold py-3 px-6 rounded-lg transform transition-all duration-200 hover:scale-105 shadow-lg"
                                     style={{
                                         background: `linear-gradient(to right, #0d47a1, #1565c0)`
                                     }}
                                 >
-                                    <Link to="/web" className="block w-full h-full"
+                        <Link to="/web" className="block w-full h-full"
+                            style={{ textDecoration: 'none', color: 'inherit' }}
                                             onClick={() => {
                                             // Scroll to top when navigating to portfolio page
                                             setTimeout(() => {
@@ -168,12 +169,13 @@ const OfferSection = () => {
                             </div>
                             <div className="px-6 pb-6">
                                 <button 
-                                    className="w-full text-white font-semibold py-3 px-6 rounded-lg transform transition-all duration-200 hover:scale-105 shadow-lg hover:brightness-110"
+                                    className="w-full text-white font-semibold py-3 px-6 rounded-lg transform transition-all duration-200 hover:scale-105 shadow-lg"
                                     style={{
                                         background: `linear-gradient(to right, #1976d2, #42a5f5)`
                                     }}
                                 >
-                                    <Link to="/servis" className="block w-full h-full"
+                        <Link to="/servis" className="block w-full h-full"
+                            style={{ textDecoration: 'none', color: 'inherit' }}
                                             onClick={() => {
                                             // Scroll to top when navigating to portfolio page
                                             setTimeout(() => {

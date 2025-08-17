@@ -53,12 +53,14 @@ const RateLimitWarning: React.FC<RateLimitWarningProps> = ({
                   <><br />Zkuste to znovu za: <strong>{formatTimeRemaining(timeUntilReset)}</strong></>
                 )}
               </p>
-              {blockReason?.includes('session') && (
+              {/* Nápověda pro relaci – detekujeme českou formulaci */}
+              {blockReason && blockReason.toLowerCase().includes('relace') && (
                 <p className={styles.hint}>
                   💡 Obnovte stránku pro novou relaci
                 </p>
               )}
-              {blockReason?.includes('Daily') && (
+              {/* Alternativní kontakt při dosažení denního limitu */}
+              {blockReason && blockReason.toLowerCase().includes('denní limit') && (
                 <div className={styles.alternativeContact}>
                   <p>Pro urgentní záležitosti mě kontaktujte přímo:</p>
                   <a href="tel:+420605944418" className={styles.contactLink}>

@@ -6,7 +6,4 @@ body.modal-open {
   height: 100% !important;
 }
 
-body.modal-open > *:not(.modal-wrapper) {
-  pointer-events: none !important;
-  user-select: none !important;
-}
+/* Záměrně neblokujeme pointer-events na těle – overlay řeší klik mimo modal */

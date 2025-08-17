@@ -73,7 +73,21 @@ const Navigation = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className={`${textColor} font-bold text-2xl duration-300 flex items-center gap-1`}>
-              <NavLink to="/" className="flex items-center gap-1">
+              <NavLink
+                to="/"
+                className="flex items-center gap-1"
+                onClick={() => {
+                  // Klik na logo: po navigaci plynule scroll na začátek
+                  setTimeout(() => {
+                    const container = document.querySelector("#root");
+                    if (container) {
+                      container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                    } else {
+                      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                    }
+                  }, 50);
+                }}
+              >
                 <span className={isDarkBackground ? "text-white" : "text-gray-800"} style={{ 
                   fontSize: '1.875rem',
                   textShadow: isDarkBackground ? '0 0 10px rgba(47, 255, 214, 0.5)' : 'none'

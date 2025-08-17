@@ -15,7 +15,7 @@
   height: 100%; /* Full height */
   background: rgba(0, 0, 0, 0.9); /* Darker background for better blocking */
   backdrop-filter: blur(5px); /* Blur for more emphasis */
-  z-index: 999999; /* Very high z-index */
+  z-index: 999998; /* Keep below modalContainer (1,000,000) and closeButton (1,000,002+) */
   margin: 0;
   padding: 0;
   cursor: pointer; /* Show that it's clickable */
@@ -38,7 +38,7 @@
   justify-content: center; /* Center horizontally */
   z-index: 1000000; /* Even higher z-index than the overlay */
   padding: 0;
-  pointer-events: none; /* Allow clicks to pass through to overlay */
+  pointer-events: none; /* Neinteraktivní kontejner – overlay a modal řeší interakce */
 }
 
 /* The modal box itself */
@@ -57,7 +57,7 @@
   overflow-y: auto; /* Enable vertical scrolling if content overflows */
   overflow-x: hidden; /* Hide horizontal overflow */
   z-index: 1000001; /* Ensure it's above everything */
-  pointer-events: auto; /* Enable interactions with modal content */
+  pointer-events: auto; /* Interakce povoleny uvnitř modalu */
   display: flex;
   flex-direction: column;
   margin: 0 auto; /* Center horizontally */
@@ -73,7 +73,7 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  display: flex;
+  display: inline-flex; /* Ensure the full circular area is the interactive target */
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -82,22 +82,24 @@
   z-index: 1000002; /* Above the modal */
   transition: all 0.2s;
   pointer-events: auto; /* Ensure it's clickable */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent; /* Better tap UX on mobile */
+  touch-action: manipulation; /* Reduce click delay on mobile */
+}
+
+/* Make sure clicks anywhere inside the circle hit the button, not the inner SVG */
+.closeButton > * {
+  pointer-events: none;
 }
 
 .closeButton:hover {
   background: #f3f4f6;
   color: #dc2626;
   transform: scale(1.1);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  /* Keep high stacking above overlay on hover as well */
+  z-index: 1000003;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-}
-
-.closeButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 8px -2px rgba(0, 0, 0, 0.15);
-  background: #f9fafb;
 }
 
 /* Modal content area with reduced padding for more compact layout */
