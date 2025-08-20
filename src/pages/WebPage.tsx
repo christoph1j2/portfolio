@@ -428,9 +428,9 @@ const WebPage = () => {
                   <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>
                     {plan.price}
                   </div>
-                  <div style={{ fontSize: '1rem', color: '#e0e0e0' }}>
+                  {/* <div style={{ fontSize: '1rem', color: '#e0e0e0' }}>
                     {plan.priceWithDPH}
-                  </div>
+                  </div> */}
                 </div>
 
                 <div style={{ padding: '2rem' }}>
