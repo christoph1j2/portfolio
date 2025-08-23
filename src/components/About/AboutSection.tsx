@@ -98,7 +98,7 @@ const AboutSection = () => {
                         }}
                     >
                         <img 
-                            src="/src/assets/placeholder.png" 
+                            src="/us.webp" 
                             alt="About Us" 
                             className={styles.photo}
                         />
@@ -107,12 +107,12 @@ const AboutSection = () => {
                         <div 
                             id="person1-point" 
                             className={styles.anchorPoint}
-                            style={{ top: '25%', right: '25%',}}
+                            style={{ top: '25%', right: '30%',}}
                         ></div>
                         <div 
                             id="person2-point" 
                             className={styles.anchorPoint}
-                            style={{ bottom: '25%', left: '30%',}}
+                            style={{ top: '25%', left: '37%',}}
                         ></div>
                         {/* TODO: add hover on anchor points so that social media badges appear */}
                         {/* Top-right annotation - Chris */}
@@ -158,25 +158,24 @@ const AboutSection = () => {
                                     start="chris-badge"
                                     end="person1-point"
                                     /* dashness={{strokeLen: 10, nonStrokeLen: 5, animation: 1}} */
-                                    curveness={3}
-                                    color="white"
+                                    curveness={.9}
+                                    color="#E1306C"
                                     strokeWidth={4}
                                     headSize={5}
-                                     animateDrawing={0.4} 
-                                    
-/*                                     startAnchor="bottom"
- */                                    /* endAnchor="top" */
+                                    animateDrawing={0.4}
+                                    startAnchor="bottom"
+                                    endAnchor="right"
                                 />
                                 <Xarrow
                                     start="zuze-badge"
                                     end="person2-point"
-                                    curveness={3}
-                                    color="white"
+                                    curveness={.9}
+                                    color="#E1306C"
                                     strokeWidth={4}
                                     headSize={5}
                                     animateDrawing={0.5}
-/*                                     startAnchor="right"
- */                                    /* endAnchor="left" */
+                                    startAnchor="left"
+                                    endAnchor="bottom"
                                 />
                             </>
                         )}

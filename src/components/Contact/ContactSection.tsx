@@ -547,7 +547,7 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
             animate={{ x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}>
             <div className={styles.laptopImage}>
-              <img src="/pc_poster_2-removebg-preview_1.png" alt="Laptop" />
+              <img src="/pc_poster_2-removebg-preview_1.webp" alt="Laptop" />
               
               <div className={styles.socialLinks}>
                 <a

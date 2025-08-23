@@ -25,7 +25,7 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
       title: "Koučink Zdenka Lindenbergová",
       description:
         "Webová prezentace pro koučku s moderním designem a optimalizací pro SEO. Responzivní design s důrazem na uživatelskou přívětivost a profesionální vzhled.",
-      image: "/koucink.jpg",
+      image: "/koucink.webp",
       liveUrl: "/lindenbergova/index.html",
       tech: ["HTML5", "CSS3", "JavaScript"],
       category: 'web',
@@ -35,7 +35,7 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
       title: "ECL-IT",
       description:
         "Webová prezentace pro ECL-IT s moderním designem a animacemi. Využívá nejnovější technologie pro vytvoření působivého online zážitku.",
-      image: "/portfolio.jpg",
+      image: "/portfolio.webp",
       liveUrl: "https://www.ecl-it.cz",
       githubUrl: "https://github.com/christoph1j2/portfolio",
       tech: ["React", "Tailwind", "Framer Motion"],
@@ -48,7 +48,7 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
       title: "LaceHub",
       description:
         "Full-stack platforma pro přeprodejce tenisek pomocí Reactu a Nest.js. Moderní e-commerce řešení s pokročilými funkcemi pro správu inventáře, objednávek a uživatelských účtů.",
-      image: "/lacehub.jpg",
+      image: "/lacehub.webp",
       liveUrl: "/portfolio/lacehub",
       githubUrl: "https://github.com/christoph1j2/lacehub",
       tech: ["React", "Nest.js", "PostgreSQL"],
