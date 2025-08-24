@@ -61,21 +61,21 @@ const AboutSection = () => {
                             animate={morphComplete ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.6, delay: 0.4 }}>
                             <span className={styles.bullet}>•</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada. Phasellus faucibus molestie nisl. Cras elementum. Pellentesque pretium lectus id turpis. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisl ut aliquid ex ea commodi consequatur?</p>
+                            <p>Za vývojem a servisem stojím já, <strong>Ernst Christoph Leschka</strong>, tedy 19-ti letý student informatiky na ZČU FAV. Pocházím z malého západočeského městečka jménem Teplá a už od ranějšího dětství mě fascinovalo, jak počítače vlastně fungují a jak s nimi pracovat. To mě časem dostalo ke stavbě vlastních počítačů a základům programování - a tím pádem má cesta pokračovala technickou SPŠE v Plzni, kde jsem si veškeré znalosti prohloubil. V průběhu studia jsem se zúčastnil různých projektů a stáží, které mi pomohly získat zkušenosti v oboru, přičemž za mě nejcennější byla stáž v rámci programu Erasmus+ v Německu, resp. ve firmě Zollner AG.</p>
                         </motion.div>
                         <motion.div className={styles.bulletPoint}
                             initial={{ opacity: 0, x: -20 }}
                             animate={morphComplete ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.6, delay: 0.7 }}>
                             <span className={styles.bullet}>•</span>
-                            <p>Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce wisi. Et harum quidem rerum facilis est et expedita distinctio. Etiam neque. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem, nullam rhoncus aliquam netus. In enim a arcu imperdiet malesuada. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat.</p>
+                            <p>Na začátku léta 2025 mě napadlo mých zkušeností využít a začít tedy v oblasti IT podnikat a tím pádem nabízet své služby pro zviditelnění místních podnikatelů a firem online a taktéž lidem pomáhat s jejich potížemi okolo počítačů.</p>
                         </motion.div>
                         <motion.div className={styles.bulletPoint}
                             initial={{ opacity: 0, x: -20 }}
                             animate={morphComplete ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.6, delay: 0.9 }}>
                             <span className={styles.bullet}>•</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et lorem id felis nonummy placerat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Duis pulvinar. Aliquam erat volutpat. Aliquam id dolor.</p>
+                            <p>S návrhem webovek mi <u>nezávazně</u> pomáhá má talentovaná přítelkyně <strong>Zuzanka Pokoradiová</strong>, nadšená designérka, knihomolka a budoucí studentka historie, bez které by ty webovky neměly ten správný šmrnc.</p>
                         </motion.div>
                     </div>
                 </div>

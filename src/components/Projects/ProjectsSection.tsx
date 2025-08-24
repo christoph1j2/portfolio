@@ -304,26 +304,23 @@ const ProjectsSection: React.FC = () => {
           className="m-auto mt-8 flex justify-center"  // Tailwind: center with top margin
         >
           {/* Action button styled to match overall design */}
-          <button className={styles.seeAllBtn}>
-            <NavLink 
-              to="/portfolio"
-              onClick={() => {
-                // Scroll to top when navigating to portfolio page
-                setTimeout(() => {
-                  const container = document.querySelector("#root");
-                  if (container) {
-                    container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-                  } else {
-                    // Fallback to window scroll if #root doesn't exist
-                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-                  }
-                }, 100); // Small delay to ensure navigation completes first
-              }}
+            <NavLink
+            to="/portfolio"
+            className={styles.seeAllBtn}
+            onClick={() => {
+              setTimeout(() => {
+              const container = document.querySelector("#root");
+              if (container) {
+                container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+              } else {
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+              }
+              }, 100);
+            }}
             >
-              Zobrazit všechny projekty
-            </NavLink>
+            <span>Zobrazit všechny projekty</span>
             <ExternalLink size={16} className={styles.seeAllBtnIcon} />
-          </button>
+            </NavLink>
         </motion.div>
       </div>
     </section>
