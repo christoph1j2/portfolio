@@ -61,7 +61,7 @@ const AboutSection = () => {
                             animate={morphComplete ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.6, delay: 0.4 }}>
                             <span className={styles.bullet}>•</span>
-                            <p>Za vývojem a servisem stojím já, <strong>Ernst Christoph Leschka</strong>, tedy 19-ti letý student informatiky na ZČU FAV. Pocházím z malého západočeského městečka jménem Teplá a už od ranějšího dětství mě fascinovalo, jak počítače vlastně fungují a jak s nimi pracovat. To mě časem dostalo ke stavbě vlastních počítačů a základům programování - a tím pádem má cesta pokračovala technickou SPŠE v Plzni, kde jsem si veškeré znalosti prohloubil. V průběhu studia jsem se zúčastnil různých projektů a stáží, které mi pomohly získat zkušenosti v oboru, přičemž za mě nejcennější byla stáž v rámci programu Erasmus+ v Německu, resp. ve firmě Zollner AG.</p>
+                            <p>Za vývojem a servisem stojím já, <strong>Ernst Christoph Leschka</strong>, tedy 19ti letý student informatiky na ZČU FAV. Pocházím z malého západočeského městečka jménem Teplá a už od ranějšího dětství mě fascinovalo, jak počítače vlastně fungují a jak s nimi pracovat. To mě časem dostalo ke stavbě vlastních počítačů a základům programování - a tím pádem má cesta pokračovala technickou SPŠE v Plzni, kde jsem si veškeré znalosti prohloubil. V průběhu studia jsem se zúčastnil různých projektů a stáží, které mi pomohly získat zkušenosti v oboru, přičemž za mě nejcennější byla stáž v rámci programu Erasmus+ v Německu, resp. ve firmě Zollner AG.</p>
                         </motion.div>
                         <motion.div className={styles.bulletPoint}
                             initial={{ opacity: 0, x: -20 }}
@@ -75,7 +75,7 @@ const AboutSection = () => {
                             animate={morphComplete ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.6, delay: 0.9 }}>
                             <span className={styles.bullet}>•</span>
-                            <p>S návrhem webovek mi <u>nezávazně</u> pomáhá má talentovaná přítelkyně <strong>Zuzanka Pokoradiová</strong>, nadšená designérka, knihomolka a budoucí studentka historie, bez které by ty webovky neměly ten správný šmrnc.</p>
+                            <p>S návrhem webovek mi <u>nezávazně</u> pomáhá má talentovaná přítelkyně <strong>Zuzana Pokoradiová</strong>, nadšená designérka, knihomolka a budoucí studentka historie, bez které by ty webovky neměly ten správný šmrnc. Proto je tedy většina stránky ve "wir-formě".</p>
                         </motion.div>
                     </div>
                 </div>

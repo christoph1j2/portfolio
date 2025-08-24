@@ -55,12 +55,52 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
       category: 'software',
     },
     // Přidej další software/web app projekty sem
+    {
+      id: 6,
+      title: "Logik",
+      description: "Sovietská verze hry Mastermind pomocí JavaFX. Hráči se snaží uhodnout tajnou kombinaci barevných kódů.",
+      image: "/logik.jpg",
+/*       liveUrl: "/portfolio/logik",
+ */      githubUrl: "https://github.com/christoph1j2/logik",
+      tech: ["Java", "JavaFX", "Scene Builder"],
+      category: 'software',
+    }
   ],
   iot: [
     // Přidej IoT/hardware projekty sem
+    {
+      id: 4,
+      title: "ESP8266 Shield",
+      description: "Custom ESP8266 shield pro monitorování teploty a světla.",
+      image: "/shield.png",
+/*       liveUrl: "/portfolio/esp8266-shield",
+ */      githubUrl: "https://github.com/christoph1j2/esp8266-shield",
+      tech: ["Arduino", "ESP8266", "MQTT"],
+      category: 'iot',
+    },
+    {
+      id: 5,
+      title: "ESP8266 MoodLamp",
+      description: "ESP8266 MoodLamp pro ambientní osvětlení.",
+      image: "/moodlamp.png",
+/*       liveUrl: "/portfolio/esp8266-moodlamp",
+ */      githubUrl: "https://github.com/christoph1j2/esp8266-moodlamp",
+      tech: ["Arduino", "ESP8266", "MQTT"],
+      category: 'iot',
+    }
   ],
   fun: [
     // Přidej zábavné/experimentální projekty sem
+    {
+      id: 7,
+      title: "VR Dungeon Fighting Game",
+      description: "VR hra zasazená do fantasy dungeonu, kde hráči bojují s monstry.",
+      image: "/vrgame.png",
+/*       liveUrl: "/portfolio/vr-dungeon",
+ */      githubUrl: "https://github.com/christoph1j2/vr-dungeon",
+      tech: ["Unity", "C#", "VR"],
+      category: 'fun',
+    }
   ],
   other: [
     // Přidej ostatní projekty sem
