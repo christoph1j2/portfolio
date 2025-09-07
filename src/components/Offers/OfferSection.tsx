@@ -52,28 +52,28 @@ const OfferSection = () => {
                             </div>
                             <div className="px-4 sm:px-6 py-4 sm:py-6">
                                 <ul className="space-y-4 sm:space-y-6">
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
+                                    <li className="text-gray-700 text-xs sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#0d47a1' }}
                                         ></span>
                                         Webové prezentace na míru
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
+                                    <li className="text-gray-700 text-xs sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#0d47a1' }}
                                         ></span>
                                         Funkční a dynamické webové aplikace
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
+                                    <li className="text-gray-700 text-xs sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#0d47a1' }}
                                         ></span>
                                         SEO optimalizace
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
+                                    <li className="text-gray-700 text-xs sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#0d47a1' }}
@@ -137,28 +137,28 @@ const OfferSection = () => {
                             </div>
                             <div className="px-4 sm:px-6 py-4 sm:py-6">
                                 <ul className="space-y-4 sm:space-y-6">
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
+                                    <li className="text-gray-700 text-xs sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}
                                         ></span>
                                         Diagnostika a oprava počítačů
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
+                                    <li className="text-gray-700 text-xs sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}
                                         ></span>
                                         Stavba PC na míru
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
+                                    <li className="text-gray-700 text-xs sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}
                                         ></span>
                                         Upgrade počítačových komponent
                                     </li>
-                                    <li className="text-gray-700 text-sm sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
+                                    <li className="text-gray-700 text-xs sm:text-base flex items-center bg-blue-200 p-2 rounded-md">
                                         <span 
                                             className="w-2 h-2 rounded-full mr-3"
                                             style={{ backgroundColor: '#1976d2' }}

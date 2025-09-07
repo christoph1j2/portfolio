@@ -169,7 +169,7 @@ const ServicePage = () => {
         <div className="absolute top-20 left-10 w-24 h-36 opacity-18 animate-ping" 
              style={{backgroundColor: '#a5ccff', borderRadius: '30% 70% 40% 60%', animationDelay: '2s', animationDuration: '5s'}}></div>
         
-        <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+        <div style={{ maxWidth: '80rem', margin: '0 auto' }} className='md:f'>
           <motion.h2 
             style={{ 
               fontSize: '2.5rem', 
@@ -229,22 +229,20 @@ const ServicePage = () => {
                 <motion.div
                   key={index}
                   style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
                     padding: '1.5rem',
                     backgroundColor: '#f8fafc',
                     borderRadius: '8px',
                     border: '1px solid #e2e8f0'
                   }}
+                  className="flex flex-col sm:flex-row sm:justify-between sm:items-center"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
-                  <span style={{ fontWeight: '600', color: '#1f2937', fontSize: '1.1rem' }}>
+                  <span className="font-semibold text-[#1f2937] text-base mb-2 sm:mb-0">
                     {item.service}
                   </span>
-                  <span style={{ fontWeight: 'bold', color: '#0d47a1', fontSize: '1.1rem' }}>
+                  <span className="text-xs sm:text-base font-bold text-[#0d47a1] sm:ml-4">
                     {item.price}
                   </span>
                 </motion.div>
