@@ -1,21 +1,129 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" aria-label="Portfolio Web Application">
   <head>
+    <!-- Character encoding -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
-    <meta name="theme-color" content="#0A367A"> <!-- For Android status bar -->
-    <meta name="mobile-web-app-capable" content="yes"> <!-- For iOS -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- For iOS - allows content behind status bar -->
-    <title>ECL IT - Tvorba Webů a IT Podpora</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-</head>
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/png" href="/logo.png" sizes="32x32" />
+    <!-- Responsive viewport settings -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#0A367A" />
+    <!-- Enable mobile web app capabilities -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- SEO: Description and keywords -->
+    <title>ECL IT - Weby na míru a IT Podpora | Západní Čechy, Mariánské Lázně</title>
+    <meta 
+      name="description"
+      content="ECL IT - Tvorba moderních webů, IT podpora, opravy počítačů. V Plzni, Teplé, Mariánských Lázních a Západních Čechách." 
+      />
+    <meta 
+      name="keywords" 
+      content="opravy počítačů, servis notebooků, IT podpora, tvorba webů, IT služby, Západní Čechy, Teplá, Mariánské Lázně, Plzeň, weby pro firmy a podnikatele, ECL IT, konkurence monopolu, kvalitní weby, moderní weby, webové stránky, web design, SEO, správa webů, hosting, domény, školení, doučování, IOT, stavba PC, upgrade PC, zálohování dat, obnova dat, bezpečnost IT, lokální, dostupný, spolehlivý, mobilní" 
+    />
+    <!-- Author information -->
+    <meta name="author" content="Ernst Christoph Leschka - ECL-IT" />
+    <meta name="copyright" content="ECL IT" />
+    <meta name="robots" content="index, follow" />
+    <meta name="contact:email" content="ernst.leschka@gmail.com" />
+    <meta name="contact:phone" content="+420605944418" />
+    <meta name="contact:street" content="Staré Sedlo E7" />
+    <meta name="contact:city" content="Teplá" />
+    <meta name="contact:country" content="CZ" />
+
+    <!-- Local targeting -->
+    <meta name="geo.region" content="CZ-PL" />
+    <meta name="geo.placename" content="Plzeň, Teplá, Mariánské Lázně, Západní Čechy, Česká republika" />
+    <meta name="geo.position" content="49.971692;12.770705" />
+    <meta name="ICBM" content="49.971692, 12.770705" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ECL IT - Weby na míru a IT Podpora" />
+    <meta property="og:description" content="ECL IT - Tvorba moderních webů, IT podpora, opravy počítačů. V Plzni, Teplé, Mariánských Lázních a Západních Čechách." />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:url" content="https://ecl-it.cz/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ECL IT - Weby na míru a IT Podpora" />
+    <meta name="twitter:description" content="ECL IT - Tvorba moderních webů, IT podpora, opravy počítačů. V Plzni, Teplé, Mariánských Lázních a Západních Čechách." />
+    <meta name="twitter:image" content="/logo.png" />
+
+    <link rel="canonical" href="https://ecl-it.cz/" />
+    <link rel="alternate" hreflang="cs" href="https://ecl-it.cz/" />
+    <link rel="alternate" hreflang="x-default" href="https://ecl-it.cz/" />
+
+    <meta property="og:locale" content="cs_CZ" />
+    <meta property="og:site_name" content="ECL IT" />
+    <meta name="language" content="cs" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large" />
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ECL IT",
+      "url": "https://ecl-it.cz/",
+      "image": "https://ecl-it.cz/logo.png",
+      "telephone": "+420605944418",
+      "email": "ernst.leschka@gmail.com",
+      "description": "Tvorba moderních webů, IT podpora a opravy počítačů v Západních Čechách.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Staré Sedlo E7",
+        "addressLocality": "Teplá",
+        "addressRegion": "Karlovarský kraj",
+        "postalCode": "36461",
+        "addressCountry": "CZ"
+      },
+      "areaServed": ["Plzeň", "Teplá", "Mariánské Lázně", "Západní Čechy"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.971692,
+        "longitude": 12.770705
+      },
+      "sameAs": [
+        "https://www.facebook.com/",
+        "https://www.linkedin.com/"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ECL IT",
+      "url": "https://ecl-it.cz/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ecl-it.cz/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Preconnect to font resources for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <!-- Manifest for PWA support (optional, improves Lighthouse score) -->
+    <!-- <link rel="manifest" href="/manifest.json" /> -->
+    <!-- Add canonical link for SEO (optional) -->
+    <!-- <link rel="canonical" href="https://yourdomain.com/" /> -->
+  </head>
   <body>
-    <div id="root"></div>
+    <!-- Main React app mount point -->
+    <div id="root" aria-label="Main application content"></div>
+    <!-- Main entry script for React app -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
