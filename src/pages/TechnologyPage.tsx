@@ -129,7 +129,7 @@ const technologyCategories = [
   },
   {
     id: 4,
-    title: "Programovací Jazyky",
+    title: "Další Programovací Jazyky",
     description: "",
     technologies: [
       {

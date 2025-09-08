@@ -27,7 +27,7 @@ const portfolioItems = [
     title: "LaceHub",
     description: "Full-stack platforma pro přeprodejce tenisek pomocí Reactu a Nest.js",
     image: "/lacehub.webp",
-    liveUrl: "https://www.ecl-it.cz/portfolio/lacehub",
+    liveUrl: "portfolio/lacehub",
     githubUrl: "https://github.com/christoph1j2/lacehub",
     tech: ["React", "Nest.js", "PostgreSQL"],
   },
@@ -36,7 +36,7 @@ const portfolioItems = [
     title: "Koučink Zdenka Lindenbergová",
     description: "Webová prezentace pro koučku s moderním designem a optimalizací pro SEO.",
     image: "/koucink.webp",
-    liveUrl: "https://www.ecl-it.cz/portfolio/koucing-zdenka-lindenbergova",
+    liveUrl: "/lindenbergova/index.html",
     tech: ["HTML5", "CSS3", "JavaScript"],
   },
   {
@@ -47,26 +47,22 @@ const portfolioItems = [
     liveUrl: "https://www.ecl-it.cz",
     tech: ["React", "Tailwind", "Framer Motion"],
   },
-  /* 
-    Commented out projects - likely future additions or projects not ready for display
-    These can be uncommented when ready to showcase additional work
-  */
-/*   {
+  {
     id: 4,
-    title: "E-commerce Store",
-    description: "Online obchod s kompletním CMS systémem a platební bránou.",
-    image: "/src/assets/placeholder.png",
-    liveUrl: "https://example.com",
-    tech: ["Next.js", "Stripe", "MongoDB"],
+    title: "LaceShop",
+    description: "Školní projekt e-commerce platformy pro tenisky. Zaměřeno především na backend a funkčnost, než na design.",
+    image: "laceshop.png",
+    githubUrl: "https://github.com/christoph1j2/wapv_e-shop",
+    tech: ["Nette", "Bootstrap", "MySQL"],
   },
   {
     id: 5,
-    title: "Restaurant Website",
-    description: "Responsivní web pro restauraci s rezervačním systémem.",
-    image: "/src/assets/placeholder.png",
-    liveUrl: "https://example.com",
-    tech: ["Vue.js", "Node.js", "MySQL"],
-  }, */
+    title: "VR Dungeon Crawler",
+    description: "Bojovka ve virtuální realitě vytvořená v Unity jako školní projekt.",
+    image: "vrgame.png",
+    githubUrl: "https://github.com/christoph1j2/ikt_vr-game",
+    tech: ["Unity", "C#", "VR"],
+  },
 ];
 
 /**
