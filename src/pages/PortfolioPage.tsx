@@ -15,9 +15,10 @@ interface PortfolioItem {
   githubUrl?: string;
   tech: string[];
   category: PortfolioCategory;
+  reference?: string;
 }
 
-// Manual categorization (edit freely)
+// Manual categorization
 const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
   web: [
     {
@@ -29,6 +30,7 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
       liveUrl: "/lindenbergova/index.html",
       tech: ["HTML5", "CSS3", "JavaScript"],
       category: 'web',
+      reference: "Spolupráce byla skvělá - oceňuji jeho aktivní přístup, ochotu naslouchat a profesionální výsledek. Je obdivuhodné vidět takto mladého člověka pracovat s takovou zodpovědností a energií. ⭐⭐ \n— Zdenka Lindenbergová, koučka"
     },
     {
       id: 3,
@@ -53,8 +55,8 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
       githubUrl: "https://github.com/christoph1j2/lacehub",
       tech: ["React", "Nest.js", "PostgreSQL"],
       category: 'software',
+      reference: "Zajímavá webová aplikace s moderním pojetím vzhledu a využitím in-demand technologického stacku. Chválím. 😊👍\n— O.K., vedoucí práce"
     },
-    // Přidej další software/web app projekty sem
     {
       id: 6,
       title: "Logik",
@@ -64,10 +66,18 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
  */      githubUrl: "https://github.com/christoph1j2/logik",
       tech: ["Java", "JavaFX", "Scene Builder"],
       category: 'software',
+    },
+    {
+      id: 8,
+      title: "Nette E-shop (LaceShop)",
+      description: "Jednoduchý e-shop postavený na Nette frameworku s funkcemi pro správu produktů, košíku a objednávek.",
+      image: "/laceshop.png",
+      githubUrl: "https://github.com/christoph1j2/wapv_e-shop",
+      tech: ["PHP", "Nette", "MySQL"],
+      category: 'software',
     }
   ],
   iot: [
-    // Přidej IoT/hardware projekty sem
     {
       id: 4,
       title: "ESP8266 Shield",
@@ -90,7 +100,6 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
     }
   ],
   fun: [
-    // Přidej zábavné/experimentální projekty sem
     {
       id: 7,
       title: "VR Dungeon Fighting Game",
@@ -100,14 +109,31 @@ const projectsByCategory: Record<PortfolioCategory, PortfolioItem[]> = {
  */      githubUrl: "https://github.com/christoph1j2/vr-dungeon",
       tech: ["Unity", "C#", "VR"],
       category: 'fun',
+    },
+    {
+      id: 9,
+      title: "Discord Music Bot",
+      description: "Discord bot pro přehrávání hudby z YouTube na Discord serverech.",
+      image: "/djkajkos.png",
+      githubUrl: "https://github.com/christoph1j2/djkajkos-revival",
+      tech: ["Node.js", "Discord.js", "YouTube API"],
+      category: 'fun',
     }
   ],
   other: [
-    // Přidej ostatní projekty sem
+    {
+      id: 10,
+      title: "Ostatní veřejné projekty",
+      description: "Další menší projekty a experimenty dostupné na mém GitHubu.",
+      image: "/github.png",
+      liveUrl: "https://github.com/christoph1j2",
+      tech: ["Různé technologie"],
+      category: 'other',
+    }
   ],
 };
 
-// Sections in requested order
+// Sections in order
 const sections: { key: PortfolioCategory; title: string }[] = [
   { key: 'web', title: 'Webové prezentace' },
   { key: 'software', title: 'Webové aplikace a software' },
@@ -127,17 +153,8 @@ const PortfolioPage = () => {
         <div className="container mx-auto px-4 py-8">
           {/* Nadpis v stylu homepage */}
           <motion.h1
-            className="text-4xl md:text-6xl font-bold text-center mb-12 flex items-center justify-center gap-2"
-            // antonRegular = Anton font class z App.css pro konzistenci s designem
-            /* 
-              text-4xl md:text-6xl = responzivní velikost textu, 
-              font-bold = tučné písmo, 
-              text-center = centrovaný text, 
-              mb-12 = spodní margin, 
-              flex items-center justify-center = flexbox pro centrování, 
-              gap-2 = mezera mezi elementy,
-              antonRegular = Anton font family 
-            */
+            className="text-4xl md:text-6xl font-bold text-center mb-12 flex items-center justify-center gap-2 antonRegular"
+            style={{ fontFamily: '"Anton", sans-serif' }}
             initial={{ opacity: 0, y: -20 }} // Počáteční stav animace - neviditelné a posunuté nahoru
             animate={{ opacity: 1, y: 0 }} // Konečný stav animace - viditelné na správné pozici
             transition={{ duration: 0.6 }} // Délka animace
@@ -154,17 +171,36 @@ const PortfolioPage = () => {
             if (items.length === 0) return null;
             return (
               <section key={key} className="mb-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">{title}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center antonRegular" style={{ fontFamily: '"Anton", sans-serif' }}>{title}</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {items.map((item, index) => (
                     <motion.div
                       key={`${key}-${item.id}`}
-                      className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                      className="relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.05 }}
                     >
+                    {/* Reference Badge */}
+                      {item.reference && (
+                        <div className="absolute top-2 left-2 z-20">
+                          <div
+                            className="relative group/reference cursor-pointer select-none px-3 py-1.5 bg-gradient-to-r from-orange-400 via-pink-500 to-red-500 text-white text-sm font-bold rounded-lg shadow-lg"
+                            onClick={(e) => {
+                              // toggle pro mobily
+                              const tooltip = (e.currentTarget.querySelector(".tooltip") as HTMLElement);
+                              if (tooltip) tooltip.classList.toggle("opacity-100");
+                            }}
+                          >
+                            ★ Reference
+                            <div className="tooltip absolute left-0 mt-2 w-72 p-3 bg-white text-gray-700 text-sm rounded-xl shadow-2xl opacity-0 group-hover/reference:opacity-100 transition-opacity duration-300 z-50">
+                              {item.reference}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
                       {/* Kontejner pro obrázek */}
                       <div className="relative h-48 overflow-hidden">
                         <img
@@ -174,6 +210,7 @@ const PortfolioPage = () => {
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
                       </div>
 
                       {/* Obsah karty */}
