@@ -134,7 +134,9 @@
     </div>
     <!-- Main React app mount point (hidden until fonts are ready) -->
     <div id="root" class="app-hidden" aria-label="Main application content"></div>
-    <!-- Wait for fonts, then show app and load bundle -->
+    <!-- Vite entry module: this will be rewritten to built assets in production -->
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Wait for fonts, then show app (avoid FOUT) -->
     <script>
       (function() {
         var showApp = function() {
@@ -142,10 +144,6 @@
           var splash = document.getElementById('splash');
           if (root) root.classList.remove('app-hidden');
           if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
-          var s = document.createElement('script');
-          s.type = 'module';
-          s.src = '/src/main.tsx';
-          document.body.appendChild(s);
         };
 
         var fontReady = false;
