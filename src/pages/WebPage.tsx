@@ -34,7 +34,7 @@ const WebPage = () => {
               marginBottom: '1.5rem',
               color: '#1f2937',
             }}
-            className='antonRegular min-h-[160px] md:min-h-0  items-center justify-center flex-wrap'
+            className='antonRegular min-h-[160px] md:min-h-0  items-center justify-center flex-wrap  leading-8'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
