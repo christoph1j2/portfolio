@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ImageWithLoader from '../../components/ImageWithLoader/ImageWithLoader';
 
 const LaceHubPreview = () => {
   const [offset, setOffset] = useState(0);
@@ -187,7 +188,7 @@ const LaceHubPreview = () => {
                 >
                   <div className="relative px-4 sm:px-0">
                     <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-3xl blur-xl"></div>
-                    <img
+                    <ImageWithLoader
                       src="https://raw.githubusercontent.com/christoph1j2/lacehub/main/ui/public/images/hp-image.webp"
                       alt="Featured sneaker"
                       className="relative w-full h-auto rounded-3xl transform -rotate-12 hover:rotate-0 transition-all duration-500"
@@ -232,7 +233,7 @@ const LaceHubPreview = () => {
                   <div key={index} className="overflow-hidden">
                     <div className="relative overflow-hidden rounded-lg sm:rounded-xl bg-gradient-to-br from-gray-900 to-black">
                       <div className="aspect-square overflow-hidden">
-                        <img
+                        <ImageWithLoader
                           src={feature.image}
                           alt={feature.title}
                           className="w-full h-full object-cover"
@@ -323,7 +324,7 @@ const LaceHubPreview = () => {
                     <div className="relative group">
                       <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-2xl md:rounded-3xl blur-lg md:blur-xl opacity-75"></div>
                       <div className="relative bg-gray-800 rounded-xl md:rounded-2xl overflow-hidden">
-                        <img
+                        <ImageWithLoader
                           src={step.image}
                           alt={step.title}
                           className="w-full h-full object-cover aspect-video"

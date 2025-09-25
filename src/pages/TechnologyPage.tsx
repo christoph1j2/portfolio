@@ -1,6 +1,7 @@
 import Footer from "../components/Footer/Footer";
 import Navigation from "../components/Navigation/Navigation";
 import { motion } from "motion/react"; // Import framer motion pro animace
+import ImageWithLoader from "../components/ImageWithLoader/ImageWithLoader";
 
 // Data pro technologie rozdělené podle kategorií
 const technologyCategories = [
@@ -306,11 +307,11 @@ const TechnologyPage = () => {
                     >
                       {/* Ikona technologie */}
                       <div className="flex justify-center mb-4"> {/* flex justify-center = centrování, mb-4 = spodní margin */}
-                        <img 
-                          src={tech.icon} 
+                        <ImageWithLoader
+                          src={tech.icon}
                           alt={tech.name}
-                          className="w-12 h-12 md:w-16 md:h-16 object-contain group-hover:scale-110 transition-transform duration-300" // responzivní velikost ikony, object-contain = zachování poměru stran, group-hover:scale-110 = zvětšení při hoveru, transition-transform = plynulá transformace
-                          style={{ filter: `drop-shadow(0 4px 8px ${tech.color}40)` }} // Stín v barvě technologie
+                          className="w-12 h-12 md:w-16 md:h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                          style={{ filter: `drop-shadow(0 4px 8px ${tech.color}40)` }}
                         />
                       </div>
 

@@ -5,6 +5,7 @@ import "./carousel.css";                               // Custom carousel overri
 import { motion } from "motion/react";                 // Animation library for smooth transitions
 import { ExternalLink } from "lucide-react";           // Icon component for external links
 import styles from "./ProjectsSection.module.css";     // CSS modules for component-specific styling
+import ImageWithLoader from "../ImageWithLoader/ImageWithLoader";
 import { NavLink } from "react-router-dom";
 import { FaGithub } from 'react-icons/fa';
 
@@ -223,11 +224,11 @@ const ProjectsSection: React.FC = () => {
                     Contains the main project screenshot with overlay for hover effects
                   */}
                   <div className={styles.projectImageContainer}>
-                    <img
+                    <ImageWithLoader
                       src={item.image}
                       alt={item.title}
                       className={styles.projectImage}
-                      loading="lazy"                    // Performance: lazy load images
+                      loading="lazy"
                     />
                     {/* Overlay div for hover effects (styled via CSS) */}
                     <div className={styles.projectOverlay}></div>

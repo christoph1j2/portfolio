@@ -110,20 +110,56 @@
     }
     </script>
 
-    <!-- Preconnect to font resources for performance -->
+  <!-- Preconnect to font resources for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Fonts stylesheet -->
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <!-- Preload and load Google Fonts stylesheet -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" />
     <!-- Manifest for PWA support (optional, improves Lighthouse score) -->
     <!-- <link rel="manifest" href="/manifest.json" /> -->
     <!-- Add canonical link for SEO (optional) -->
     <!-- <link rel="canonical" href="https://yourdomain.com/" /> -->
   </head>
   <body>
-    <!-- Main React app mount point -->
-    <div id="root" aria-label="Main application content"></div>
-    <!-- Main entry script for React app -->
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Minimal splash to avoid FOUT -->
+    <style>
+      .app-hidden { visibility: hidden; }
+      .splash { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: var(--main-bg-color, #0A367A); color: #fff; z-index: 9999; }
+      .splash-spinner { width: 44px; height: 44px; border: 4px solid rgba(255,255,255,.35); border-top-color: #2fffd6; border-radius: 50%; animation: spin .8s linear infinite; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    <div id="splash" class="splash" role="status" aria-label="Načítání aplikace">
+      <div class="splash-spinner" aria-hidden="true"></div>
+    </div>
+    <!-- Main React app mount point (hidden until fonts are ready) -->
+    <div id="root" class="app-hidden" aria-label="Main application content"></div>
+    <!-- Wait for fonts, then show app and load bundle -->
+    <script>
+      (function() {
+        var showApp = function() {
+          var root = document.getElementById('root');
+          var splash = document.getElementById('splash');
+          if (root) root.classList.remove('app-hidden');
+          if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
+          var s = document.createElement('script');
+          s.type = 'module';
+          s.src = '/src/main.tsx';
+          document.body.appendChild(s);
+        };
+
+        var fontReady = false;
+        try {
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function(){ fontReady = true; showApp(); });
+            // Also set a timeout fallback in case fonts hang
+            setTimeout(function(){ if (!fontReady) showApp(); }, 2500);
+            return;
+          }
+        } catch (e) {}
+        // Fallback if Font Loading API not available
+        setTimeout(showApp, 100); 
+      })();
+    </script>
   </body>
 </html>

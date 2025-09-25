@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { BsInstagram } from 'react-icons/bs';
 import Xarrow from 'react-xarrows';
 import styles from './AboutSection.module.css';
+import ImageWithLoader from '../ImageWithLoader/ImageWithLoader';
 import { motion, useInView } from 'motion/react';
 
 const AboutSection = () => {
@@ -97,9 +98,9 @@ const AboutSection = () => {
                             }
                         }}
                     >
-                        <img 
-                            src="/us.webp" 
-                            alt="About Us" 
+                        <ImageWithLoader
+                            src="/us.webp"
+                            alt="About Us"
                             className={styles.photo}
                         />
                         

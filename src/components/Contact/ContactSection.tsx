@@ -4,6 +4,7 @@ import styles from './ContactSection.module.css';
 import modalStyles from '../ContactForm/ContactFormModal.module.css'; // Import modal styles
 import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
+import ImageWithLoader from '../ImageWithLoader/ImageWithLoader';
 import emailjs from '@emailjs/browser';
 import useRateLimit from '../../hooks/useRateLimit';
 import RateLimitWarning from '../RateLimitWarning/RateLimitWarning';
@@ -547,7 +548,7 @@ const ContactSection = ({ modalForm = false, formType = 'contact' }: ContactSect
             animate={{ x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}>
             <div className={styles.laptopImage}>
-              <img src="/pc_poster_2-removebg-preview_1.webp" alt="Laptop" />
+              <ImageWithLoader src="/pc_poster_2-removebg-preview_1.webp" alt="Laptop" />
               
               <div className={styles.socialLinks}>
                 <a

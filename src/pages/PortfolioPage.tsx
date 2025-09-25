@@ -2,6 +2,7 @@ import Footer from "../components/Footer/Footer";
 import Navigation from "../components/Navigation/Navigation";
 import { motion } from "motion/react"; // Import framer motion pro animace
 import { Link } from "react-router-dom";
+import ImageWithLoader from "../components/ImageWithLoader/ImageWithLoader";
 import { FaGithub } from 'react-icons/fa';
 
 // Types and categories
@@ -203,7 +204,7 @@ const PortfolioPage = () => {
 
                       {/* Kontejner pro obrázek */}
                       <div className="relative h-48 overflow-hidden">
-                        <img
+                        <ImageWithLoader
                           src={item.image}
                           alt={item.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
