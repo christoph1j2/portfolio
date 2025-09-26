@@ -110,7 +110,7 @@ const Navigation = () => {
             </div>
 
             <button
-              className={`md:hidden ${textColor}`}
+              className={`lg:hidden ${textColor}`}
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -122,7 +122,7 @@ const Navigation = () => {
             </button>
 
             {/* Desktop menu */}
-            <ul className="hidden md:flex space-x-6 items-center">
+            <ul className="hidden lg:flex space-x-6 items-center">
               <li>
                 <NavLink
                   to="/"
@@ -227,7 +227,7 @@ const Navigation = () => {
 
             {/* Mobile menu */}
             {isOpen && (
-              <ul className={`md:hidden absolute top-16 left-0 right-0 py-4 ${isDarkBackground ? "bg-white/10 backdrop-blur-md border-b border-white/20" : "bg-white/95 backdrop-blur-md border-b border-gray-200/50"} space-y-4 shadow-lg`}>
+              <ul className={`lg:hidden absolute top-16 left-0 right-0 py-4 ${isDarkBackground ? "bg-white/10 backdrop-blur-md border-b border-white/20" : "bg-white/95 backdrop-blur-md border-b border-gray-200/50"} space-y-4 shadow-lg`}>
                 <li>
                   <NavLink
                     to="/"
