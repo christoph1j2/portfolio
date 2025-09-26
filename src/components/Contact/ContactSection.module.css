@@ -315,16 +315,22 @@
 
 .imageContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   position: relative;
   width: 100%;
   z-index: 1;
 }
 
+@media (max-width:1500px) {
+  .imageContainer{
+    display: none;
+  }
+}
+
 .laptopImage {
   position: absolute;
-  right: -20rem;
+  right: -30rem;
   width: 105vw;
   max-width: 1100px;
   min-width: 320px;
@@ -335,7 +341,7 @@
 }
 
 .laptopImage img {
-  width: 100%;
+  width: 50vw;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
@@ -345,10 +351,10 @@
 
 .laptopImage::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 22%;
-  left: 22%;
-  width: 52%;
+  left: 18%;
+  width: 45%;
   height: 40%;
   background-color: #1e40afb0;
   background-image: url('/ruce-removebg-preview.png');
@@ -358,14 +364,14 @@
   border-radius: 2rem;
   filter: blur(0.5px);
   z-index: 1;
-  transform: rotate(-7deg);
+  /* transform: rotate(-7deg); */
     transition: all 0.3s ease;
 }
 
 .socialLinks {
   position: absolute;
   top: 22%;
-  left: 22%;
+  left: 15%;
   width: 50%;
   height: 38%;
   display: flex;
@@ -460,12 +466,14 @@
   }
   
   .imageContainer {
+    display: none;
     justify-content: center;
     height: 700px;
     margin-top: 3rem;
   }
 
   .laptopImage {
+    display: none;
     position: relative;
     right: 0;
     width: 100%;
