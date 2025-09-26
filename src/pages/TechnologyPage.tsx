@@ -310,7 +310,7 @@ const TechnologyPage = () => {
                         <ImageWithLoader
                           src={tech.icon}
                           alt={tech.name}
-                          className="w-12 h-12 md:w-16 md:h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                          className="w-8 h-8 md:w-16 md:h-16 object-contain group-hover:scale-110 transition-transform duration-300"
                           style={{ filter: `drop-shadow(0 4px 8px ${tech.color}40)` }}
                         />
                       </div>
