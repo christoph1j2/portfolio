@@ -215,6 +215,7 @@ const Footer: React.FC = () => {
         >
           <div className={styles.copyright}>
             <p>© {new Date().getFullYear()} ECL Portfolio.</p>
+            <p>IČO: 23697504</p>
             <p>
               Vytvořeno s{' '}
               <Heart className={styles.heartIcon} />
