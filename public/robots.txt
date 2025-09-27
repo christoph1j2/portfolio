@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Block build tooling or unnecessary assets if any (examples):
+# Disallow: /node_modules/
+# Disallow: /scripts/
+
+Sitemap: https://ecl-it.cz/sitemap.xml
+Host: ecl-it.cz
+
+# Clean-up directives for major bots (optional but harmless)
+User-agent: Googlebot-Image
+Allow: / 
+
+# End of file
