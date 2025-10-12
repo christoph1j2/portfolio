@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 interface SEOProps {
   title?: string;
@@ -17,38 +17,80 @@ const SEO: React.FC<SEOProps> = ({
   ogImage = "/logo.png",
   ogType = "website"
 }) => {
-  return (
-    <Helmet>
-      {/* Basic meta tags */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+  useEffect(() => {
+    // Update document title
+    document.title = title;
+
+    // Helper function to update or create meta tag
+    const updateMetaTag = (name: string, content: string, property = false) => {
+      const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let meta = document.querySelector(selector) as HTMLMetaElement;
       
-      {/* Canonical URL */}
-      <link rel="canonical" href={canonicalUrl} />
+      if (!meta) {
+        meta = document.createElement('meta');
+        if (property) {
+          meta.setAttribute('property', name);
+        } else {
+          meta.setAttribute('name', name);
+        }
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+
+    // Helper function to update or create link tag
+    const updateLinkTag = (rel: string, href: string, hrefLang?: string) => {
+      let selector = `link[rel="${rel}"]`;
+      if (hrefLang) {
+        selector += `[hreflang="${hrefLang}"]`;
+      }
       
-      {/* Open Graph tags */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:image" content={`https://ecl-it.cz${ogImage}`} />
-      <meta property="og:locale" content="cs_CZ" />
-      <meta property="og:site_name" content="ECL IT" />
+      let link = document.querySelector(selector) as HTMLLinkElement;
       
-      {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`https://ecl-it.cz${ogImage}`} />
-      
-      {/* Additional SEO tags */}
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large" />
-      <link rel="alternate" hrefLang="cs" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
-    </Helmet>
-  );
+      if (!link) {
+        link = document.createElement('link');
+        link.setAttribute('rel', rel);
+        if (hrefLang) {
+          link.setAttribute('hreflang', hrefLang);
+        }
+        document.head.appendChild(link);
+      }
+      link.setAttribute('href', href);
+    };
+
+    // Update basic meta tags
+    updateMetaTag('description', description);
+    updateMetaTag('keywords', keywords);
+
+    // Update canonical URL
+    updateLinkTag('canonical', canonicalUrl);
+
+    // Update Open Graph tags
+    updateMetaTag('og:title', title, true);
+    updateMetaTag('og:description', description, true);
+    updateMetaTag('og:url', canonicalUrl, true);
+    updateMetaTag('og:type', ogType, true);
+    updateMetaTag('og:image', `https://ecl-it.cz${ogImage}`, true);
+    updateMetaTag('og:locale', 'cs_CZ', true);
+    updateMetaTag('og:site_name', 'ECL IT', true);
+
+    // Update Twitter Card tags
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:title', title);
+    updateMetaTag('twitter:description', description);
+    updateMetaTag('twitter:image', `https://ecl-it.cz${ogImage}`);
+
+    // Update SEO tags
+    updateMetaTag('robots', 'index, follow');
+    updateMetaTag('googlebot', 'index,follow,max-snippet:-1,max-image-preview:large');
+
+    // Update hreflang links
+    updateLinkTag('alternate', canonicalUrl, 'cs');
+    updateLinkTag('alternate', canonicalUrl, 'x-default');
+
+  }, [title, description, keywords, canonicalUrl, ogImage, ogType]);
+
+  return null; // This component doesn't render anything
 };
 
 export default SEO;
