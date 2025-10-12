@@ -8,10 +8,17 @@ import ModernTransition from '../components/Transitions/ModernTransition';
 import TechSection from '../components/Technology/TechSection';
 import OfferSection from '../components/Offers/OfferSection';
 import Navigation from '../components/Navigation/Navigation';
+import SEO from '../components/SEO/SEO';
 
 const Home = () => {
   return (
     <div className="app-container">
+      <SEO 
+        title="ECL IT - Weby na míru a IT Podpora | Západní Čechy, Mariánské Lázně"
+        description="ECL IT - Tvorba moderních webů, IT podpora, opravy počítačů. V Plzni, Teplé, Mariánských Lázních a Západních Čechách."
+        canonicalUrl="https://ecl-it.cz/"
+        ogType="website"
+      />
       <Navigation/>
       <HeroSection/>
 

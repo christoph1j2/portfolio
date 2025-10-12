@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ImageWithLoader from '../../components/ImageWithLoader/ImageWithLoader';
+import SEO from '../../components/SEO/SEO';
 
 const LaceHubPreview = () => {
   const [offset, setOffset] = useState(0);
@@ -29,6 +30,13 @@ const LaceHubPreview = () => {
 
   return (
     <>
+      <SEO 
+        title="LaceHub - Full-stack e-commerce aplikace | ECL IT Portfolio"
+        description="LaceHub - moderní full-stack platforma pro přeprodejce tenisek. Postaveno na React a Nest.js s pokročilými funkcemi pro správu inventáře a objednávek."
+        canonicalUrl="https://ecl-it.cz/portfolio/lacehub"
+        keywords="LaceHub, e-commerce aplikace, React, Nest.js, PostgreSQL, full-stack development, portfolio projekt"
+        ogImage="/lacehub.webp"
+      />
       {/* Portfolio Preview Bar - Fixed/Sticky */}
       <div className="fixed top-0 left-0 right-0 w-full z-50 bg-gradient-to-r from-blue-900 to-blue-700 text-white py-3 px-4 shadow-lg backdrop-blur-md">
         <div className="container mx-auto flex items-center justify-between">

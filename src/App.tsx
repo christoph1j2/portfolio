@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import './App.css';
 import Home from './pages/Home';
 import PortfolioPage from './pages/PortfolioPage';
@@ -11,22 +12,24 @@ import ContactFormModal from './components/ContactForm/ContactFormModal';
 
 const App = () => {
   return (
-    <ContactFormProvider>
-      <BrowserRouter>
-        <div className="app-container">
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="portfolio" element={<PortfolioPage />} />
-            <Route path="portfolio/lacehub" element={<LaceHubPreview />} />
-            <Route path="technologie" element={<TechnologyPage />} />
-            <Route path="web" element={<WebPage />} />
-            <Route path="servis" element={<ServicePage />} />
-            <Route path="*" element={<Home />} />
-          </Routes>
-          <ContactFormModal />
-        </div>
-      </BrowserRouter>
-    </ContactFormProvider>
+    <HelmetProvider>
+      <ContactFormProvider>
+        <BrowserRouter>
+          <div className="app-container">
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="portfolio" element={<PortfolioPage />} />
+              <Route path="portfolio/lacehub" element={<LaceHubPreview />} />
+              <Route path="technologie" element={<TechnologyPage />} />
+              <Route path="web" element={<WebPage />} />
+              <Route path="servis" element={<ServicePage />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+            <ContactFormModal />
+          </div>
+        </BrowserRouter>
+      </ContactFormProvider>
+    </HelmetProvider>
   );
 };
 

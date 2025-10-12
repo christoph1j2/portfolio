@@ -4,6 +4,7 @@ import { FaReact, FaNodeJs, FaRocket, FaPhp, FaBootstrap } from 'react-icons/fa'
 import { SiTypescript, SiTailwindcss, SiMysql, SiPostgresql, SiSpring, SiNestjs } from 'react-icons/si';
 import Footer from "../components/Footer/Footer";
 import Navigation from '../components/Navigation/Navigation';
+import SEO from '../components/SEO/SEO';
 import { ReactTyped } from 'react-typed';
 import { useContactForm } from '../contexts/ContactFormContext';
 
@@ -11,6 +12,12 @@ const WebPage = () => {
   const { openContactForm } = useContactForm();
   return (
     <>
+    <SEO 
+      title="Tvorba webů - ECL IT | Moderní webové stránky na míru"
+      description="Tvorba moderních webových stránek a e-commerce řešení. Responzivní weby s SEO optimalizací, rychlé načítání a profesionální design."
+      canonicalUrl="https://ecl-it.cz/web"
+      keywords="tvorba webů, webové stránky na míru, e-commerce, responzivní design, SEO optimalizace, React weby, moderní weby, web design"
+    />
     <Navigation />
       {/* Hero Section */}
       <section style={{ 

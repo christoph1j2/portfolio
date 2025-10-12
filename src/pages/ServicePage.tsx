@@ -3,6 +3,7 @@ import { MdSpeed, MdBuild, MdBackup, MdWifi } from 'react-icons/md';
 import { FaWindows, FaTools } from 'react-icons/fa';
 import Footer from "../components/Footer/Footer";
 import Navigation from '../components/Navigation/Navigation';
+import SEO from '../components/SEO/SEO';
 import { ReactTyped } from 'react-typed';
 import { useContactForm } from '../contexts/ContactFormContext';
 
@@ -10,6 +11,12 @@ const ServicePage = () => {
   const { openContactForm } = useContactForm();
   return (
     <>
+    <SEO 
+      title="IT Servis - ECL IT | Opravy počítačů a notebooků Mariánské Lázně"
+      description="Profesionální IT servis v Mariánských Lázních a okolí. Opravy počítačů, notebooků, instalace systémů, zálohování dat a rychlá pomoc s IT problémy."
+      canonicalUrl="https://ecl-it.cz/servis"
+      keywords="IT servis, opravy počítačů, servis notebooků, Mariánské Lázně, instalace Windows, zálohování dat, rychlý servis, lokální IT podpora"
+    />
     <Navigation />
       {/* Hero Section */}
       <section style={{ 

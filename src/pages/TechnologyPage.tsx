@@ -1,5 +1,6 @@
 import Footer from "../components/Footer/Footer";
 import Navigation from "../components/Navigation/Navigation";
+import SEO from "../components/SEO/SEO";
 import { motion } from "motion/react"; // Import framer motion pro animace
 import ImageWithLoader from "../components/ImageWithLoader/ImageWithLoader";
 
@@ -232,6 +233,12 @@ const technologyCategories = [
 const TechnologyPage = () => {
   return (
     <>
+      <SEO 
+        title="Technologie - ECL IT | Nástroje pro moderní webový vývoj"
+        description="Technologie a nástroje, které používáme pro tvorbu webových aplikací - React, Node.js, PHP, databáze, IoT a další moderní technologie."
+        canonicalUrl="https://ecl-it.cz/technologie"
+        keywords="React, Node.js, PHP, HTML, CSS, JavaScript, TypeScript, MySQL, PostgreSQL, IoT, Arduino, webové technologie, frontend, backend"
+      />
       <Navigation />
       
       {/* Hlavní kontejner s paddingem nahoře kvůli fixed navigaci */}
