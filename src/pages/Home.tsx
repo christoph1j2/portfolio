@@ -16,7 +16,7 @@ const Home = () => {
       <SEO 
         title="ECL IT - Weby na míru a IT Podpora | Západní Čechy, Mariánské Lázně"
         description="ECL IT - Tvorba moderních webů, IT podpora, opravy počítačů. V Plzni, Teplé, Mariánských Lázních a Západních Čechách."
-        canonicalUrl="https://ecl-it.cz/"
+        canonicalUrl="https://www.ecl-it.cz/"
         ogType="website"
       />
       <Navigation/>

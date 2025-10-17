@@ -150,7 +150,7 @@ const PortfolioPage = () => {
       <SEO 
         title="Portfolio - ECL IT | Webové projekty a aplikace"
         description="Prohlédněte si portfolio našich realizovaných projektů - webové prezentace, e-commerce aplikace, IoT řešení a další software projekty."
-        canonicalUrl="https://ecl-it.cz/portfolio"
+        canonicalUrl="https://www.ecl-it.cz/portfolio"
         keywords="portfolio, webové aplikace, e-commerce, IoT projekty, software development, React aplikace, ECL IT projekty"
       />
       <Navigation />

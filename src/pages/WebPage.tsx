@@ -15,7 +15,7 @@ const WebPage = () => {
     <SEO 
       title="Tvorba webů - ECL IT | Moderní webové stránky na míru"
       description="Tvorba moderních webových stránek a e-commerce řešení. Responzivní weby s SEO optimalizací, rychlé načítání a profesionální design."
-      canonicalUrl="https://ecl-it.cz/web"
+      canonicalUrl="https://www.ecl-it.cz/web"
       keywords="tvorba webů, webové stránky na míru, e-commerce, responzivní design, SEO optimalizace, React weby, moderní weby, web design"
     />
     <Navigation />

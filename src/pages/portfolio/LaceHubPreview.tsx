@@ -33,7 +33,7 @@ const LaceHubPreview = () => {
       <SEO 
         title="LaceHub - Full-stack e-commerce aplikace | ECL IT Portfolio"
         description="LaceHub - moderní full-stack platforma pro přeprodejce tenisek. Postaveno na React a Nest.js s pokročilými funkcemi pro správu inventáře a objednávek."
-        canonicalUrl="https://ecl-it.cz/portfolio/lacehub"
+        canonicalUrl="https://www.ecl-it.cz/portfolio/lacehub"
         keywords="LaceHub, e-commerce aplikace, React, Nest.js, PostgreSQL, full-stack development, portfolio projekt"
         ogImage="/lacehub.webp"
       />

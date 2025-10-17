@@ -236,7 +236,7 @@ const TechnologyPage = () => {
       <SEO 
         title="Technologie - ECL IT | Nástroje pro moderní webový vývoj"
         description="Technologie a nástroje, které používáme pro tvorbu webových aplikací - React, Node.js, PHP, databáze, IoT a další moderní technologie."
-        canonicalUrl="https://ecl-it.cz/technologie"
+        canonicalUrl="https://www.ecl-it.cz/technologie"
         keywords="React, Node.js, PHP, HTML, CSS, JavaScript, TypeScript, MySQL, PostgreSQL, IoT, Arduino, webové technologie, frontend, backend"
       />
       <Navigation />

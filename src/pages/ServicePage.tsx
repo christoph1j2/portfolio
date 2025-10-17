@@ -14,7 +14,7 @@ const ServicePage = () => {
     <SEO 
       title="IT Servis - ECL IT | Opravy počítačů a notebooků Mariánské Lázně"
       description="Profesionální IT servis v Mariánských Lázních a okolí. Opravy počítačů, notebooků, instalace systémů, zálohování dat a rychlá pomoc s IT problémy."
-      canonicalUrl="https://ecl-it.cz/servis"
+      canonicalUrl="https://www.ecl-it.cz/servis"
       keywords="IT servis, opravy počítačů, servis notebooků, Mariánské Lázně, instalace Windows, zálohování dat, rychlý servis, lokální IT podpora"
     />
     <Navigation />
