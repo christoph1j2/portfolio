@@ -5,8 +5,8 @@ Allow: /
 # Disallow: /node_modules/
 # Disallow: /scripts/
 
-Sitemap: https://ecl-it.cz/sitemap.xml
-Host: ecl-it.cz
+Sitemap: https://www.ecl-it.cz/sitemap.xml
+Host: www.ecl-it.cz
 
 # Clean-up directives for major bots (optional but harmless)
 User-agent: Googlebot-Image
