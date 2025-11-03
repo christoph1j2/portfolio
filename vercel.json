@@ -1,9 +1,19 @@
 {
 	"redirects": [
-    	{ "source": "/(.*)", "destination": "https://www.ecl-it.cz/$1", "permanent": true }
-  	],
-	"routes": [
-		{ "handle": "filesystem" },
-		{ "src": "/.*", "dest": "/index.html" }
-	]
+        { 
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ecl-it.cz"
+                }
+            ],
+            "destination": "https://www.ecl-it.cz/:path*",
+            "permanent": true
+        }
+      ],
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/index.html" }
+    ]
 }
