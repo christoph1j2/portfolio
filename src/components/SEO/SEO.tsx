@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = "ECL IT - Weby na míru a IT Podpora | Západní Čechy, Mariánské Lázně",
+  title = "ECL IT – Weby na míru, tvorba webů & PC servis | Mariánské Lázně, Teplá",
   description = "ECL IT - Tvorba moderních webů, IT podpora, opravy počítačů. V Plzni, Teplé, Mariánských Lázních a Západních Čechách.",
   keywords = "opravy počítačů, servis notebooků, IT podpora, tvorba webů, IT služby, Západní Čechy, Teplá, Mariánské Lázně, Plzeň, weby pro firmy a podnikatele, ECL IT, konkurence monopolu, kvalitní weby, moderní weby, webové stránky, web design, SEO, správa webů, hosting, domény, školení, doučování, IOT, stavba PC, upgrade PC, zálohování dat, obnova dat, bezpečnost IT, lokální, dostupný, spolehlivý, mobilní",
   canonicalUrl = "https://www.ecl-it.cz/",
