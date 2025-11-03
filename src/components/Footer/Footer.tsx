@@ -165,7 +165,7 @@ const Footer: React.FC = () => {
                 ernst.leschka@gmail.com
               </motion.a>
               <motion.a 
-                href="tel:+420123456789" 
+                href="tel:+420605944418" 
                 className={styles.contactLink}
                 whileHover={{ x: 5, color: '#2fffd6' }}
               >

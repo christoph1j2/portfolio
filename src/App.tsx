@@ -8,6 +8,7 @@ import WebPage from './pages/WebPage';
 import { LaceHubPreview } from './pages/portfolio';
 import { ContactFormProvider } from './contexts/ContactFormContext';
 import ContactFormModal from './components/ContactForm/ContactFormModal';
+import Page404 from './pages/Page404'
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
             <Route path="technologie" element={<TechnologyPage />} />
             <Route path="web" element={<WebPage />} />
             <Route path="servis" element={<ServicePage />} />
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<Page404 />} />
           </Routes>
           <ContactFormModal />
         </div>

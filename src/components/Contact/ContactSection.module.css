@@ -454,7 +454,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1367px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -584,7 +584,7 @@
   }
   
   .contactLink {
-    font-size: .65rem;
+    font-size: .50rem;
     left: 0;
     padding: 0.8rem .8rem;
   }

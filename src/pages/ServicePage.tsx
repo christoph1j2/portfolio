@@ -288,7 +288,7 @@ const ServicePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.15 }}
             >
-              Jsem mobilní – po domluvě přijedu osobně k vám a vyřeším problém přímo na místě.
+              Jsem mobilní – po domluvě přijedu osobně k vám a pokusíme se vyřešit problém přímo na místě.
             </motion.div>
             
             <motion.div
