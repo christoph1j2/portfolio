@@ -141,6 +141,12 @@ const technologyCategories = [
         color: "#ED8B00"
       },
       {
+        name: "Python",
+        description: "Rychlé skriptování & datová analytika",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+        color: "#239120"
+      }
+/*       {
         name: "C#",
         description: "Microsoft platforma pro desktop a webové aplikace",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
@@ -151,7 +157,7 @@ const technologyCategories = [
         description: "Systémové programování s důrazem na bezpečnost",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg",
         color: "#000000"
-      }
+      } */
     ]
   },
   {
