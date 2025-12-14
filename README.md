@@ -1,54 +1,40 @@
-# React + TypeScript + Vite
+# Portfolio Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio. This project is a modern, responsive web application designed to showcase my skills, experience, and projects.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack & Modules
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project leverages a modern frontend stack to deliver a performant and interactive user experience:
 
-## Expanding the ESLint configuration
+### Core
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **[React 19](https://react.dev/)** - UI Library
+- **[TypeScript](https://www.typescriptlang.org/)** - Type Safety
+- **[Vite](https://vitejs.dev/)** - Build Tool & Bundler
+- **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first Styling
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### UI & Animations
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **[Framer Motion](https://www.framer.com/motion/)** - Complex animations and transitions
+- **[tsparticles](https://particles.js.org/)** - Interactive particle backgrounds
+- **[React Typed](https://github.com/ssbeefeater/react-typed)** - Typing text effects
+- **Icons** - Lucide React, React Icons, Heroicons
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Functionality
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **[React Router](https://reactrouter.com/)** - Client-side routing
+- **[EmailJS](https://www.emailjs.com/)** - Contact form handling
+- **Carousels** - Keen Slider & React Multi Carousel
+
+## 🤖 AI Attribution
+
+Some of the visual elements in this project, specifically the SVG wave animations and complex transitions, were generated with the assistance of AI tools to enhance the visual flow of the application.
+
+## 📂 Project Structure
+
+The project is organized into modular components:
+
+- `components/` - Reusable UI blocks (Hero, About, Projects, Contact)
+- `pages/` - Main route views
+- `hooks/` - Custom React hooks (e.g., Rate Limiting)
+- `utils/` - Helper functions
