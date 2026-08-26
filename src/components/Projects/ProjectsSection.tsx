@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Carousel from "react-multi-carousel";           // Third-party carousel component for project showcase
-import "react-multi-carousel/lib/styles.css";          // Default carousel styles
-import "./carousel.css";                               // Custom carousel overrides
-import { motion } from "motion/react";                 // Animation library for smooth transitions
-import { ExternalLink } from "lucide-react";           // Icon component for external links
-import styles from "./ProjectsSection.module.css";     // CSS modules for component-specific styling
+import Carousel from "react-multi-carousel"; // Third-party carousel component for project showcase
+import "react-multi-carousel/lib/styles.css"; // Default carousel styles
+import "./carousel.css"; // Custom carousel overrides
+import { motion } from "motion/react"; // Animation library for smooth transitions
+import { ExternalLink } from "lucide-react"; // Icon component for external links
+import styles from "./ProjectsSection.module.css"; // CSS modules for component-specific styling
 import ImageWithLoader from "../ImageWithLoader/ImageWithLoader";
 import { NavLink } from "react-router-dom";
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub } from "react-icons/fa";
 
 /**
  * Portfolio Data Array
- * 
+ *
  * Contains all project information displayed in the carousel.
  * Each project object includes:
  * - id: Unique identifier for React keys
@@ -26,7 +26,8 @@ const portfolioItems = [
   {
     id: 1,
     title: "LaceHub",
-    description: "Full-stack platforma pro přeprodejce tenisek pomocí Reactu a Nest.js",
+    description:
+      "Full-stack platforma pro přeprodejce tenisek pomocí Reactu a Nest.js",
     image: "/lacehub.webp",
     liveUrl: "portfolio/lacehub",
     githubUrl: "https://github.com/christoph1j2/lacehub",
@@ -34,70 +35,94 @@ const portfolioItems = [
   },
   {
     id: 2,
+    title: "Keep Track - Finance Manager",
+    description:
+      "Full-stack osobní správce financí a rozpočtu určený pro lokalní/homelab provoz.",
+    image: "/Dashboard.jpg",
+    liveUrl: "https://homeserver.tail726485.ts.net/keeptrack/",
+    githubUrl: "https://github.com/christoph1j2/keep-track",
+    tech: ["React", "NestJS", "PostgreSQL", "Prisma"],
+  },
+  {
+    id: 3,
+    title: "UART Console (ATmega328P)",
+    description:
+      "Bare-metal UART konzole v čistém C pro ATmega328P bez použití stdio.",
+    image: "/github.png",
+    githubUrl: "https://github.com/christoph1j2/UART-ATMega328P",
+    tech: ["C", "ATmega328P", "Bare-Metal", "AVR"],
+  },
+  {
+    id: 4,
+    title: "WeatherInsights",
+    description:
+      "Screening projekt pro Leuze Engineering postavený na C# a Blazor WebAssembly.",
+    image: "/leuze.jpg",
+    liveUrl: "https://christoph1j2.github.io/WeatherInsights/",
+    githubUrl: "https://github.com/christoph1j2/WeatherInsights",
+    tech: ["C#", "Blazor WASM", "MudBlazor"],
+  },
+  {
+    id: 5,
     title: "Koučink Zdenka Lindenbergová",
-    description: "Webová prezentace pro koučku s moderním designem a optimalizací pro SEO.",
+    description:
+      "Webová prezentace pro koučku s moderním designem a optimalizací pro SEO.",
     image: "/koucink.webp",
     liveUrl: "/lindenbergova/index.html",
     tech: ["HTML5", "CSS3", "JavaScript"],
   },
   {
-    id: 3,
+    id: 6,
     title: "ECL-IT",
-    description: "Webová prezentace pro ECL-IT s moderním designem a animacemi.",
+    description:
+      "Webová prezentace pro ECL-IT s moderním designem a animacemi.",
     image: "/portfolio.webp",
     liveUrl: "https://www.ecl-it.cz",
     tech: ["React", "Tailwind", "Framer Motion"],
   },
   {
-    id: 4,
-    title: "LaceShop",
-    description: "Školní projekt e-commerce platformy pro tenisky. Zaměřeno především na backend a funkčnost, než na design.",
-    image: "laceshop.png",
-    githubUrl: "https://github.com/christoph1j2/wapv_e-shop",
-    tech: ["Nette", "Bootstrap", "MySQL"],
-  },
-  {
-    id: 5,
+    id: 7,
     title: "VR Dungeon Crawler",
-    description: "Bojovka ve virtuální realitě vytvořená v Unity jako školní projekt.",
-    image: "vrgame.png",
-    githubUrl: "https://github.com/christoph1j2/ikt_vr-game",
+    description:
+      "Bojovka ve virtuální realitě vytvořená v Unity jako školní projekt.",
+    image: "/vrgame.png",
+    githubUrl: "https://github.com/christoph1j2/IKT_VR-game",
     tech: ["Unity", "C#", "VR"],
   },
 ];
 
 /**
  * Carousel Responsive Configuration
- * 
+ *
  * Defines how many items to show and behavior across different screen sizes:
  * - desktop (1000px+): Shows 1 item, allows sliding 1 at a time
- * - tablet (464px-1000px): Shows 1 item, allows sliding 1 at a time  
+ * - tablet (464px-1000px): Shows 1 item, allows sliding 1 at a time
  * - mobile (0px-464px): Shows 1 item, allows sliding 1 at a time
- * 
+ *
  * Note: All breakpoints show 1 item but this structure allows for easy
  * modification if multiple items per view are desired in the future
  */
 const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1000 },    // Screens 1000px and wider
-    items: 1,                                 // Show 1 project at a time
-    slidesToSlide: 1,                        // Move 1 project per swipe/click
+    breakpoint: { max: 3000, min: 1000 }, // Screens 1000px and wider
+    items: 1, // Show 1 project at a time
+    slidesToSlide: 1, // Move 1 project per swipe/click
   },
   tablet: {
-    breakpoint: { max: 1000, min: 464 },     // Screens between 464px and 1000px
-    items: 1,                                 // Show 1 project at a time
-    slidesToSlide: 1,                        // Move 1 project per swipe/click
+    breakpoint: { max: 1000, min: 464 }, // Screens between 464px and 1000px
+    items: 1, // Show 1 project at a time
+    slidesToSlide: 1, // Move 1 project per swipe/click
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },        // Screens smaller than 464px
-    items: 1,                                 // Show 1 project at a time
-    slidesToSlide: 1,                        // Move 1 project per swipe/click
+    breakpoint: { max: 464, min: 0 }, // Screens smaller than 464px
+    items: 1, // Show 1 project at a time
+    slidesToSlide: 1, // Move 1 project per swipe/click
   },
 };
 
 /**
  * ProjectsSection Component
- * 
+ *
  * Main portfolio showcase component that displays projects in an animated carousel.
  * Features:
  * - Responsive carousel with different behaviors per device type
@@ -112,7 +137,7 @@ const ProjectsSection: React.FC = () => {
 
   /**
    * Window Resize Effect
-   * 
+   *
    * Tracks window width changes to enable responsive behavior:
    * - Sets up resize event listener on component mount
    * - Updates windowWidth state whenever window is resized
@@ -126,26 +151,29 @@ const ProjectsSection: React.FC = () => {
 
     // Set initial width immediately to prevent flash of incorrect layout
     handleResize();
-    
+
     // Add event listener for subsequent resize events
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     // Cleanup function to remove event listener when component unmounts
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty dependency array = run once on mount
 
   // Determine if current screen size should use mobile layout (affects carousel behavior)
   const isMobile = windowWidth < 1000;
 
   return (
-    <section id="portfolio" className={` ${styles.portfolioSection} dark:${styles.darkMode}`}>
+    <section
+      id="portfolio"
+      className={` ${styles.portfolioSection} dark:${styles.darkMode}`}
+    >
       {/* 
         Main Portfolio Section
         - id="portfolio": Allows navigation linking to this section
         - Dynamic CSS classes: combines base styles with dark mode support
         - CSS modules prevent style conflicts with other components
       */}
-      
+
       {/* Container for proper content width and centering */}
       <div className={styles.container}>
         {/* 
@@ -154,9 +182,9 @@ const ProjectsSection: React.FC = () => {
         */}
         <motion.div
           className={styles.header}
-          initial={{ opacity: 0, y: -20 }}        // Start: invisible and 20px above
-          whileInView={{ opacity: 1, y: 0 }}      // End: visible at normal position
-          viewport={{ once: true }}               // Animate only once when scrolled into view
+          initial={{ opacity: 0, y: -20 }} // Start: invisible and 20px above
+          whileInView={{ opacity: 1, y: 0 }} // End: visible at normal position
+          viewport={{ once: true }} // Animate only once when scrolled into view
           transition={{ duration: 1, delay: 0.2 }} // 1s animation with 0.2s delay
         >
           {/* 
@@ -166,13 +194,13 @@ const ProjectsSection: React.FC = () => {
             Each part is separately styled for visual effect
           */}
           <div className={styles.portfolioHeading}>
-{/*             <span className={styles.portfolioBracket}>&lt;</span> */}
-            <span className={styles.portfolioSlash}>/</span>         {/* Closing tag slash */}
-            <span className={styles.portfolioText}>PROJEKTY</span>  {/* Main text */}
-{/*             <span className={styles.portfolioBracket}>&gt;</span> */}
+            {/*             <span className={styles.portfolioBracket}>&lt;</span> */}
+            <span className={styles.portfolioSlash}>/</span>{" "}
+            {/* Closing tag slash */}
+            <span className={styles.portfolioText}>PROJEKTY</span>{" "}
+            {/* Main text */}
+            {/*             <span className={styles.portfolioBracket}>&gt;</span> */}
           </div>
-          
-
         </motion.div>
 
         {/* 
@@ -181,9 +209,9 @@ const ProjectsSection: React.FC = () => {
           Slides up from bottom with opacity fade
         */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}         // Start: invisible and 50px below
-          whileInView={{ opacity: 1, y: 0 }}      // End: visible at normal position
-          viewport={{ once: true }}               // Animate only once
+          initial={{ opacity: 0, y: 50 }} // Start: invisible and 50px below
+          whileInView={{ opacity: 1, y: 0 }} // End: visible at normal position
+          viewport={{ once: true }} // Animate only once
           transition={{ duration: 0.8, delay: 0.4 }} // 0.8s animation with 0.4s delay (after header)
           className={styles.carouselContainer}
         >
@@ -198,17 +226,17 @@ const ProjectsSection: React.FC = () => {
             - focusOnSelect: Allows clicking slides to navigate
           */}
           <Carousel
-            responsive={responsive}                              // Responsive breakpoint settings
-            infinite={true}                                     // Enable infinite loop
-            autoPlay={true}                                     // Auto-advance slides
-            autoPlaySpeed={3000}                               // 3 seconds per slide
-            keyBoardControl={true}                             // Enable keyboard navigation
-            customTransition="transform 300ms ease-in-out"     // Smooth slide transition
-            transitionDuration={300}                           // 300ms transition time
-            removeArrowOnDeviceType={["tablet", "mobile"]}     // Hide arrows on touch devices
-            centerMode={!isMobile}                             // Center active slide on desktop only
-            focusOnSelect={true}                               // Allow click-to-navigate
-            itemClass="carousel-item-padding-40-px"            // Custom CSS class for spacing
+            responsive={responsive} // Responsive breakpoint settings
+            infinite={true} // Enable infinite loop
+            autoPlay={true} // Auto-advance slides
+            autoPlaySpeed={3000} // 3 seconds per slide
+            keyBoardControl={true} // Enable keyboard navigation
+            customTransition="transform 300ms ease-in-out" // Smooth slide transition
+            transitionDuration={300} // 300ms transition time
+            removeArrowOnDeviceType={["tablet", "mobile"]} // Hide arrows on touch devices
+            centerMode={!isMobile} // Center active slide on desktop only
+            focusOnSelect={true} // Allow click-to-navigate
+            itemClass="carousel-item-padding-40-px" // Custom CSS class for spacing
           >
             {/* 
               Project Cards Generation
@@ -216,7 +244,9 @@ const ProjectsSection: React.FC = () => {
               Each card contains image, title, description, tech stack, and external link
             */}
             {portfolioItems.map((item) => (
-              <div key={item.id} className="px-2">  {/* Wrapper with horizontal padding */}
+              <div key={item.id} className="px-2">
+                {" "}
+                {/* Wrapper with horizontal padding */}
                 {/* Individual Project Card */}
                 <div className={styles.projectCard}>
                   {/* 
@@ -242,8 +272,10 @@ const ProjectsSection: React.FC = () => {
                     {/* Project title */}
                     <h3 className={styles.projectTitle}>{item.title}</h3>
                     {/* Project description */}
-                    <p className={styles.projectDescription}>{item.description}</p>
-                    
+                    <p className={styles.projectDescription}>
+                      {item.description}
+                    </p>
+
                     {/* 
                       Technology Stack Display
                       Maps through the tech array to create individual tech badges
@@ -294,30 +326,30 @@ const ProjectsSection: React.FC = () => {
           Provides call-to-action for viewing complete portfolio
         */}
         <motion.div
-          initial={{ opacity: 0 }}                    // Start: invisible
-          whileInView={{ opacity: 1 }}                // End: fully visible
-          viewport={{ once: true }}                   // Animate only once
+          initial={{ opacity: 0 }} // Start: invisible
+          whileInView={{ opacity: 1 }} // End: fully visible
+          viewport={{ once: true }} // Animate only once
           transition={{ duration: 0.6, delay: 0.7 }} // 0.6s animation with 0.7s delay
-          className="m-auto mt-8 flex justify-center"  // Tailwind: center with top margin
+          className="m-auto mt-8 flex justify-center" // Tailwind: center with top margin
         >
           {/* Action button styled to match overall design */}
-            <NavLink
+          <NavLink
             to="/portfolio"
             className={styles.seeAllBtn}
             onClick={() => {
               setTimeout(() => {
-              const container = document.querySelector("#root");
-              if (container) {
-                container.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-              } else {
-                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-              }
+                const container = document.querySelector("#root");
+                if (container) {
+                  container.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                } else {
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                }
               }, 100);
             }}
-            >
+          >
             <span>Zobrazit všechny projekty</span>
             <ExternalLink size={16} className={styles.seeAllBtnIcon} />
-            </NavLink>
+          </NavLink>
         </motion.div>
       </div>
     </section>
